@@ -1,0 +1,69 @@
+
+#pages_general_navMain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* mejor que space-around para dividir exactamente */
+    align-items: center;
+    width: 100%;
+}
+
+
+
+#pages_general_divOptions{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-content: space-around;
+    align-items: center;
+}
+    .pages_general_iconsOfHeader{
+        max-width:2rem;
+        filter: brightness(0.1) invert(0.6);
+    }
+    #pages_general_headerDivOfSearch {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+    #pages_general_headerDivOfLang{
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+    #pages_general_headerDivOfSearch, #pages_general_headerDivOfLang:hover{
+        cursor: pointer;
+    }
+
+
+        
+    #menuOfHeader {
+        position: fixed;
+        display: none;               /* ya está visible */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 20%;
+        width: 100%;
+        animation: slideDown 0.5s ease forwards;
+        gap: 2rem;
+    }
+
+    @keyframes slideDown {
+    0% {
+        opacity: 0.3;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    #sectionMenuHamburger{
+        position: fixed;
+        display: none;
+    }
+
+    #closeBtnMenuSec{
+        margin-top: 2rem;
+        text-decoration: underline;
+    }
