@@ -3,7 +3,7 @@ import { BlogParser } from "./jsonParser/jsonParserBlog.js";
 import { ProjectParser } from "./jsonParser/jsonParserProyect.js";
 import { HomeController } from "./controllers/pages_homeController.js"
 import { LanguageController } from './controllers/languageController.js';
-
+import { BlogSystem } from "./systems/blogSystem.js";
 
 
 
@@ -29,10 +29,12 @@ export class App {
      * @param {HeaderController} headerController -- Controlador para el HEADER
      * @param {HomeController} homeController -- Controlador para el HOME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
+     * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
      */
     constructor() {
-        this.HomeController = new HomeController();
         this.languageController = new LanguageController();
+        this.blogSystem = new BlogSystem();
+        this.homeController = new HomeController(this.languageController, this.blogSystem);
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
     }
 
@@ -50,8 +52,8 @@ export class App {
 
 
     navigateTo(path) {
-        history.pushState({}, "", path); // Cambia la URL sin recargar
-        this.route();                     // Carga contenido
+        history.pushState({}, "", path);    // Cambia la URL sin recargar
+        this.route();                       // Carga contenido
     };
 
     route() {
@@ -80,7 +82,9 @@ export class App {
 
             switch(seccion){
                 case "home":
-                    this.homeController
+                    this.homeController.renderAll();
+                    this.homeController.setAllClickListeners();
+                    this.homeController.loopOfLastArticles();
                 ;
                 
                 break;

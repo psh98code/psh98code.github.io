@@ -1,16 +1,4 @@
 
-/* Body y HTML ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-body, html{
-    overflow-x: hidden; 
-}
-
-
-
-
-
-
-
-
 
 /* Margenes generales ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 #headerDesktop, #headerMobile, #sectionDesktop, #sectionDesktop, #divSearchBarDesktop, #divSearchBarMobile, #divRssDesktop, #divRssMobile{
@@ -18,87 +6,26 @@ body, html{
     margin-right: 5%;
 }
 
-/* HEADER DESKTOP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-#headerDesktop{
-    /* Flex */
-    display: grid;
-    grid-template-columns: 55% 35% 10%;
+
+
+
+#sectionDesktop {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Padding */
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    /* Other */
-    background-clip: border-box; 
+    width: 90%;
+    min-height: 100vh;
 }
-@media (max-width: 1400px) { #headerDesktop{ grid-template-columns: 50% 35% 15%; }}
-@media (max-width: 1100px) { #headerDesktop{ grid-template-columns: 40% 45% 15%; }}
-@media (max-width: 1000px) { #headerDesktop{ grid-template-columns: 35% 55% 15%; }}
-@media (max-width: 900px) { #headerDesktop{ grid-template-columns: 20% 60% 20%; }}
-@media (max-width: 800px) { #headerDesktop{ display: none; }}
-
-
-/* MOBILE DESKTOP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-#headerMobile{
-    display: none;
-    margin-top: 1em;
-}
-
-@media (max-width: 800px) {
-    #headerMobile{
-        /* Flex */
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        place-items: center;
-        /* Other */
-    }
-    #pages_general_divOptions{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        width: 100%;
-    }
-    #pages_general_headerDivOfSearch, #pages_general_headerDivOfLang{
-        min-width: 0;
-        max-width: 50%;
-    }
-}
-
-
-
-.hamburger{
-    position: relative;
-    max-width: 2rem;
-    filter: brightness(0.1) invert(0.6);
-}
-.hamburger:hover{
-    cursor: pointer;
-}
-#pages_general_divOptions2{
+#sectionMobile{
     display: flex;
-    width: 100%;
-}
-#pages_general_headerDivOfLang2{
-    width: 100%;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 5vh;
 }
-.pages_general_iconsOfHeader2{
-    max-width: 2.4rem;
-    filter: brightness(0.1) invert(0.6);
-}
-.pages_general_iconsOfHeader2:hover{
-    cursor: pointer;
-}
-
-@media (max-width: 350px) {
-    #logoMain2{
-        max-width: 10rem;
-    } 
-}
-
-
-
-
 
 
 
@@ -144,11 +71,15 @@ body, html{
 
     @media (max-width: 799px) {
         #divRssMobile { display: flex; }
-        #divRssDesktop { display: none ; }
+        #sectionMobile { display: flex;}
+        #divRssDesktop { display: none; }
+        #sectionDesktop { display: none;}
     }
     @media (min-width: 800px) {
         #divRssMobile { display: none; }
-        #divRssDesktop { display: flex ; }
+        #sectionMobile { display: none;}
+        #divRssDesktop { display: flex; }
+        #sectionDesktop { display: flex;}
     }
 
 
