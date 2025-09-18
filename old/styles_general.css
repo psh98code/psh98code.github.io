@@ -1,0 +1,195 @@
+
+/* Body y HTML ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+body, html{
+    overflow-x: hidden; 
+}
+body {
+    
+}
+
+
+
+
+
+
+
+
+/* Margenes generales ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#mainHeader, #sectionMain, #rss, #secondaryHeader{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* HEADER DESKTOP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#mainHeader{
+    /* Flex */
+    display: grid;
+    grid-template-columns: 55% 35% 10%;
+    justify-content: center;
+    align-items: center;
+    /* Padding */
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    /* Other */
+    background-clip: border-box; 
+}
+@media (max-width: 1400px) {
+    #mainHeader{
+        grid-template-columns: 50% 35% 15%;
+    }
+}
+@media (max-width: 1100px) {
+    #mainHeader{
+        grid-template-columns: 40% 45% 15%;
+    }
+}
+@media (max-width: 1000px) {
+    #mainHeader{
+        grid-template-columns: 35% 55% 15%;
+    }
+}
+@media (max-width: 900px) {
+    #mainHeader{
+        grid-template-columns: 20% 60% 20%;
+    }
+}
+@media (max-width: 800px) {
+    #mainHeader{
+        display: none;
+    }
+}
+
+
+/* MOBILE DESKTOP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#secondaryHeader{
+    display: none;
+    margin-top: 1em;
+}
+
+@media (max-width: 800px) {
+    #secondaryHeader{
+        /* Flex */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        place-items: center;
+        /* Other */
+    }
+    #mainHeader{
+        grid-template-columns: 35% 30% 35%;
+    }
+    #pages_general_divOptions{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 100%;
+    }
+    #pages_general_headerDivOfSearch, #pages_general_headerDivOfLang{
+        min-width: 0;
+        max-width: 50%;
+    }
+}
+
+.hamburger{
+    position: relative;
+    max-width: 2rem;
+    filter: brightness(0.1) invert(0.6);
+}
+.hamburger:hover{
+    cursor: pointer;
+}
+#pages_general_divOptions2{
+    display: flex;
+    width: 100%;
+}
+#pages_general_headerDivOfLang2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pages_general_iconsOfHeader2{
+    max-width: 2.4rem;
+    filter: brightness(0.1) invert(0.6);
+}
+.pages_general_iconsOfHeader2:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 350px) {
+    #logoMain2{
+        max-width: 10rem;
+    } 
+}
+
+
+
+
+
+
+
+
+/* RSS FLOTANTES ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#rss {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 16em;
+    height: 5em;
+    position: fixed;   
+    bottom: 2em; 
+    z-index: 9999;   
+    background: transparent;  
+    padding: 0;                
+}
+    #linkedIn{
+        width: 5em;
+    }
+    #github{
+        width: 5em;
+    }
+    #classgap{
+        width: 5em;
+    }
+
+
+
+
+/* ESTILOS GENERALES ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.rounded-image{
+    border-radius: 1.5em;
+}
+.hover-scale-and-opacity:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+}
+
+.fade-scale {
+    opacity: 0.3;            /* inicio invisible */
+    transform: scale(1);     /* inicio más pequeño */
+    animation: fadeScaleIn 0.5s forwards; /* animación 1 segundo */
+    animation-delay: 0s;
+}
+@keyframes fadeScaleIn {
+    from {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+@media (max-width: 800px) {
+    #rss {
+        width: 100%;
+        justify-content: center;
+        gap: 3%;
+        margin:auto;
+    }
+}

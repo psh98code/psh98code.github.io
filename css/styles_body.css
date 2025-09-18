@@ -1,0 +1,27 @@
+
+
+
+.bodyGeneral{
+    /* Flex */
+    display: flex;
+    flex-direction: column;
+    /* Background */
+    background: linear-gradient(
+        to bottom,
+    rgb(0, 2, 7),  
+    rgb(0, 10, 29),   
+    rgb(0, 14, 43),  
+    rgb(0, 14, 43),  
+    rgb(0, 14, 43),  
+    rgb(0, 14, 43)
+ 
+    );
+    /* Altura minima para que ocupe todo el height y margenes-padding */
+    min-height: 100vh;         
+    margin: 0;                 
+    padding: 0;
+}
+
+.bodyLoading{
+    background-color: black;
+}

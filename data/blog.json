@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Entrada 1",
+        "description": "",
+        "imgPortada": "../res/blogs/1/portada.png",
+        "imgsExtras":[
+
+        ],
+        "link": "",
+        "text": ""
+    },
+    {
+        "id": 2,
+        "title": "Entrada 2",
+        "description": "",
+        "imgPortada": "../res/blogs/2/portada.png",
+        "imgsExtras":[
+
+        ],
+        "link": "",
+        "text": ""
+    },
+    {
+        "id": 3,
+        "title": "Entrada 3",
+        "description": "",
+        "imgPortada": "../res/blogs/1/portada.png",
+        "imgsExtras":[
+
+        ],
+        "link": "",
+        "text": ""
+    }
+]

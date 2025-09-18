@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <title>psh98code</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="styles_general.css">
+        <link rel="stylesheet" href="styles_header.css">
+        <link rel="stylesheet" href="styles_home.css">
+    </head>
+
+    <body class="bg-gray-900">
+        <header id="headerDesktop" class="fade-scale"></header>
+        <header id="headerMobile" class="fade-scale"></header>
+
+        <section id="sectionDesktop"></section>
+        <section id="sectionMobile"></section>
+
+        <div id="divMenuHamburgerDesktop" style="display: none;"></div>
+        <div id="divMenuHamburgerMobile" style="display: none;"></div>
+        <div id="divSearchBarDesktop"></div>
+        <div id="divSearchBarMobile"></div>
+        <div id="divRssDesktop" class="fixed text-white px-2 py-1 text-xs rounded fade-scale"></div>
+        <div id="divRssMobile" class="fixed text-white px-2 py-1 text-xs rounded fade-scale"></div>
+
+        <script src="code/language.js"></script>
+        <script src="code/blogSystem.js"></script>
+        <script src="code/headers.js"></script>
+        <script src="code/general.js"></script>
+        <script src="code/pages_home.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let lang = getLanguage();
+                chargeHeaders(lang, 'home');
+                insertHomeContent(lang);
+                insertLastArticles([], 0);
+                loopOfLastArticles();
+            });
+            document.addEventListener("DOMContentLoaded", () => {
+                document.getElementById('mainHeader').addEventListener('click', (e) => 
+                    {
+                        if (e.target.id === "btnChangeLang1") {
+                            changeLanguage();
+                            let lang = getLanguage();
+                            chargeHeaders(lang, "home");
+                            insertHomeContent(lang);
+                                document.getElementById('hamburguer').addEventListener('click', (e) => 
+                                {
+                                    const hamb = document.getElementById("hamburguer");
+                                    const sectionHamb = document.getElementById("sectionMenuHamburger");
+                                    const divOfOptions = document.getElementById("menuOfHeader");
+
+                                    if (sectionHamb.style.display === "none") {
+                                        sectionHamb.style.display = "flex";
+                                        hamb.src = "../imgs/close.png";
+                                        divOfOptions.style.display = "flex";
+                                        
+                                        const elementos = [
+                                            document.getElementById("mainHeader"),
+                                            document.getElementById("secondaryHeader"),
+                                            document.getElementById("sectionMain"),
+                                            document.getElementById("sectionMainVertical")
+                                        ];
+
+                                        elementos.forEach(el => {
+                                        if(el) { 
+                                            el.style.filter = "brightness(0.15) blur(2px)";
+                                        }});
+                                    } 
+                                    else {
+                                        sectionHamb.style.display = "none";
+                                        hamb.src = "../imgs/hamburger.png";
+                                        divOfOptions.style.display = "none";
+
+                                        const elementos = [
+                                            document.getElementById("mainHeader"),
+                                            document.getElementById("secondaryHeader"),
+                                            document.getElementById("sectionMain"),
+                                            document.getElementById("sectionMainVertical")
+                                        ];
+
+                                        elementos.forEach(el => {
+                                        if(el) { 
+                                            el.style.filter = "none";
+                                        }});
+                                    }
+                                });
+                                document.getElementById('closeBtnMenuSec').addEventListener('click', (e) => 
+                                {
+                                    const hamb = document.getElementById("hamburguer");
+                                    const sectionHamb = document.getElementById("sectionMenuHamburger");
+                                    const divOfOptions = document.getElementById("menuOfHeader");
+
+                                    
+                                    sectionHamb.style.display = "none";
+                                    hamb.src = "../imgs/hamburger.png";
+                                    divOfOptions.style.display = "none";
+
+                                    const elementos = [
+                                        document.getElementById("mainHeader"),
+                                        document.getElementById("secondaryHeader"),
+                                        document.getElementById("sectionMain"),
+                                        document.getElementById("sectionMainVertical")
+                                    ];
+
+                                    elementos.forEach(el => {
+                                    if(el) { 
+                                        el.style.filter = "none";
+                                    }});
+                                });
+                            insertLastArticles([], 0);
+                        }
+                    }
+                );
+                document.getElementById('secondaryHeader').addEventListener('click', (e) => 
+                {
+                    {
+                        if (e.target.id === "btnChangeLang2") {
+                            changeLanguage();
+                            /* ------------------------------------------------------------------------------------------------------------------------------------ */
+                                const hamb = document.getElementById("hamburguer");
+                                const sectionHamb = document.getElementById("sectionMenuHamburger");
+                                const divOfOptions = document.getElementById("menuOfHeader");
+
+                                
+                                sectionHamb.style.display = "none";
+                                hamb.src = "../imgs/hamburger.png";
+                                divOfOptions.style.display = "none";
+
+                                const elementos = [
+                                    document.getElementById("mainHeader"),
+                                    document.getElementById("secondaryHeader"),
+                                    document.getElementById("sectionMain"),
+                                    document.getElementById("sectionMainVertical")
+                                ];
+
+                                elementos.forEach(el => {
+                                if(el) { 
+                                    el.style.filter = "none";
+                                }});
+
+
+                                /* ------------------------------------------------------------------------------------------------------------------------------------ */
+                                let lang = getLanguage();
+                                chargeHeaders(lang, "home");
+                                    document.getElementById('hamburguer').addEventListener('click', (e) => 
+                                    {
+                                        const hamb = document.getElementById("hamburguer");
+                                        const sectionHamb = document.getElementById("sectionMenuHamburger");
+                                        const divOfOptions = document.getElementById("menuOfHeader");
+
+                                        if (sectionHamb.style.display === "none") {
+                                            sectionHamb.style.display = "flex";
+                                            hamb.src = "../imgs/close.png";
+                                            divOfOptions.style.display = "flex";
+                                            
+                                            const elementos = [
+                                                document.getElementById("mainHeader"),
+                                                document.getElementById("secondaryHeader"),
+                                                document.getElementById("sectionMain"),
+                                                document.getElementById("sectionMainVertical")
+                                            ];
+
+                                            elementos.forEach(el => {
+                                            if(el) { 
+                                                el.style.filter = "brightness(0.15) blur(2px)";
+                                            }});
+                                        } 
+                                        else {
+                                            sectionHamb.style.display = "none";
+                                            hamb.src = "../imgs/hamburger.png";
+                                            divOfOptions.style.display = "none";
+
+                                            const elementos = [
+                                                document.getElementById("mainHeader"),
+                                                document.getElementById("secondaryHeader"),
+                                                document.getElementById("sectionMain"),
+                                                document.getElementById("sectionMainVertical")
+                                            ];
+
+                                            elementos.forEach(el => {
+                                            if(el) { 
+                                                el.style.filter = "none";
+                                            }});
+                                        }
+                                    });
+                                    document.getElementById('closeBtnMenuSec').addEventListener('click', (e) => 
+                                    {
+                                        const hamb = document.getElementById("hamburguer");
+                                        const sectionHamb = document.getElementById("sectionMenuHamburger");
+                                        const divOfOptions = document.getElementById("menuOfHeader");
+
+                                        
+                                        sectionHamb.style.display = "none";
+                                        hamb.src = "../imgs/hamburger.png";
+                                        divOfOptions.style.display = "none";
+
+                                        const elementos = [
+                                            document.getElementById("mainHeader"),
+                                            document.getElementById("secondaryHeader"),
+                                            document.getElementById("sectionMain"),
+                                            document.getElementById("sectionMainVertical")
+                                        ];
+
+                                        elementos.forEach(el => {
+                                        if(el) { 
+                                            el.style.filter = "none";
+                                        }});
+                                    });
+                                insertHomeContent(lang);
+                                insertLastArticles([], 0);
+                        }
+                    }                    
+                });
+                document.getElementById('hamburguer').addEventListener('click', (e) => 
+                {
+                    const hamb = document.getElementById("hamburguer");
+                    const sectionHamb = document.getElementById("sectionMenuHamburger");
+                    const divOfOptions = document.getElementById("menuOfHeader");
+
+                    if (sectionHamb.style.display === "none") {
+                        sectionHamb.style.display = "flex";
+                        hamb.src = "../imgs/close.png";
+                        divOfOptions.style.display = "flex";
+                        
+                        const elementos = [
+                            document.getElementById("mainHeader"),
+                            document.getElementById("secondaryHeader"),
+                            document.getElementById("sectionMain"),
+                            document.getElementById("sectionMainVertical")
+                        ];
+
+                        elementos.forEach(el => {
+                        if(el) { 
+                            el.style.filter = "brightness(0.15) blur(2px)";
+                        }});
+                    } 
+                    else {
+                        sectionHamb.style.display = "none";
+                        hamb.src = "../imgs/hamburger.png";
+                        divOfOptions.style.display = "none";
+
+                        const elementos = [
+                            document.getElementById("mainHeader"),
+                            document.getElementById("secondaryHeader"),
+                            document.getElementById("sectionMain"),
+                            document.getElementById("sectionMainVertical")
+                        ];
+
+                        elementos.forEach(el => {
+                        if(el) { 
+                            el.style.filter = "none";
+                        }});
+                    }
+                });
+                document.getElementById('closeBtnMenuSec').addEventListener('click', (e) => 
+                {
+                    const hamb = document.getElementById("hamburguer");
+                    const sectionHamb = document.getElementById("sectionMenuHamburger");
+                    const divOfOptions = document.getElementById("menuOfHeader");
+
+                    
+                    sectionHamb.style.display = "none";
+                    hamb.src = "../imgs/hamburger.png";
+                    divOfOptions.style.display = "none";
+
+                    const elementos = [
+                        document.getElementById("mainHeader"),
+                        document.getElementById("secondaryHeader"),
+                        document.getElementById("sectionMain"),
+                        document.getElementById("sectionMainVertical")
+                    ];
+
+                    elementos.forEach(el => {
+                    if(el) { 
+                        el.style.filter = "none";
+                    }});
+                });
+            });
+        </script>
+    </body>
+</html>       
+
+
+
+
+<!--<img src="imgs/linkedin.png" id="linkedIn" class="hover-scale-and-opacity">
+            <img src="imgs/github.png" id="gitHub" class="hover-scale-and-opacity">
+            <img src="imgs/classgap.png" id="classgap" class="rounded-image hover-scale-and-opacity">-->
