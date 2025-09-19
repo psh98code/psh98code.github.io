@@ -6,7 +6,6 @@ import { LanguageController } from './controllers/languageController.js';
 import { BlogSystem } from "./systems/blogSystem.js";
 
 
-
 // INICIALIZACIONES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Parsers ------------------------------------------------------------------------
 const blogManager = new BlogParser("../data/blog.json");
@@ -30,15 +29,23 @@ export class App {
      * @param {HomeController} homeController -- Controlador para el HOME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
+     * @param {BlogParser} blogParser -- Parseador para el blog
+     * @param {ProjectParser} proyectParser -- Parseador para el parser
      */
     constructor() {
+        this.blogParser = new BlogParser("../data/blog.json");
+        this.proyectParser = new ProjectParser("../data/proyects.json");
         this.languageController = new LanguageController();
-        this.blogSystem = new BlogSystem();
+        this.blogSystem = new BlogSystem(this.blogParser, this.proyectParser);
         this.homeController = new HomeController(this.languageController, this.blogSystem);
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
     }
 
     async init() {
+        await Promise.all([
+            this.blogSystem.loadAllParsers()
+        ]);
+
         this.route();
         window.addEventListener("hashchange", () => {
             this.route();
@@ -218,8 +225,16 @@ export class App {
         this.headerController.setClickListeners_LanguageBtns(() => {
             this.headerController.renderAll(seccion);
             this.setAllClickListeners(seccion);
+            this.rechargeLanguageSec(seccion);
         });   
         this.headerController.setClickListeners_Hamburger();
         this.headerController.setClickListeners_Links();
+    }
+
+    rechargeLanguageSec(seccion){
+        if(seccion === "home"){
+            this.homeController.renderAll();
+            this.homeController.setAllClickListeners();
+        }
     }
 }

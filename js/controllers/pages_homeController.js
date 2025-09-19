@@ -11,12 +11,12 @@ const texts = {
     es: {
         welcome: "Bienvenido a mi Portfolio",
         welcomeSubText: "Desarrollor android, programador amateur de videojuegos, profesor particular de programación y apasionado de la",
-        welcomeSubTextHighligted : "tecnología"
+        welcomeSubTextHighligted : " tecnología"
     },
     en: {
         welcome: "Welcome to my porftolio",
         welcomeSubText: "Android developer, amateur game programmer, private programming tutor, and passionate about",
-        welcomeSubTextHighligted: "technology"
+        welcomeSubTextHighligted: " technology"
     }
 }
 
@@ -80,21 +80,22 @@ export class HomeController{
     }
 
     renderLastArticles(){
-        console.log("ASDASDASD "+this.actualArticleOfLastArticles);
+        let lang = this.languageController.getLanguage();
         let txt = "";
 
-        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.length > 220){
-            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.substring(0, 220) + " [...]";
+        console.log("2 : "+this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang));
+        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.length > 220){
+            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.substring(0, 220) + " [...]";
         }
         else{
-            txt =  this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt;
+            txt =  this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text;
         }
 
         let html = `
             <div id="pageHome_CardLastArticles">
-                <img id="pageHome_CardLastArticles_imgOfArticle" class="fade-in" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).imgSrc}">
+                <img id="pageHome_CardLastArticles_imgOfArticle" class="fadeInImg" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada}">
                 <div id="pageHome_CardLastArticles_textsSecion" class="fade-in">
-                    <h3 id="pageHome_CardLastArticles_titleOfArticle">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTitle}</h3>
+                    <h3 id="pageHome_CardLastArticles_titleOfArticle">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title}</h3>
                     <p id="pageHome_CardLastArticles_txtOfArticle">${txt}</p>
                     <a id="pageHome_CardLastArticles_seeArticleBtn" class="inline-block px-4 py-2 text-white font-semibold rounded-full shadow-md hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300">
                         Leer más
@@ -117,9 +118,9 @@ export class HomeController{
         `;
         let html2 = `
             <div id="pageHome_CardLastArticlesV">
-                <img id="pageHome_CardLastArticles_imgOfArticleV" class="fade-in" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).imgSrc}">
+                <img id="pageHome_CardLastArticles_imgOfArticleV" class="fadeInImg" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada}">
                 <div id="pageHome_CardLastArticles_textsSecionV" class="fade-in">
-                    <h3 id="pageHome_CardLastArticles_titleOfArticleV">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTitle}</h3>
+                    <h3 id="pageHome_CardLastArticles_titleOfArticleV">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title}</h3>
                     <p id="pageHome_CardLastArticles_txtOfArticleV">${txt}</p>
                     <a id="pageHome_CardLastArticles_seeArticleBtnV" class="inline-block px-6 py-2 text-white font-semibold rounded-full shadow-md hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300">
                         Leer más
@@ -231,10 +232,12 @@ export class HomeController{
     }
     restartFadeIn() {
         const elements = [
-            document.getElementById("pageHome_CardLastArticles_imgOfArticle"),
             document.getElementById("pageHome_CardLastArticles_textsSecion"),
-            document.getElementById("pageHome_CardLastArticles_imgOfArticleV"),
             document.getElementById("pageHome_CardLastArticles_textsSecionV")
+        ];
+        const elements2 = [
+            document.getElementById("pageHome_CardLastArticles_imgOfArticle"),
+            document.getElementById("pageHome_CardLastArticles_imgOfArticleV")
         ];
 
         elements.forEach(el => {
@@ -249,6 +252,19 @@ export class HomeController{
             // Añadir la clase para disparar la animación
             el.classList.add("fade-in");
         });
+        elements2.forEach(el => {
+            if(!el) return;
+
+            // Quitar la clase para reiniciar la animación
+            el.classList.remove("fadeInImg");
+
+            // Forzar reflow para que se registre el cambio
+            void el.offsetWidth;
+
+            // Añadir la clase para disparar la animación
+            el.classList.add("fadeInImg");
+        });
+
     }
 
 
@@ -264,12 +280,14 @@ export class HomeController{
 
     /* CARGAR CONTENIDO de articulos -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
     changeContentOfLastArticles_Desktop(){
+        let lang = this.languageController.getLanguage();
         let txt = "";
-        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.length > 150){
-            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.substring(0, 150) + " [...]";
+
+        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.length > 150){
+            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.substring(0, 150) + " [...]";
         }
         else{
-            txt =  this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt;
+            txt =  this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text;
         }
 
         if(this.actualArticleOfLastArticles == 1){ document.getElementById("pageHome_CardLastArticles_dot1").classList.remove("dot") ; document.getElementById("pageHome_CardLastArticles_dot1").classList.add("dotScaled"); }
@@ -281,20 +299,22 @@ export class HomeController{
         if(this.actualArticleOfLastArticles == 3){ document.getElementById("pageHome_CardLastArticles_dot3").classList.remove("dot") ; document.getElementById("pageHome_CardLastArticles_dot3").classList.add("dotScaled"); }
         else{ document.getElementById("pageHome_CardLastArticles_dot3").classList.add("dot") ; document.getElementById("pageHome_CardLastArticles_dot3").classList.remove("dotScaled"); }
 
-        document.getElementById("pageHome_CardLastArticles_imgOfArticle").src = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).imgSrc;
-        document.getElementById("pageHome_CardLastArticles_titleOfArticle").textContent = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTitle;
+        document.getElementById("pageHome_CardLastArticles_imgOfArticle").src = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada;
+        document.getElementById("pageHome_CardLastArticles_titleOfArticle").textContent = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title;
         document.getElementById("pageHome_CardLastArticles_txtOfArticle").textContent = txt;
         this.restartFadeIn();
     }
 
     /* CARGAR CONTENIDO de articulos VERTICALES -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
     changeContentOfLastArticles_Mobile(){
+        let lang = this.languageController.getLanguage();
         let txt = "";
-        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.length > 50){
-            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt.substring(0, 50) + " [...]";
+        
+        if(this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.length > 50){
+            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text.substring(0, 50) + " [...]";
         }
         else{
-            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTxt;
+            txt = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).text;
         }
 
         if(this.actualArticleOfLastArticles == 1){ document.getElementById("pageHome_CardLastArticles_dot1V").classList.remove("dot") ; document.getElementById("pageHome_CardLastArticles_dot1V").classList.add("dotScaled"); }
@@ -306,8 +326,8 @@ export class HomeController{
         if(this.actualArticleOfLastArticles == 3){ document.getElementById("pageHome_CardLastArticles_dot3V").classList.remove("dot") ; document.getElementById("pageHome_CardLastArticles_dot3V").classList.add("dotScaled"); }
         else{ document.getElementById("pageHome_CardLastArticles_dot3V").classList.add("dot") ; document.getElementById("pageHome_CardLastArticles_dot3V").classList.remove("dotScaled"); }
 
-        document.getElementById("pageHome_CardLastArticles_imgOfArticleV").src = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).imgSrc;
-        document.getElementById("pageHome_CardLastArticles_titleOfArticleV").textContent = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles).txtTitle;
+        document.getElementById("pageHome_CardLastArticles_imgOfArticleV").src = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada;
+        document.getElementById("pageHome_CardLastArticles_titleOfArticleV").textContent = this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title;
         document.getElementById("pageHome_CardLastArticles_txtOfArticleV").textContent = txt;
         this.restartFadeIn();
     }

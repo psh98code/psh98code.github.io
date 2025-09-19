@@ -1,15 +1,68 @@
 [
     {
         "id": "1",
-        "title": "proyecto 1",
-        "description": "",
         "imgPortada": "",
         "screenshots": {
 
         },
         "link": "",
-        "texts": {
-            
+        "es": {
+            "title": "proyecto 1",
+            "description": "",
+            "texts": {
+                
+            }
+        },
+        "en": {
+            "title": "project 1",
+            "description": "",
+            "texts": {
+                
+            }
+        }
+    },
+    {
+        "id": "2",
+        "imgPortada": "",
+        "screenshots": {
+
+        },
+        "link": "",
+        "es": {
+            "title": "proyecto 2",
+            "description": "",
+            "texts": {
+                
+            }
+        },
+        "en": {
+            "title": "project 2",
+            "description": "",
+            "texts": {
+                
+            }
+        }
+    },
+    {
+        "id": "3",
+        "imgPortada": "",
+        "screenshots": {
+
+        },
+        "link": "",
+        "es": {
+            "title": "proyecto 3",
+            "description": "",
+            "texts": {
+                
+            }
+        },
+        "en": {
+            "title": "project 3",
+            "description": "",
+            "texts": {
+                
+            }
         }
     }
 ]

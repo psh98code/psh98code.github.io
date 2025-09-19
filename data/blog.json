@@ -1,35 +1,56 @@
 [
     {
         "id": 1,
-        "title": "Entrada 1",
-        "description": "",
         "imgPortada": "../res/blogs/1/portada.png",
         "imgsExtras":[
 
         ],
         "link": "",
-        "text": ""
+        "es":{
+            "title": "Entrada 1",
+            "description": "",
+            "text": ""
+        },
+        "en":{
+            "title": "Entry 1",
+            "description": "",
+            "text": ""
+        }
     },
     {
         "id": 2,
-        "title": "Entrada 2",
-        "description": "",
-        "imgPortada": "../res/blogs/2/portada.png",
-        "imgsExtras":[
-
-        ],
-        "link": "",
-        "text": ""
-    },
-    {
-        "id": 3,
-        "title": "Entrada 3",
-        "description": "",
         "imgPortada": "../res/blogs/1/portada.png",
         "imgsExtras":[
 
         ],
         "link": "",
-        "text": ""
+        "es":{
+            "title": "Entrada 2",
+            "description": "",
+            "text": ""
+        },
+        "en":{
+            "title": "Entry 2",
+            "description": "",
+            "text": ""
+        } 
+    },
+    {
+        "id": 3,
+        "imgPortada": "../res/blogs/1/portada.png",
+        "imgsExtras":[
+
+        ],
+        "link": "",
+        "es":{
+            "title": "Entrada 3",
+            "description": "",
+            "text": ""
+        },
+        "en":{
+            "title": "Entry 3",
+            "description": "",
+            "text": ""
+        }        
     }
 ]
