@@ -43,9 +43,9 @@ export class BlogParser {
         }) : null;
     }
 
-    // Devolver los últimos n blogs (por defecto 3)
-    getLast(n = 3, lang = "es") {
-        let blogs = this.getAll(lang)
-        return blogs[blogs.length - n];
-    }
+    // Devolver el último n blog
+    getLast(n , lang = "es") {
+        const blogs = this.getAll(lang);
+        if (n < 1 || n > blogs.length) return null;
+        return blogs[blogs.length - n];    }
 }
