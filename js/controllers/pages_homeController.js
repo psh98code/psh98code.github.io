@@ -49,8 +49,6 @@ export class HomeController{
     /* Renders */
     renderHomeContent(){
         let lang = this.languageController.getLanguage();
-        document.getElementById("sectionDesktop").innerHTML = `<div id="sectionMain_home_desktop"></div>`;
-        document.getElementById("sectionMobile").innerHTML = `<div id="sectionMain_home_mobile"></div>`;
 
         let html = `
         <div id="pageHome_DivHorizontal" class="fade-in">

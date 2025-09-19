@@ -1,0 +1,93 @@
+
+
+
+.cardAboutMeButton{
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.cardAboutMeButton:hover {
+    animation: bounce 0.5s; /* duración de la animación */
+}
+
+/* Definición de la animación */
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); } /* sube */
+    50%  { transform: translateY(0); }     /* baja */
+    70%  { transform: translateY(-5px); }  /* rebote pequeño */
+    100% { transform: translateY(0); }     /* vuelve */
+}
+
+
+
+
+
+
+
+#divMainAboutMe_Desktop {
+    flex:1;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 15% 85%;
+    align-items: center;
+}
+    #divMainAboutMe_Desktop_title, #divMainAboutMe_Desktop_content{
+       flex:1; 
+    }
+    #divMainAboutMe_Desktop_title {
+        text-align: center;
+        width: 100%;
+    }
+
+    #divMainAboutMe_Desktop_content {
+        display: grid;
+        align-items: end;
+        margin-left: 15%;
+        margin-right: 15%;
+        width: 70%;
+        grid-template-rows: 85% 15%;
+    }
+        #cardAboutMe_Desktop {
+            border-radius: 3rem;
+            flex:1;
+            background-color: rgba(0, 0, 0, 0.35);
+            width: 100%;
+            display: grid;
+            grid-template-rows: 20% 80%;
+            min-height: 50vh;
+        }
+            #cardAboutMe_Desktop_sectionButtons {
+                padding-right: 15%;
+                padding-left: 15%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                background-color: rgba(68, 238, 45, 0.15);
+                border-top-left-radius: 3rem;
+                border-top-right-radius: 3rem;
+            }
+            #cardAboutMe_Desktop_sectionContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(30, 255, 0, 0.034);
+                border-bottom-left-radius: 3rem;
+                border-bottom-right-radius: 3rem;
+            }
+
+        #sectionDonwloadCV_Desktop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            #buttonDonwloadCV_Desktop {
+                background-color: rgba(52, 104, 31, 0.75);
+                text-align: center;
+            }

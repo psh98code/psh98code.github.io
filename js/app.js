@@ -4,6 +4,7 @@ import { ProjectParser } from "./jsonParser/jsonParserProyect.js";
 import { HomeController } from "./controllers/pages_homeController.js"
 import { LanguageController } from './controllers/languageController.js';
 import { BlogSystem } from "./systems/blogSystem.js";
+import { AboutMeController } from "./controllers/pages_aboutmeController.js";
 
 
 // INICIALIZACIONES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -27,6 +28,7 @@ export class App {
     /**
      * @param {HeaderController} headerController -- Controlador para el HEADER
      * @param {HomeController} homeController -- Controlador para el HOME
+     * @param {AboutMeController} aboutMeController -- Controlador para el ABOUT ME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
      * @param {BlogParser} blogParser -- Parseador para el blog
@@ -39,6 +41,7 @@ export class App {
         this.blogSystem = new BlogSystem(this.blogParser, this.proyectParser);
         this.homeController = new HomeController(this.languageController, this.blogSystem);
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
+        this.aboutMeController = new AboutMeController(this.languageController);
     }
 
     async init() {
@@ -76,6 +79,7 @@ export class App {
             });
         } 
         else{
+            this.clearAllPageRenders();
             const seccion = segments[0];
             console.log(seccion);
             // Renderiza SIEMPRE el header 
@@ -93,11 +97,12 @@ export class App {
                     this.homeController.setAllClickListeners();
                     this.homeController.loopOfLastArticles();
                 ;
-                
                 break;
                 case "contactme":;
                 break;
-                case "aboutme":;
+                case "aboutme":
+                    this.aboutMeController.renderAll();    
+                ;
                 break;
                 case "blog":
                     {
@@ -236,5 +241,12 @@ export class App {
             this.homeController.renderAll();
             this.homeController.setAllClickListeners();
         }
+    }
+
+
+
+    clearAllPageRenders(){
+        document.getElementById("sectionDesktop").innerHTML = `<div id="sectionMain_home_desktop"></div>`;
+        document.getElementById("sectionMobile").innerHTML = `<div id="sectionMain_home_mobile"></div>`;
     }
 }
