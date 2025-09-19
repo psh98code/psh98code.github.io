@@ -149,7 +149,7 @@
         width: 100%;
         height: 100vh;
         margin: 0%;
-        background-color: rgba(0, 0, 0, 0.60); /* Negro con opacidad 85% */
+        background-color: rgba(0, 0, 0, 0.90); /* Negro con opacidad 85% */
         display: none;
         flex-direction: column;
         justify-content: center;

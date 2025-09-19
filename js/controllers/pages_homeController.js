@@ -92,7 +92,20 @@ export class HomeController{
         }
 
         let html = `
-            <div id="pageHome_CardLastArticles">
+            <div id="pageHome_CardLastArticles" style="position:relative">
+                <span style="
+                    position: absolute;
+                    top: 8px;         
+                    left: 8px;        
+                    background-color: rgba(0, 0, 0, 0.95); 
+                    color: white;
+                    font-weight: bold;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 0.8rem;
+                    z-index: 10;
+                ">Últimos Artículos</span>
+
                 <img id="pageHome_CardLastArticles_imgOfArticle" class="fadeInImg" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada}">
                 <div id="pageHome_CardLastArticles_textsSecion" class="fade-in">
                     <h3 id="pageHome_CardLastArticles_titleOfArticle">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title}</h3>
@@ -117,7 +130,20 @@ export class HomeController{
             </div>
         `;
         let html2 = `
-            <div id="pageHome_CardLastArticlesV">
+            <div id="pageHome_CardLastArticlesV" style="position:relative">
+                <span style="
+                    position: absolute;
+                    top: 8px;         
+                    left: 8px;        
+                    background-color: rgba(0, 0, 0, 0.95); 
+                    color: white;
+                    font-weight: bold;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 0.8rem;
+                    z-index: 10;
+                ">Últimos Artículos</span>
+
                 <img id="pageHome_CardLastArticles_imgOfArticleV" class="fadeInImg" src="${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).imgPortada}">
                 <div id="pageHome_CardLastArticles_textsSecionV" class="fade-in">
                     <h3 id="pageHome_CardLastArticles_titleOfArticleV">${this.blogSystem.getLastArticleN(this.actualArticleOfLastArticles, lang).title}</h3>
