@@ -40,16 +40,21 @@
     }
     #divMainAboutMe_Desktop_title {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+        height: 100%;
     }
 
     #divMainAboutMe_Desktop_content {
         display: grid;
-        align-items: end;
+        align-items: start;
         margin-left: 15%;
         margin-right: 15%;
         width: 70%;
-        grid-template-rows: 85% 15%;
+        height: 100%;
+        grid-template-rows: 75% 25%;
     }
         #cardAboutMe_Desktop {
             border-radius: 3rem;
@@ -58,7 +63,7 @@
             width: 100%;
             display: grid;
             grid-template-rows: 20% 80%;
-            min-height: 50vh;
+            min-height: 60vh;
         }
             #cardAboutMe_Desktop_sectionButtons {
                 padding-right: 15%;
@@ -113,31 +118,54 @@
                     justify-content: space-around;
                     height: 100%;
                     margin-right: 3%;
-                    margin-left: 3%;
+                    min-width: 15rem;
                 }
                     #div_whatIDo_Desktop_Btns button{
                         background-color: rgba(142, 161, 37, 0.062);
                         height: 100%;
-                        margin-left: 1%;
                         margin-right: 1%;
                         color: whitesmoke;
                     }
                     #div_whatIDo_Desktop_Btns button:hover{
                         background-color: rgba(142, 161, 37, 0.295);
                     }
+                    #div_whatIDo_Desktop_Btns button:last-child {   
+                        border-bottom-left-radius: 3rem;
+                    }
+
+
                 #div_whatIDo_Desktop_Text{
+                    padding-top:2rem;
+                    padding-bottom: 1rem;
+                    flex:1;
                 }
+
+
 
 
         #sectionDonwloadCV_Desktop {
             display: flex;
+            flex:1;
+            position: fixed;
+            bottom: 3%;
+            right: 5%;
+            z-index: 9999;
             justify-content: center;
             align-items: center;
         }
 
             #buttonDonwloadCV_Desktop {
-                background-color: rgba(52, 104, 31, 0.75);
+                background-color: rgba(44, 99, 150, 0.562);
                 text-align: center;
+                display: flex;
+                flex-direction: row;
+                gap: 0.75rem;
+                padding: 1rem;
+                border-radius: 1rem;
+                color: white;
+            }
+            #buttonDonwloadCV_Desktop img{
+                max-width: 1.3vw;
             }
 
 
@@ -154,3 +182,80 @@
             .btnSelected{
                 filter: sepia(1) saturate(5) hue-rotate(-50deg);
             }
+
+
+            #div_whatIDo_Desktop_Text{
+                margin-right: 2rem;
+            }
+
+
+
+
+.scrolleableImages {
+    margin-top: 2rem;
+    height: 100%;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  cursor: grab;
+  touch-action: pan-y; /* importante para mobile */
+  user-select: none;
+
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.scrolleableImages.active { cursor: grabbing; }
+
+.scrolleableImages img {
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.scrolleableImages {
+  touch-action: pan-y; /* 👈 esto es clave, bloquea pan-x para que JS lo maneje */
+}
+
+.scrolleableImages::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}

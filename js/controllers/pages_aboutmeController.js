@@ -47,9 +47,11 @@ export class AboutMeController{
                         <div id="cardAboutMe_Desktop_sectionContent">
                         </div>
                     </div>
-                    <div id="sectionDonwloadCV_Desktop">
-                        <button id="buttonDonwloadCV_Desktop">
-                    </div>
+                    
+                </div>
+
+                <div id="sectionDonwloadCV_Desktop">
+                        <button id="buttonDonwloadCV_Desktop"><img src="../../res/img/download.png">Descarga mi CV</button>
                 </div>
             </div>
         `;
@@ -73,13 +75,23 @@ export class AboutMeController{
                         <div id="cardAboutMe_Mobile_sectionContent">
                         </div>                    
                     </div>
-                    <div id="sectionDonwloadCV_Mobile">
-                        <button id="buttonDonwloadCV_Mobile">                    
-                    </div>                
+                                  
                 </div>
+
+                <div id="sectionDonwloadCV_Mobile">
+                        <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">Descarga mi CV</button>                  
+                    </div>  
             </div>            
         `;
-        document.getElementById("sectionMobile").innerHTML = html2;        
+        document.getElementById("sectionMobile").innerHTML = html2;       
+        
+        
+
+
+
+
+        this.initScrollableImages();
+
     }
 
 
@@ -88,9 +100,13 @@ export class AboutMeController{
 
     changeContentOfCard(type){
         let html = ``;
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected");
 
         switch(type){
             case "whoIAm":
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.add("btnSelected");
                 html = `
                     <div id="div_whoIAm_Desktop_Photo">
                         <img src="../../res/img/me.jpg">
@@ -108,6 +124,7 @@ export class AboutMeController{
             ;
             break;
             case "WhatIDo":
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.add("btnSelected");
                 html = `
                     <div id="div_whatIDo_Desktop_Btns">
                         <button class="btnSelected" id="div_whatIDo_Desktop_Btns_btnAndroid">Desarrollo Android</button>
@@ -122,6 +139,7 @@ export class AboutMeController{
             ;
             break;
             case "WhatCanIDo":
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected");
                 html = `
                     <div id="div_WhatCanIDo_Desktop_Sec1">
                         <h2>FORMACION</h2>
@@ -149,7 +167,12 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Desktop_Btns_btnClases").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.add("btnSelected");
-                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = "seccion Android";
+                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
+                    `seccion Android: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    `;
             });
             document.getElementById("div_whatIDo_Desktop_Btns_btnWeb").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
@@ -157,7 +180,12 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Desktop_Btns_btnClases").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnWeb").classList.add("btnSelected");
-                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = "seccion Web";
+                document.getElementById("div_whatIDo_Desktop_Text").innerHTML =     
+                    `seccion WEB: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    `;
             });
             document.getElementById("div_whatIDo_Desktop_Btns_btnGames").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
@@ -165,7 +193,12 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Desktop_Btns_btnClases").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.add("btnSelected");  
-                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = "seccion Games";
+                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
+                    `seccion Games: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    `;
             });
             document.getElementById("div_whatIDo_Desktop_Btns_btnClases").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
@@ -173,8 +206,89 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Desktop_Btns_btnClases").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnClases").classList.add("btnSelected"); 
-                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = "seccion Clases";           
+                document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
+                    `<p>Desde hace +2 años doy clases online a través de la plataforma <a style="font-style:underline;" href="https://www.classgap.com/es">classgap</a> tanto online como presencialmente (aunque principalmente online), contanto con amplia experiencia en apoyo lectivo e individualizado con las asignaturas de los CFGS DAM y DAW, llegando a ayudar puntualmente a alumnos universitarios de ingeniería informática con Java u otras áreas de la programación y el desarrollo.</p>
+                     <br><p>Cuento con +400 horas de clase impartidas hasta ahora, y una valoración media de 5/5 estrellas por parte de mis alumnos (valoraciones mas abajo).</p>
+                     <div class="scrolleableImages">
+                        <img src="../../res/img/testimonio1.png">
+                        <img src="../../res/img/testimonio2.png">
+                        <img src="../../res/img/testimonio3.png">
+                        <img src="../../res/img/testimonio4.png">
+                        <img src="../../res/img/testimonio5.png">
+                        <img src="../../res/img/testimonio6.png">
+                        <img src="../../res/img/testimonio7.png">
+                     </div>
+                `;       
+                
+                this.initScrollableImages();
             });
         }
+
+
+        
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    initScrollableImages(selector = '.scrolleableImages') {
+        const slider = document.querySelector(selector);
+        if (!slider) return;
+
+        // Evita arrastre nativo de imágenes
+        slider.querySelectorAll('img').forEach(img => {
+            img.draggable = false;
+            img.addEventListener('dragstart', e => e.preventDefault());
+        });
+
+        let isDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+
+        const onDown = (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX; // 👈 usamos pageX
+            scrollLeft = slider.scrollLeft;
+            if (e.pointerId) {
+                slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
+            }
+            e.preventDefault();
+        };
+
+        const onMove = (e) => {
+            if (!isDown) return;
+            const x = e.pageX;
+            const walk = (x - startX) * 1.2; // 👈 sensibilidad
+            slider.scrollLeft = scrollLeft - walk;
+            // console.log("dragging", walk); // debug opcional
+        };
+
+        const onUp = (e) => {
+            isDown = false;
+            slider.classList.remove('active');
+            try {
+                slider.releasePointerCapture && slider.releasePointerCapture(e.pointerId);
+            } catch (_) {}
+        };
+
+        // Listeners
+        slider.addEventListener('pointerdown', onDown);
+        slider.addEventListener('pointermove', onMove);
+        slider.addEventListener('pointerup', onUp);
+        slider.addEventListener('pointercancel', onUp);
+        slider.addEventListener('pointerleave', onUp);
+
+        // Aseguramos estilo necesario
+        slider.style.touchAction = 'pan-y'; // 👈 evita conflicto con scroll horizontal
+    }
+
 }
