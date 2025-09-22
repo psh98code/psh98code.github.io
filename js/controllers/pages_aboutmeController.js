@@ -167,6 +167,64 @@ const textsWhatIDo={
                 <br>
             `
         }
+    },
+    "Games":{
+        "es":{
+            "txt": `
+                <p>
+                    He estudiado <span class="highligtedText">Unity</span> y el flujo general del <span class="highligtedText">desarrollo de un videojuego</span>, desde la idea inicial hasta su implementación jugable. 
+                    A lo largo de mi aprendizaje he creado varios <span class="highligtedText">minijuegos como proyectos personales</span>, lo que me ha permitido practicar 
+                    <span class="highligtedText">programación en C#</span>, diseño de mecánicas, animaciones y gestión de escenas.
+                </p>
+                <br>
+                <ul style="list-style-position: inside; padding-left: 20px; list-style-type: disc;">
+                    <li>
+                        En estos proyectos he trabajado con <span class="highligtedText">físicas, detección de colisiones e interfaces</span>, además de experimentar con distintos géneros para afianzar mis habilidades.
+                    </li>
+                    <br>
+                    <li>
+                        En mi tiempo libre sigo <span class="highligtedText">formándome y practicando</span>, explorando nuevas funcionalidades de Unity, 
+                        aplicando <span class="highligtedText">buenas prácticas de optimización</span> y aprendiendo sobre patrones de diseño aplicados al desarrollo de videojuegos.
+                    </li>
+                    <br>
+                    <li>
+                        Mi objetivo es seguir creciendo en este ámbito y poder llevar a cabo <span class="highligtedText">proyectos más completos y colaborativos</span>, 
+                        aportando <span class="highligtedText">creatividad, dedicación y capacidad de resolución de problemas</span>.
+                    </li>
+                </ul>
+                <br>
+                <div id="youWannaSeeMyGames">
+                    <img src="../../res/img/gaming.png">
+                    <a href="https://itsth3it3r4tor.itch.io/">¿Quieres ver mis juegos?</a>
+                    <img src="../../res/img/gaming2.png">
+                <div>
+            `
+        },
+        "en":{
+            "txt": `
+                <p>
+                    I have studied <span class="highligtedText">Unity</span> and the overall process of <span class="highligtedText">video game development</span>, from the initial idea to a playable implementation. 
+                    Throughout my learning, I have created several <span class="highligtedText">mini-games as personal projects</span>, which allowed me to practice 
+                    <span class="highligtedText">C# programming</span>, game mechanics design, animations, and scene management.
+                </p>
+                <br>
+                <ul style="list-style-position: inside; padding-left: 20px; list-style-type: disc;">
+                    <li>
+                        In these projects, I worked with <span class="highligtedText">physics, collision detection, and user interfaces</span>, as well as experimenting with different genres to strengthen my skills.
+                    </li>
+                    <br>
+                    <li>
+                        In my free time, I continue <span class="highligtedText">learning and practicing</span>, exploring new Unity features, 
+                        applying <span class="highligtedText">best practices in optimization</span>, and studying design patterns applied to game development.
+                    </li>
+                    <br>
+                    <li>
+                        My goal is to keep growing in this field and to develop <span class="highligtedText">larger and more collaborative projects</span>, 
+                        bringing <span class="highligtedText">creativity, dedication, and problem-solving skills</span>.
+                    </li>
+                </ul>
+            `
+        }
     }
 }
 
@@ -249,8 +307,7 @@ export class AboutMeController{
                         </div>
                         <div id="cardAboutMe_Mobile_sectionContent">
                         </div>                    
-                    </div>
-                                  
+                    </div>       
                 </div>
 
                 <div id="sectionDonwloadCV_Mobile">
@@ -262,6 +319,7 @@ export class AboutMeController{
         
         
         this.initScrollableImages();
+        this.changeContentOfCard("whoIAm");
     }
 
 
@@ -311,7 +369,7 @@ export class AboutMeController{
                         <button id="div_whatIDo_Desktop_Btns_btnClases">Profesor particular</button>
                     </div>
                     <div id="div_whatIDo_Desktop_Text" class="text-gray-500">
-                        Inicialmente el texto Android
+                        
                     </div>
                 `;                
             ;
@@ -339,6 +397,39 @@ export class AboutMeController{
 
         document.getElementById("cardAboutMe_Desktop_sectionContent").innerHTML = html;
         if(type === "WhatIDo"){
+            document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
+            `
+                <div id="subDiv_AndroidSec"> 
+                    <div>${textsWhatIDo["Android"][lang].txt}</div> 
+                        <div style="display:flex;justify-content:center;flex-direction:column;">
+                            <div id="screenshotsOfApps_Div"> 
+                                <div class="scrolleableImagesVerticalWrapper"> 
+                                    <div class="scrolleableImagesVertical"> 
+                                        <div>
+                                            <img src="../../res/img/app_TranScript.png"> 
+                                            <p>App Transcript (Propia)</p>
+                                        </div> 
+                                        <div> 
+                                            <img src="../../res/img/app_fotoVerse.png">
+                                            <p>App FotoVerse (TFG DAM)</p> 
+                                        </div> 
+                                        <div> 
+                                            <img src="../../res/img/app_APPCGA.png"> 
+                                            <p>App CGA (Prácticas DAM)</p> 
+                                        </div>  
+                                    </div> 
+                                </div>
+                            </div>
+                            <div id="imgAndroidArrowDown">
+                                <img src="../../res/img/arrow.png" class="arrowDown">                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            `;
+        }
+
+        if(type === "WhatIDo"){
             document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnWeb").classList.remove("btnSelected");
@@ -349,24 +440,31 @@ export class AboutMeController{
                     `
                         <div id="subDiv_AndroidSec"> 
                             <div>${textsWhatIDo["Android"][lang].txt}</div> 
-                            <div id="screenshotsOfApps_Div"> 
-                                <div class="scrolleableImagesVerticalWrapper"> 
-                                    <div class="scrolleableImagesVertical"> 
-                                        <div>
-                                             <img src="../../res/img/app_TranScript.png"> 
-                                             <p>App Transcript (Propia)</p>
-                                        </div> 
-                                        <div> 
-                                            <img src="../../res/img/app_fotoVerse.png">
-                                            <p>App FotoVerse (TFG DAM)</p> 
-                                        </div> 
-                                        <div> 
-                                            <img src="../../res/img/app_APPCGA.png"> 
-                                            <p>App CGA (Prácticas DAM)</p> 
-                                        </div> </div> 
-                                    </div> 
-                                </div> 
-                            </div>                    
+                                <div style="display:flex;justify-content:center;flex-direction:column;">
+                                    <div id="screenshotsOfApps_Div"> 
+                                        <div class="scrolleableImagesVerticalWrapper"> 
+                                            <div class="scrolleableImagesVertical"> 
+                                                <div>
+                                                    <img src="../../res/img/app_TranScript.png"> 
+                                                    <p>App Transcript (Propia)</p>
+                                                </div> 
+                                                <div> 
+                                                    <img src="../../res/img/app_fotoVerse.png">
+                                                    <p>App FotoVerse (TFG DAM)</p> 
+                                                </div> 
+                                                <div> 
+                                                    <img src="../../res/img/app_APPCGA.png"> 
+                                                    <p>App CGA (Prácticas DAM)</p> 
+                                                </div>  
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div id="imgAndroidArrowDown">
+                                        <img src="../../res/img/arrow.png" class="arrowDown">                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                
                     `;
             });
             document.getElementById("div_whatIDo_Desktop_Btns_btnWeb").addEventListener("click", () => {
@@ -387,10 +485,8 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnGames").classList.add("btnSelected");  
                 document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
-                    `seccion Games: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    `
+                        ${textsWhatIDo["Games"][lang].txt}
                     `;
             });
             document.getElementById("div_whatIDo_Desktop_Btns_btnClases").addEventListener("click", () => {
@@ -416,9 +512,6 @@ export class AboutMeController{
                 this.initScrollableImages();
             });
         }
-
-
-        
     }
 
 

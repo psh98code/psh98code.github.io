@@ -161,13 +161,13 @@
                     justify-content: flex-start; /* comienza desde arriba */
                     align-items: center;
                     width: 100%;
-                    height: 400px; /* altura fija o relativa según necesites */
+                    height:40vh; /* altura fija o relativa según necesites */
                     margin: 0;
                     overflow-y: scroll; /* scroll vertical */
                     overflow-x: hidden;
-                    gap: 2rem;
+                    gap: 1rem;
                     padding: 1rem;
-                    scrollbar-width: thin;       /* Firefox */
+                    scrollbar-width: none;       /* Firefox */
                     -ms-overflow-style: auto;    /* IE 10+ */
                 }
                     #screenshotsOfApps_Div p {
@@ -185,6 +185,9 @@
                         justify-content: center;
                         align-items: center;
                         margin-bottom: 1.5rem;
+                    }
+                    #screenshotsOfApps_Div div:last-child {
+                        margin: 0;
                     }
 
 
@@ -225,6 +228,22 @@
 
 
 
+            #youWannaSeeMyGames{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+                color:rgb(189, 22, 22);
+                text-decoration: underline;
+            }
+            #youWannaSeeMyGames img{
+                max-width: 1.5vw;
+            }
+
+
 
             .btnSelected{
                 filter: sepia(1) saturate(5) hue-rotate(-50deg);
@@ -237,6 +256,22 @@
 
 
 
+            .arrowDown{
+                max-width: 1.5vw;
+                filter: invert(100%);
+                text-align: center;
+                opacity: 0.3;
+            }
+
+
+
+            #imgAndroidArrowDown{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0.5rem;
+            }
 
 
 
@@ -249,7 +284,37 @@
 
 
 
-
+            @media (max-width:1500px){
+                body{
+                    overflow-y: auto;
+                }
+                #divMainAboutMe_Desktop_content{
+                    width: 96%;
+                    margin-right: 2%;
+                    margin-left: 2%;
+                    padding-bottom: 25vh;   
+                }
+                #cardAboutMe_Desktop{
+                    height: 70vh;
+                }
+                #divMainAboutMe_Desktop{ 
+                }
+            }
+            @media (max-width:1050px){
+                #cardAboutMe_Desktop{
+                    height: 75vh;
+                }
+            }
+            @media (max-width:1000px){
+                #cardAboutMe_Desktop{
+                    height: 80vh;
+                }                
+            }
+            @media (max-width:900px){
+                #cardAboutMe_Desktop{
+                    height: 85vh;
+                }                
+            }
 
 
 
@@ -272,16 +337,16 @@
 .scrolleableImages {
     margin-top: 2rem;
     height: 100%;
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  padding: 1rem;
-  cursor: grab;
-  touch-action: pan-y; /* importante para mobile */
-  user-select: none;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    cursor: grab;
+    touch-action: pan-y; /* importante para mobile */
+    user-select: none;
 
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* IE 10+ */
