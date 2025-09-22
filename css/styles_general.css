@@ -114,3 +114,22 @@
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+.highligtedText{
+    color: rgb(22, 207, 22);
+}
+.underlinedText{
+    text-decoration: underline;
+}
+.blackedText{
+    font-weight: bold;
+}

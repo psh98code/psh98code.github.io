@@ -86,6 +86,11 @@
                 border-bottom-right-radius: 3rem;
                 width: 100%;
             }
+
+
+
+
+
                 #div_whoIAm_Desktop_Photo{
                     min-width: 25%;
                     margin-left: 3%;
@@ -110,7 +115,13 @@
                     margin-top: 6%;
                     margin-right: 3%;
                     height: 100%;
+                    font-size: 15px;
                 }
+
+
+
+
+
 
                 #div_whatIDo_Desktop_Btns{
                     display: flex;
@@ -139,6 +150,42 @@
                     padding-bottom: 1rem;
                     flex:1;
                 }
+                    #subDiv_AndroidSec{
+                        display: grid;
+                        grid-template-columns: 75% 25%;
+                        width: 100%;
+                    }
+                #screenshotsOfApps_Div {
+                    display: flex;
+                    flex-direction: column; /* vertical */
+                    justify-content: flex-start; /* comienza desde arriba */
+                    align-items: center;
+                    width: 100%;
+                    height: 400px; /* altura fija o relativa según necesites */
+                    margin: 0;
+                    overflow-y: scroll; /* scroll vertical */
+                    overflow-x: hidden;
+                    gap: 2rem;
+                    padding: 1rem;
+                    scrollbar-width: thin;       /* Firefox */
+                    -ms-overflow-style: auto;    /* IE 10+ */
+                }
+                    #screenshotsOfApps_Div p {
+                        font-size: 12px;
+                        font-style: italic;
+                        margin: 0.25rem 0;
+                    }
+                    #screenshotsOfApps_Div img{
+                        border-radius: 1rem;
+                        max-height: 150px;
+                    }
+                    #screenshotsOfApps_Div div{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 1.5rem;
+                    }
 
 
 
@@ -191,6 +238,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .scrolleableImages {
     margin-top: 2rem;
     height: 100%;
@@ -227,6 +305,16 @@
 .scrolleableImages::-webkit-scrollbar {
     display: none;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
