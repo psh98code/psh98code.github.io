@@ -14,6 +14,10 @@ const textsHeaders = {
     "WhatCanIDo":{
         "es":{ txt : "¿Que puedo hacer?" },
         "en":{ txt: "What can I do?" }
+    },
+    "WhatIStudy": {
+        "es":{ txt : "¿Qué he estudiado?"},
+        "en":{ txt : "What I study?"}
     }
 }
 
@@ -227,6 +231,86 @@ const textsWhatIDo={
         }
     }
 }
+const txtWhatCanIDo={
+    "es": { txt : `
+            Soy desarrollador con experiencia en el desarrollo de aplicaciones Android completas, desde la concepción de la idea hasta la publicación final. Domino la integración de API REST, lo que me permite crear aplicaciones conectadas y dinámicas. Además, poseo sólidos conocimientos en desarrollo web, lo que me otorga una visión más amplia a la hora de construir soluciones multiplataforma.
+            <br>
+            También cuento con nociones en desarrollo de videojuegos, lo que me ha permitido experimentar con dinámicas de interacción, motores gráficos y lógicas de juego. Trabajo de manera eficiente en entornos colaborativos siguiendo metodologías SCRUM, y estoy completamente familiarizado con el ciclo de vida de una aplicación, desde cero hasta su entrega final y mantenimiento.                            
+        `},
+    "en": { txt: `
+            I am a developer with experience in building complete Android applications, from the initial concept to the final release. I am proficient in integrating REST APIs, which allows me to create connected and dynamic applications. In addition, I have solid knowledge of web development, giving me a broader perspective when building cross-platform solutions.
+            <br>
+            I also have basic knowledge of video game development, which has allowed me to experiment with interaction dynamics, game engines, and gameplay logic. I work efficiently in collaborative environments following SCRUM methodologies, and I am fully familiar with the entire application development lifecycle, from scratch to final delivery and maintenance.        
+        `}
+}
+const txtWhatIStudy={
+    "titles": {
+        "es": {
+            txt : `
+                <h2>Formación reglada</h2>
+                <div class="formacionDIV">
+                    <h3>CFGM - Sistemas microinformáticos y redes</h3>
+                    <ul>
+                        <li>Ciclo formativo de grado medio</li>
+                        <li>2019-2021</li>
+                    </ul>
+                </div>
+                <div class="formacionDIV">
+                    <h3>CFGS - Desarrollo de aplicaciones multiplataforma</h3>
+                    <ul>
+                        <li>Ciclo formativo de grado superior</li>
+                        <li>2022-2024</li>
+                    </ul>
+                </div>
+                <div class="formacionDIV">
+                    <h3>CFGS - Desarrollo de aplicaciones web</h3>
+                    <ul>
+                        <li>Ciclo formativo de grado superior</li>
+                        <li>2024-2025</li>
+                    </ul>                        
+                </div>            
+            `
+        },
+        "en": {
+            txt : `
+                <h2>Formal Education</h2>
+                <div class="formacionDIV">
+                    <h3>CFGM - Computer Systems and Networks</h3>
+                    <ul>
+                        <li>Intermediate Vocational Training</li>
+                        <li>2019-2021</li>
+                    </ul>
+                </div>
+                <div class="formacionDIV">
+                    <h3>CFGS - Cross-Platform Application Development</h3>
+                    <ul>
+                        <li>Advanced Vocational Training</li>
+                        <li>2022-2024</li>
+                    </ul>
+                </div>
+                <div class="formacionDIV">
+                    <h3>CFGS - Web Application Development</h3>
+                    <ul>
+                        <li>Advanced Vocational Training</li>
+                        <li>2024-2025</li>
+                    </ul>                        
+                </div>            
+            `
+        }
+    },
+    "titlesComplementary": {
+        "es": {
+            txt : `
+                         
+            `
+        },
+        "en": {
+            txt : `
+                        
+            `
+        }
+    }
+}
 
 
 
@@ -273,8 +357,8 @@ export class AboutMeController{
                             <button id="cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
                                 ${textsHeaders["WhatCanIDo"][lang].txt}                                
                             </button>
-                            <button id="" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
-                                ¿?
+                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatIStudy" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                ${textsHeaders["WhatIStudy"][lang].txt}  
                             </button>
                         </div>
                         <div id="cardAboutMe_Desktop_sectionContent">
@@ -292,6 +376,7 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").addEventListener("click", () => { this.changeContentOfCard("whoIAm"); });
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").addEventListener("click", () => { this.changeContentOfCard("WhatIDo"); });
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").addEventListener("click", () => { this.changeContentOfCard("WhatCanIDo"); });
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").addEventListener("click", () => { this.changeContentOfCard("WhatIStudy"); });
 
 
 
@@ -369,7 +454,7 @@ export class AboutMeController{
                         <button id="div_whatIDo_Desktop_Btns_btnClases">Profesor particular</button>
                     </div>
                     <div id="div_whatIDo_Desktop_Text" class="text-gray-500">
-                        
+                        ${textsWhatIDo[lang].txt}
                     </div>
                 `;                
             ;
@@ -377,25 +462,73 @@ export class AboutMeController{
             case "WhatCanIDo":
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected");
                 html = `
-                    <div id="div_WhatCanIDo_Desktop_Sec1">
-                        <h2>FORMACION</h2>
-                        <div class="formacionDIV">
+                    <div id="div_WhatCanIDo_Desktop_Section">
+                        <div id="div_WhatCanIDo_Desktop_Sec1">
+                            ${txtWhatCanIDo[lang].txt}
                         </div>
-                        <div class="formacionDIV">
-                        </div>
-                        <div class="formacionDIV">
-                        </div>
-                    </div>
-                    <div id="div_WhatCanIDo_Desktop_Sec2">
-                    </div>
-                    <div id="div_WhatCanIDo_Desktop_Sec3">
+                        <div><div></div></div>
+                        <div id="div_WhatCanIDo_Desktop_Sec2">
+                            Habilidades
+                            <div>
+                                <div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ●●●●●</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                </div>
+                                <div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ●●●●●</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                    <div>Java ○○○○○</div>
+                                </div>                            
+                            </div>
+                        </div>                    
                     </div>
                 `;
             ;
             break;
+            case "WhatIStudy":
+                html = `
+                    <div id="div_WhatIStudy_Desktop_Section">
+                        <div id="div_WhatIStudy_Desktop_Sec1">
+                            ${txtWhatIStudy["titles"][lang].txt}
+                        </div>  
+                        <div><div></div></div>
+                        <div id="div_WhatIStudy_Desktop_Sec2">
+                            <h2>Formación complementaria</h2>
+                            <div class="formacionDIV">
+                            </div>
+                            <div class="formacionDIV">
+                            </div>
+                            <div class="formacionDIV">
+                            </div>
+                        </div>                
+                    </div>
+                `
+            ;
+            break;
         }
-
         document.getElementById("cardAboutMe_Desktop_sectionContent").innerHTML = html;
+        
         if(type === "WhatIDo"){
             document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
             `
@@ -428,7 +561,6 @@ export class AboutMeController{
                 </div>                
             `;
         }
-
         if(type === "WhatIDo"){
             document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
@@ -577,3 +709,26 @@ export class AboutMeController{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

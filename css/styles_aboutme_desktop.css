@@ -281,6 +281,80 @@
 
 
 
+            #div_WhatCanIDo_Desktop_Section{
+                display: grid;
+                grid-template-columns: 59% 1% 40%;    
+            }
+            #div_WhatCanIDo_Desktop_Sec1{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;                
+                padding-right: 5%;
+                padding-left: 10%;
+            }
+            #div_WhatCanIDo_Desktop_Sec2{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+            }
+            #div_WhatCanIDo_Desktop_Sec2 > div{
+                display: flex;
+                flex-direction: row;
+                gap: 3rem;
+                justify-content: center;
+                align-items: center;
+            }
+            #div_WhatCanIDo_Desktop_Section > div > div:empty {
+                display: flex;
+                justify-content: center;
+                opacity: 0.075;
+                width: 0.1rem;
+                height: 100%;
+                background-color: gainsboro;
+            }
+
+
+
+
+            #div_WhatIStudy_Desktop_Section{
+                display: grid;
+                grid-template-columns: 50% 10% 40%;    
+            }
+            #div_WhatIStudy_Desktop_Section > div >  div:empty {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #div_WhatIStudy_Desktop_Section > div:empty {
+                opacity: 0.5;
+                width: 0.1rem;
+                background-color: gainsboro;
+            }
+
+
+
+            
+
+
+            #div_WhatIStudy_Desktop_Sec1 > h2{
+                margin-bottom: 2rem;
+            }
+            #div_WhatIStudy_Desktop_Sec2 > h2{
+                margin-bottom: 2rem;
+            }
+            #div_WhatIStudy_Desktop_Sec1, #div_WhatIStudy_Desktop_Sec2{
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+            }
+
+
+
 
 
 
