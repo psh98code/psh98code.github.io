@@ -2,6 +2,7 @@ import {LanguageController} from './languageController.js'
 
 
 
+
 const textsHeaders = {
     "WhoIAm": {
         "es":{ txt : "¿Quien soy?" },
@@ -20,6 +21,7 @@ const textsHeaders = {
         "en":{ txt : "What I study?"}
     }
 }
+
 
 
 const textWhoIAm = {
@@ -233,14 +235,42 @@ const textsWhatIDo={
 }
 const txtWhatCanIDo={
     "es": { txt : `
-            Soy desarrollador con experiencia en el desarrollo de aplicaciones Android completas, desde la concepción de la idea hasta la publicación final. Domino la integración de API REST, lo que me permite crear aplicaciones conectadas y dinámicas. Además, poseo sólidos conocimientos en desarrollo web, lo que me otorga una visión más amplia a la hora de construir soluciones multiplataforma.
-            <br>
-            También cuento con nociones en desarrollo de videojuegos, lo que me ha permitido experimentar con dinámicas de interacción, motores gráficos y lógicas de juego. Trabajo de manera eficiente en entornos colaborativos siguiendo metodologías SCRUM, y estoy completamente familiarizado con el ciclo de vida de una aplicación, desde cero hasta su entrega final y mantenimiento.                            
+            <p>
+                Soy <span class="highligtedText">desarrollador</span> con experiencia en el 
+                <span class="highligtedText blackedText underlinedText">desarrollo de aplicaciones Android</span>, 
+                desde la <span class="highligtedText">idea inicial</span> hasta la 
+                <span class="highligtedText">publicación final</span>. 
+                Domino la integración de <span class="blackedText">API REST</span>, creando 
+                <span class="underlinedText">aplicaciones conectadas y dinámicas</span>.
+                <br><br>
+                También poseo <span class="highligtedText">conocimientos en desarrollo web y videojuegos</span>, 
+                experimentando con <span class="underlinedText">dinámicas de interacción</span>, 
+                <span class="blackedText">motores gráficos</span> y <span class="highligtedText">lógicas de juego</span>.
+                <br><br>
+                Trabajo <span class="blackedText">eficientemente en entornos colaborativos</span> siguiendo 
+                <span class="underlinedText">SCRUM</span>, y estoy familiarizado con el 
+                <span class="highligtedText">ciclo de vida completo de una aplicación</span>, desde cero hasta su 
+                <span class="highligtedText">entrega y mantenimiento</span>.
+            </p>
         `},
     "en": { txt: `
-            I am a developer with experience in building complete Android applications, from the initial concept to the final release. I am proficient in integrating REST APIs, which allows me to create connected and dynamic applications. In addition, I have solid knowledge of web development, giving me a broader perspective when building cross-platform solutions.
-            <br>
-            I also have basic knowledge of video game development, which has allowed me to experiment with interaction dynamics, game engines, and gameplay logic. I work efficiently in collaborative environments following SCRUM methodologies, and I am fully familiar with the entire application development lifecycle, from scratch to final delivery and maintenance.        
+            <p>
+                I am a <span class="highligtedText">developer</span> with experience in 
+                <span class="highligtedText blackedText underlinedText">Android application development</span>, 
+                from the <span class="highligtedText">initial idea</span> to the 
+                <span class="highligtedText">final release</span>. 
+                I master <span class="blackedText">REST API integration</span>, creating 
+                <span class="underlinedText">connected and dynamic applications</span>.
+                <br><br>
+                I also have <span class="highligtedText">knowledge in web and game development</span>, 
+                experimenting with <span class="underlinedText">interaction dynamics</span>, 
+                <span class="blackedText">game engines</span>, and <span class="highligtedText">game logic</span>.
+                <br><br>
+                I work <span class="blackedText">efficiently in collaborative environments</span> following 
+                <span class="underlinedText">SCRUM</span> methodologies, and I am familiar with the 
+                <span class="highligtedText">full application lifecycle</span>, from scratch to 
+                <span class="highligtedText">delivery and maintenance</span>.
+            </p>
         `}
 }
 const txtWhatIStudy={
@@ -301,12 +331,24 @@ const txtWhatIStudy={
     "titlesComplementary": {
         "es": {
             txt : `
-                         
+                <h2>Formación complementaria</h2>
+                <div class="formacionDIV">
+                </div>
+                <div class="formacionDIV">
+                </div>
+                <div class="formacionDIV">
+                </div>       
             `
         },
         "en": {
             txt : `
-                        
+                <h2>Complementary education</h2>
+                <div class="formacionDIV">
+                </div>
+                <div class="formacionDIV">
+                </div>
+                <div class="formacionDIV">
+                </div>
             `
         }
     }
@@ -337,12 +379,20 @@ export class AboutMeController{
 
     renderdivMain(){
         const lang = this.languageController.getLanguage();
+        const txt_ = {
+            "es": {
+                txt : "¿Quieres conocerme?"
+            },
+            "en": {
+                txt : "Do you wanna know me?"
+            }
+        }
 
         let html = `
             <div id="divMainAboutMe_Desktop">
                 <div id="divMainAboutMe_Desktop_title">
                     <div class="text-white text-4xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">
-                        ¿Quieres conocerme?
+                        ${txt_[lang].txt}
                     </div>
                 </div>
                 <div id="divMainAboutMe_Desktop_content">
@@ -424,18 +474,63 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.remove("btnSelected");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.remove("btnSelected");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.remove("btnSelected2");
+
+        const txtsAux = {
+            "es": {
+                txt1: "Nombre:",
+                txt2: "Edad:",
+                txt3: "Localidad:",
+                txt4: "Rol:",
+                txt5: "Desarrollador de software"
+            },
+            "en": {
+                txt1: "Name:",
+                txt2: "Age:",
+                txt3: "Location:",
+                txt4: "Role:",
+                txt5: "Software developver"
+            }            
+        }
+        const txtsAux2 = {
+            "es": {
+                txt1: "Desarrollo Android",
+                txt2: "Desarrollo Web",
+                txt3: "Desarrollo de videojuegos",
+                txt4: "Profesor particular"
+            },
+            "en": {
+                txt1: "Android Development",
+                txt2: "Web Development",
+                txt3: "Video Game Development",
+                txt4: "Private Tutor"
+            }                 
+        }
+        const txtsAux3 = {
+            "es": {
+                txt : "Mis habilidades"
+            },
+            "en": {
+                txt : "My skills"
+            }
+        }
 
         switch(type){
             case "whoIAm":
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.add("btnSelected2");
                 html = `
                     <div id="div_whoIAm_Desktop_Photo">
                         <img src="../../res/img/me.jpg">
                         <div>
-                            <p style="color:green;"><span class="font-semibold text-blue-600">Nombre:</span> Pablo Simón Hernández</p>
-                            <p style="color:green;"><span class="font-semibold text-blue-600">Edad:</span> 27</p>
-                            <p style="color:green;"><span class="font-semibold text-blue-600">Localidad:</span> Talavera de la Reina, Toledo</p>
-                            <p style="color:green;"><span class="font-semibold text-blue-600">Rol:</span> Desarrollador de software</p>                        
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt1}</span> Pablo Simón Hernández</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt2}</span> 27</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt3}</span> Talavera de la Reina, Toledo</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt4}</span> ${txtsAux[lang].txt5}</p>                        
                         </div>
                     </div>
                     <div id="div_whoIAm_Desktop_Text" class="text-gray-500">
@@ -446,81 +541,75 @@ export class AboutMeController{
             break;
             case "WhatIDo":
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.add("btnSelected2");
                 html = `
                     <div id="div_whatIDo_Desktop_Btns">
-                        <button class="btnSelected" id="div_whatIDo_Desktop_Btns_btnAndroid">Desarrollo Android</button>
-                        <button id="div_whatIDo_Desktop_Btns_btnWeb">Desarrollo Web</button>
-                        <button id="div_whatIDo_Desktop_Btns_btnGames">Desarrollo de videojuegos</button>
-                        <button id="div_whatIDo_Desktop_Btns_btnClases">Profesor particular</button>
+                        <button class="btnSelected" id="div_whatIDo_Desktop_Btns_btnAndroid">${txtsAux2[lang].txt1}</button>
+                        <button id="div_whatIDo_Desktop_Btns_btnWeb">${txtsAux2[lang].txt2}</button>
+                        <button id="div_whatIDo_Desktop_Btns_btnGames">${txtsAux2[lang].txt3}</button>
+                        <button id="div_whatIDo_Desktop_Btns_btnClases">${txtsAux2[lang].txt4}</button>
                     </div>
                     <div id="div_whatIDo_Desktop_Text" class="text-gray-500">
-                        ${textsWhatIDo[lang].txt}
+                        ${textsWhatIDo["Android"][lang].txt}
                     </div>
                 `;                
             ;
             break;
             case "WhatCanIDo":
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected2");
                 html = `
                     <div id="div_WhatCanIDo_Desktop_Section">
-                        <div id="div_WhatCanIDo_Desktop_Sec1">
+                        <div id="div_WhatCanIDo_Desktop_Sec1" class="text-gray-500">
                             ${txtWhatCanIDo[lang].txt}
                         </div>
                         <div><div></div></div>
                         <div id="div_WhatCanIDo_Desktop_Sec2">
-                            Habilidades
+                            ${txtsAux3[lang].txt}
                             <div>
                                 <div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ●●●●●</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
+                                    <div>Java <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>Kotlin <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div>Dart <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>Javascript <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>Python <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>PHP <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>C# <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>Flutter <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div>HTML <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                    <div>CSS <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div>Jetpack Compose <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
                                 </div>
                                 <div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ●●●●●</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
-                                    <div>Java ○○○○○</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Android</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Scrum</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Github</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> SQL</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Relational Databases</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Firebase Databases</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span> Proceso de desarrollo</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Desarrollo UI/UX</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> JSON & XML</div>
+                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span> API Rest</div>
                                 </div>                            
                             </div>
                         </div>                    
                     </div>
                 `;
             ;
+
             break;
             case "WhatIStudy":
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.add("btnSelected2");
                 html = `
-                    <div id="div_WhatIStudy_Desktop_Section">
+                    <div id="div_WhatIStudy_Desktop_Section" class="text-gray-500">
                         <div id="div_WhatIStudy_Desktop_Sec1">
                             ${txtWhatIStudy["titles"][lang].txt}
                         </div>  
                         <div><div></div></div>
                         <div id="div_WhatIStudy_Desktop_Sec2">
-                            <h2>Formación complementaria</h2>
-                            <div class="formacionDIV">
-                            </div>
-                            <div class="formacionDIV">
-                            </div>
-                            <div class="formacionDIV">
-                            </div>
+                            ${txtWhatIStudy["titlesComplementary"][lang].txt}
                         </div>                
                     </div>
                 `

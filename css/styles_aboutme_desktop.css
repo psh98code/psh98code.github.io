@@ -213,13 +213,60 @@
                 padding: 1rem;
                 border-radius: 1rem;
                 color: white;
+                animation: bounceScale 1s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
             }
             #buttonDonwloadCV_Desktop img{
                 max-width: 1.3vw;
             }
 
 
+            @keyframes bounceScale {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(2);
+            }
+            40% {
+                transform: scale(0.7);
+            }
+            55% {
+                transform: scale(1.4);
+            }
+            70% {
+                transform: scale(0.85);
+            }
+            80% {
+                transform: scale(1.2);
+            }
+            90% {
+                transform: scale(0.95);
+            }
+            95% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+            }
 
+
+
+
+
+
+            #div_WhatCanIDo_Desktop_Sec2 > div > div:first-child{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+            }
+            #div_WhatCanIDo_Desktop_Sec2 > div > div:last-child{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+            }
 
 
 
@@ -246,7 +293,10 @@
 
 
             .btnSelected{
-                filter: sepia(1) saturate(5) hue-rotate(-50deg);
+                filter: sepia(9) saturate(15) hue-rotate(-50deg);
+            }
+            .btnSelected2{
+                scale: 1.15;
             }
 
 
@@ -283,7 +333,7 @@
 
             #div_WhatCanIDo_Desktop_Section{
                 display: grid;
-                grid-template-columns: 59% 1% 40%;    
+                grid-template-columns: 49% 1% 50%;    
             }
             #div_WhatCanIDo_Desktop_Sec1{
                 display: flex;
