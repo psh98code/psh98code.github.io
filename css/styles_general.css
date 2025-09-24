@@ -144,16 +144,127 @@
 
 
 
-.circle {
-  display: inline-block;
-  width: 12px;   
-  height: 12px;
-  border-radius: 50%; 
-  border: 2px solid black;
-  margin-left: 4px;
-  vertical-align: middle;
+
+
+
+
+
+
+
+.skills_Code{
+    color: greenyellow;
+}
+.skills_Framework{
+    color: rgb(250, 18, 231);
+}
+.skills_Web{
+    color: rgb(47, 172, 255);
+}
+.skills_General{
+    color: rgb(238, 169, 20);
+}
+.skills_Database{
+    color: rgb(255, 47, 127);
 }
 
-.circle.filled {
-  background-color: black;
-}
+
+
+    /* Estilos base para todos los círculos */
+    .circle {
+        display: inline-block;
+        width: 12px;         /* tamaño reducido */
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 4px;
+        box-sizing: border-box; /* importante para que border no reduzca tamaño */
+    }
+
+    /* Skills Code */
+    .skills_Code .circle.filled {
+        background-color: greenyellow;
+        border: 2px solid greenyellow;
+    }
+    .skills_Code .circle:not(.filled) {
+        border: 2px solid greenyellow;
+        background-color: transparent;
+    }
+
+    /* Skills Framework */
+    .skills_Framework .circle.filled {
+        background-color: rgb(250, 18, 231);
+        border: 2px solid rgb(250, 18, 231);
+    }
+    .skills_Framework .circle:not(.filled) {
+        border: 2px solid rgb(250, 18, 231);
+        background-color: transparent;
+    }
+
+    /* Skills Web */
+    .skills_Web .circle.filled {
+        background-color: rgb(47, 172, 255);
+        border: 2px solid rgb(47, 172, 255);
+    }
+    .skills_Web .circle:not(.filled) {
+        border: 2px solid rgb(47, 172, 255);
+        background-color: transparent;
+    }
+
+    /* Skills General */
+    .skills_General .circle.filled {
+        background-color: rgb(238, 169, 20);
+        border: 2px solid rgb(238, 169, 20);
+    }
+    .skills_General .circle:not(.filled) {
+        border: 2px solid rgb(238, 169, 20);
+        background-color: transparent;
+    }
+
+    /* Skills Database */
+    .skills_Database .circle.filled {
+        background-color: rgb(255, 47, 127);
+        border: 2px solid rgb(255, 47, 127);
+    }
+    .skills_Database .circle:not(.filled) {
+        border: 2px solid rgb(255, 47, 127);
+        background-color: transparent;
+    }
+
+    
+    @media (max-width:1200px){
+        /* Reducir tamaño de los círculos */
+        .circle {
+            width: 10px;       /* la mitad de 12px */
+            height: 10px;      /* la mitad de 12px */
+            margin-right: 3px; /* la mitad de 4px */
+        }
+
+        /* Opcional: reducir tamaño de la fuente de los nombres de skills */
+        .skills_Code,
+        .skills_Framework,
+        .skills_Web,
+        .skills_General,
+        .skills_Database {
+            font-size: 0.7; /* la mitad de la fuente original */
+        }
+        #div_WhatCanIDo_Desktop_Sec2 > div{
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width:1100px){
+        /* Reducir tamaño de los círculos */
+        .circle {
+            width: 8px;       /* la mitad de 12px */
+            height: 8px;      /* la mitad de 12px */
+            margin-right: 2px; /* la mitad de 4px */
+        }
+
+        /* Opcional: reducir tamaño de la fuente de los nombres de skills */
+        .skills_Code,
+        .skills_Framework,
+        .skills_Web,
+        .skills_General,
+        .skills_Database {
+            font-size: 0.5; /* la mitad de la fuente original */
+        }
+    }

@@ -277,52 +277,50 @@ const txtWhatIStudy={
     "titles": {
         "es": {
             txt : `
-                <h2>Formación reglada</h2>
+                <h2 class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">Formación reglada</h2>
                 <div class="formacionDIV">
-                    <h3>CFGM - Sistemas microinformáticos y redes</h3>
+                    <h3>CFGM - Sistemas microinformáticos y redes (2019-2021)</h3>
                     <ul>
                         <li>Ciclo formativo de grado medio</li>
-                        <li>2019-2021</li>
                     </ul>
                 </div>
+                <br>
                 <div class="formacionDIV">
-                    <h3>CFGS - Desarrollo de aplicaciones multiplataforma</h3>
+                    <h3>CFGS - Desarrollo de aplicaciones multiplataforma (2022-2024)</h3>
                     <ul>
                         <li>Ciclo formativo de grado superior</li>
-                        <li>2022-2024</li>
                     </ul>
                 </div>
+                <br>
                 <div class="formacionDIV">
-                    <h3>CFGS - Desarrollo de aplicaciones web</h3>
+                    <h3>CFGS - Desarrollo de aplicaciones web (2024-2025)</h3>
                     <ul>
                         <li>Ciclo formativo de grado superior</li>
-                        <li>2024-2025</li>
                     </ul>                        
                 </div>            
             `
         },
         "en": {
             txt : `
-                <h2>Formal Education</h2>
+                <h2 class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">Formal Education</h2>
                 <div class="formacionDIV">
-                    <h3>CFGM - Computer Systems and Networks</h3>
+                    <h3>CFGM - Computer Systems and Networks (2019-2021)</h3>
                     <ul>
                         <li>Intermediate Vocational Training</li>
-                        <li>2019-2021</li>
                     </ul>
                 </div>
+                <br>
                 <div class="formacionDIV">
-                    <h3>CFGS - Cross-Platform Application Development</h3>
+                    <h3>CFGS - Cross-Platform Application Development (2022-2024)</h3>
                     <ul>
                         <li>Advanced Vocational Training</li>
-                        <li>2022-2024</li>
                     </ul>
                 </div>
+                <br>
                 <div class="formacionDIV">
-                    <h3>CFGS - Web Application Development</h3>
+                    <h3>CFGS - Web Application Development (2024-2025)</h3>
                     <ul>
                         <li>Advanced Vocational Training</li>
-                        <li>2024-2025</li>
                     </ul>                        
                 </div>            
             `
@@ -331,24 +329,76 @@ const txtWhatIStudy={
     "titlesComplementary": {
         "es": {
             txt : `
-                <h2>Formación complementaria</h2>
-                <div class="formacionDIV">
+                <h2 class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">Formación complementaria</h2>
+                <div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/freecodecamp.png">Bases de datos relacionales
+                    </div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/freecodecamp.png">Diseño web responsivo
+                    </div>
                 </div>
-                <div class="formacionDIV">
+                <div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/unity.jpg">Unity básico
+                    </div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/unity.jpg">Programador Unity junior
+                    </div>                
                 </div>
-                <div class="formacionDIV">
-                </div>       
+                <div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/sololearn.png">Javascript Intermedio
+                    </div>       
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/sololearn.png">Java Intermedio
+                    </div>  
+                </div>
+                <div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/sololearn.png">HTML
+                    </div>  
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/sololearn.png">Python Básico
+                    </div>                 
+                </div>
+                <div>
+                    <div class="formacionDIVComplementary">
+                        <img src="../../res/img/sololearn.png">CSS Intermedio
+                    </div>                  
+                </div>
             `
         },
         "en": {
             txt : `
-                <h2>Complementary education</h2>
-                <div class="formacionDIV">
+                <h2 class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">Formación complementaria</h2>
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/freecodecamp.png">   Relational Databases   <a href="">→</a>
                 </div>
-                <div class="formacionDIV">
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/freecodecamp.png">   Responsive Web Design   <a href="">→</a>
                 </div>
-                <div class="formacionDIV">
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/unity.jpg">   Unity Basics   <a href="">→</a>
                 </div>
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/unity.jpg">   Unity Junior Programmer   <a href="">→</a>
+                </div>                
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/sololearn.png">   Javascript Intermediate   <a href="">→</a>
+                </div>       
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/sololearn.png">   Java Intermediate   <a href="">→</a>
+                </div>  
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/sololearn.png">   CSS Intermediate   <a href="">→</a>ç
+                </div>  
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/sololearn.png">   HTML   <a href="">→</a>
+                </div>  
+                <div class="formacionDIVComplementary">
+                    <img src="../../res/img/sololearn.png">   Python Basic   <a href="">→</a>
+                </div>  
             `
         }
     }
@@ -565,32 +615,33 @@ export class AboutMeController{
                         </div>
                         <div><div></div></div>
                         <div id="div_WhatCanIDo_Desktop_Sec2">
-                            ${txtsAux3[lang].txt}
+                            <div class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">${txtsAux3[lang].txt}</div>
                             <div>
                                 <div>
-                                    <div>Java <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>Kotlin <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
-                                    <div>Dart <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>Javascript <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>Python <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>PHP <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>C# <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>Flutter <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
-                                    <div>HTML <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
-                                    <div>CSS <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
-                                    <div>Jetpack Compose <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                    <div class="skills_Code">Java  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Kotlin  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Dart  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Javascript  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Python  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">PHP  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">C#  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Web">HTML  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                    <div class="skills_Web">CSS  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div class="skills_Framework">Flutter  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>                                    
+                                    <div class="skills_Framework">Jetpack Compose  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
                                 </div>
                                 <div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Android</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Scrum</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Github</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> SQL</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Relational Databases</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Firebase Databases</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span> Proceso de desarrollo</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> Desarrollo UI/UX</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span> JSON & XML</div>
-                                    <div><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span> API Rest</div>
+                                    <div class="skills_Framework"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Android</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  SQL</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Relational Databases</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Firebase Databases</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Scrum</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Github</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span>  Proceso de desarrollo</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Desarrollo UI/UX</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  JSON & XML</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  API Rest</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  Documentation</div>
                                 </div>                            
                             </div>
                         </div>                    

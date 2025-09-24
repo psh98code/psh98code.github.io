@@ -329,6 +329,7 @@
 
 
 
+            
 
 
             #div_WhatCanIDo_Desktop_Section{
@@ -350,28 +351,42 @@
                 justify-content: center;
                 align-items: center;
             }
-            #div_WhatCanIDo_Desktop_Sec2 > div{
-                display: flex;
-                flex-direction: row;
-                gap: 3rem;
-                justify-content: center;
-                align-items: center;
-            }
-            #div_WhatCanIDo_Desktop_Section > div > div:empty {
-                display: flex;
-                justify-content: center;
-                opacity: 0.075;
-                width: 0.1rem;
-                height: 100%;
-                background-color: gainsboro;
-            }
+                #div_WhatCanIDo_Desktop_Sec2 > div{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 3rem;
+                    justify-content: center;
+                    align-items: center;
+                }
+                    #div_WhatCanIDo_Desktop_Section > div > div:empty {
+                        display: flex;
+                        justify-content: center;
+                        opacity: 0.075;
+                        width: 0.1rem;
+                        height: 100%;
+                        background-color: gainsboro;
+                    }
 
-
-
+                @media (max-width:1200px){
+                    #div_WhatCanIDo_Desktop_Sec2 > div{
+                        gap: 1.5rem;
+                    }
+                }
+                @media (max-width:1100px){
+                    #div_WhatCanIDo_Desktop_Sec2 > div{
+                        gap: 1.2rem;
+                    }
+                }
+                @media (max-width:1000px){
+                    #div_WhatCanIDo_Desktop_Section{
+                        display: grid;
+                        grid-template-columns: 39% 1% 60%;    
+                    }                    
+                }
 
             #div_WhatIStudy_Desktop_Section{
                 display: grid;
-                grid-template-columns: 50% 10% 40%;    
+                grid-template-columns: 45% 5% 50%;    
             }
             #div_WhatIStudy_Desktop_Section > div >  div:empty {
                 display: flex;
@@ -424,22 +439,37 @@
                 #divMainAboutMe_Desktop{ 
                 }
             }
+            @media (max-width:1100px){
+                #cardAboutMe_Desktop{
+                    max-height: 80vh;
+                }            
+            }
             @media (max-width:1050px){
                 #cardAboutMe_Desktop{
-                    height: 75vh;
+                    max-height: 85vh;
                 }
             }
             @media (max-width:1000px){
                 #cardAboutMe_Desktop{
-                    height: 80vh;
+                    max-height: 90vh;
+                }                
+            }
+            @media (max-width:950px){
+                #cardAboutMe_Desktop{
+                    max-height: 100vh;
                 }                
             }
             @media (max-width:900px){
                 #cardAboutMe_Desktop{
-                    height: 85vh;
+                    max-height: 105vh;
                 }                
             }
-
+            @media (max-width:850px){
+                #cardAboutMe_Desktop{
+                    max-height: 110vh;
+                }                
+            }
+            
 
 
 
@@ -536,3 +566,103 @@
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.formacionDIV{
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(80, 235, 240, 0.048);
+    box-shadow: inset 1px;
+}
+    .formacionDIV ul{
+        list-style: disc;
+        padding-left:3rem;
+    }
+    .formacionDIV h3{
+        font-weight: bold;
+    }
+
+#div_WhatIStudy_Desktop_Sec2 > div{
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+.formacionDIVComplementary{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.4em;
+    align-items: center;   
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom:1rem ;
+    background-color: rgba(2, 253, 86, 0.103); 
+}
+    .formacionDIVComplementary img{
+        width: 1rem;
+    }
+
+
+    @media (max-width:1200px){
+        .formacionDIV{
+            scale: 0.95;
+        }
+        .formacionDIVComplementary{
+            scale: 0.95;
+        }
+        #div_WhatIStudy_Desktop_Sec2 > div{
+            gap: 0.7rem;
+        }
+        #div_WhatIStudy_Desktop_Section{
+            display: grid;
+            grid-template-columns: 49% 2% 49%;    
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+    }
+    @media (max-width:1100px){
+        .formacionDIV{
+            scale: 0.90;
+        }
+        .formacionDIVComplementary{
+            scale: 0.90;
+        }        
+        #div_WhatIStudy_Desktop_Sec2 > div{
+            gap: 0.4rem;
+        }
+        #div_WhatIStudy_Desktop_Section{
+            display: grid;
+            grid-template-columns: 29% 1% 70%;    
+        }
+    }    
+    @media (max-width:1100px){
+        .formacionDIV{
+            scale: 0.90;
+        }
+        .formacionDIVComplementary{
+            scale: 0.90;
+        }        
+        #div_WhatIStudy_Desktop_Sec2 > div{
+            gap: 0.4rem;
+        }
+        #div_WhatIStudy_Desktop_Section{
+            display: grid;
+            grid-template-columns: 39% 1% 60%;    
+        }
+    }        
