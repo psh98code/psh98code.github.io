@@ -143,6 +143,7 @@
                     #div_whatIDo_Desktop_Btns button:last-child {   
                         border-bottom-left-radius: 3rem;
                     }
+          
 
 
                 #div_whatIDo_Desktop_Text{
@@ -205,7 +206,7 @@
         }
 
             #buttonDonwloadCV_Desktop {
-                background-color: rgba(44, 99, 150, 0.562);
+                background-color: rgba(12, 97, 175, 0.13);
                 text-align: center;
                 display: flex;
                 flex-direction: row;
@@ -216,7 +217,7 @@
                 animation: bounceScale 1s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
             }
             #buttonDonwloadCV_Desktop img{
-                max-width: 1.3vw;
+                max-width: 1.5rem;
             }
 
 
@@ -436,13 +437,25 @@
                 #cardAboutMe_Desktop{
                     height: 70vh;
                 }
-                #divMainAboutMe_Desktop{ 
+                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
+                    font-size: 1.2rem;
+                } 
+                #cardAboutMe_Desktop_sectionContent * {
+                    font-size: calc(100% - 0.01rem);
                 }
             }
             @media (max-width:1100px){
                 #cardAboutMe_Desktop{
                     max-height: 80vh;
                 }            
+                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
+                    font-size: 1.1rem;
+                } 
+                #cardAboutMe_Desktop_sectionContent * {
+                    font-size: calc(100% - 0.02rem);
+                }
             }
             @media (max-width:1050px){
                 #cardAboutMe_Desktop{
@@ -452,17 +465,31 @@
             @media (max-width:1000px){
                 #cardAboutMe_Desktop{
                     max-height: 90vh;
-                }                
+                }             
+                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
+                    font-size: 1rem;
+                } 
             }
             @media (max-width:950px){
                 #cardAboutMe_Desktop{
                     max-height: 100vh;
                 }                
+                #cardAboutMe_Desktop_sectionContent * {
+                    font-size: calc(100% - 0.03rem);
+                }
             }
             @media (max-width:900px){
                 #cardAboutMe_Desktop{
                     max-height: 105vh;
                 }                
+                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
+                    font-size: 0.9rem;
+                } 
+                #cardAboutMe_Desktop_sectionContent * {
+                    font-size: calc(100% - 0.05rem);
+                }
             }
             @media (max-width:850px){
                 #cardAboutMe_Desktop{

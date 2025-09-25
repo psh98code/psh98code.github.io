@@ -2,7 +2,6 @@ import {LanguageController} from './languageController.js'
 
 
 
-
 const textsHeaders = {
     "WhoIAm": {
         "es":{ txt : "¿Quien soy?" },
@@ -21,9 +20,6 @@ const textsHeaders = {
         "en":{ txt : "What I study?"}
     }
 }
-
-
-
 const textWhoIAm = {
     "es": {
         txt: `
@@ -89,7 +85,7 @@ const textsWhatIDo={
             txt: `
                 <div>
                     <p>Desde hace <span class="highligtedText">+2 años</span> doy clases online a través de la plataforma 
-                        <a style="font-style:underline;" href="https://www.classgap.com/es"><span class="underlinedText">classgap</span></a> tanto <span class="highligtedText">online</span> como <span class="highligtedText">presencialmente</span> (aunque principalmente online), contando con <span class="highligtedText">amplia experiencia</span> en <span class="highligtedText">apoyo lectivo e individualizado</span> con las asignaturas de los <span class="highligtedText">CFGS DAM y DAW</span>, llegando a ayudar puntualmente a <span class="highligtedText">alumnos universitarios de ingeniería informática</span> con <span class="blackedText">Java</span> u otras áreas de la <span class="highligtedText">programación y el desarrollo</span>.
+                        <a style="font-style:underline;color:#93CAED;" href="https://www.classgap.com/es" target="_blank><span class="underlinedText">classgap</span></a> tanto <span class="highligtedText">online</span> como <span class="highligtedText">presencialmente</span> (aunque principalmente online), contando con <span class="highligtedText">amplia experiencia</span> en <span class="highligtedText">apoyo lectivo e individualizado</span> con las asignaturas de los <span class="highligtedText">CFGS DAM y DAW</span>, llegando a ayudar puntualmente a <span class="highligtedText">alumnos universitarios de ingeniería informática</span> con <span class="blackedText">Java</span> u otras áreas de la <span class="highligtedText">programación y el desarrollo</span>.
                     </p>
                     <br>
                     <p>Cuento con <span class="highligtedText">+400 horas de clase impartidas</span> hasta ahora, y una <span class="highligtedText">valoración media de 5/5 estrellas</span> por parte de mis alumnos (valoraciones más abajo).</p>
@@ -100,7 +96,7 @@ const textsWhatIDo={
             txt: `
                 <div>
                     <p>For <span class="highligtedText">over 2 years</span>, I have been teaching online through the platform 
-                        <a style="font-style:underline;" href="https://www.classgap.com/es"><span class="underlinedText">classgap</span></a>, both <span class="highligtedText">online</span> and <span class="highligtedText">in-person</span> (although mainly online), with <span class="highligtedText">extensive experience</span> in <span class="highligtedText">individualized academic support</span> for the subjects of <span class="highligtedText">CFGS DAM and DAW</span>, occasionally helping <span class="highligtedText">university students in computer engineering</span> with <span class="blackedText">Java</span> and other areas of <span class="highligtedText">programming and development</span>.
+                        <a style="font-style:underline;color:#93CAED;" href="https://www.classgap.com/es" target="_blank><span class="underlinedText">classgap</span></a>, both <span class="highligtedText">online</span> and <span class="highligtedText">in-person</span> (although mainly online), with <span class="highligtedText">extensive experience</span> in <span class="highligtedText">individualized academic support</span> for the subjects of <span class="highligtedText">CFGS DAM and DAW</span>, occasionally helping <span class="highligtedText">university students in computer engineering</span> with <span class="blackedText">Java</span> and other areas of <span class="highligtedText">programming and development</span>.
                     </p>
                     <br>
                     <p>I have completed <span class="highligtedText">over 400 hours of teaching</span> so far, with an <span class="highligtedText">average rating of 5/5 stars</span> from my students (ratings below).</p>
@@ -438,6 +434,14 @@ export class AboutMeController{
             }
         }
 
+        let donwloadCVTxt = {
+            "es": {
+                txt : "Descarga mi CV" 
+            },
+            "en": {
+                txt : "Download my CV"
+            }
+        }
         let html = `
             <div id="divMainAboutMe_Desktop">
                 <div id="divMainAboutMe_Desktop_title">
@@ -468,7 +472,7 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Desktop">
-                        <button id="buttonDonwloadCV_Desktop"><img src="../../res/img/download.png">Descarga mi CV</button>
+                        <button id="buttonDonwloadCV_Desktop"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>
                 </div>
             </div>
         `;
@@ -477,8 +481,6 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").addEventListener("click", () => { this.changeContentOfCard("WhatIDo"); });
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").addEventListener("click", () => { this.changeContentOfCard("WhatCanIDo"); });
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").addEventListener("click", () => { this.changeContentOfCard("WhatIStudy"); });
-
-
 
 
         let html2 = `
@@ -496,16 +498,19 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Mobile">
-                        <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">Descarga mi CV</button>                  
-                    </div>  
+                        <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>                  
+                </div>  
             </div>            
         `;
         document.getElementById("sectionMobile").innerHTML = html2;       
         
-        
+        document.getElementById("buttonDonwloadCV_Desktop").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank"); });
+        document.getElementById("buttonDonwloadCV_Mobile").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank");});
+
         this.initScrollableImages();
         this.changeContentOfCard("whoIAm");
     }
+
 
 
 
@@ -849,26 +854,3 @@ export class AboutMeController{
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
