@@ -433,7 +433,6 @@ export class AboutMeController{
                 txt : "Do you wanna know me?"
             }
         }
-
         let donwloadCVTxt = {
             "es": {
                 txt : "Descarga mi CV" 
@@ -442,6 +441,7 @@ export class AboutMeController{
                 txt : "Download my CV"
             }
         }
+
         let html = `
             <div id="divMainAboutMe_Desktop">
                 <div id="divMainAboutMe_Desktop_title">
@@ -486,11 +486,23 @@ export class AboutMeController{
         let html2 = `
             <div id="divMainAboutMe_Mobile">
                 <div class="divMainAboutMe_Mobile_title">
-                    ¿Quieres conocerme?
+                    ${txt_[lang].txt}
                 </div>
                 <div class="divMainAboutMe_Mobile_content">
                     <div id="cardAboutMe_Mobile">
                         <div id="cardAboutMe_Mobile_sectionButtons">
+                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhoIAm" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                ${textsHeaders["WhoIAm"][lang].txt}
+                            </button>
+                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatIDo" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                ${textsHeaders["WhatIDo"][lang].txt}
+                            </button>
+                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                ${textsHeaders["WhatCanIDo"][lang].txt}                                
+                            </button>
+                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatIStudy" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                ${textsHeaders["WhatIStudy"][lang].txt}  
+                            </button>
                         </div>
                         <div id="cardAboutMe_Mobile_sectionContent">
                         </div>                    

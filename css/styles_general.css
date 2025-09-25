@@ -278,6 +278,80 @@
 
 
 
+    .scrolleableImages {
+        margin-top: 2rem;
+        height: 100%;
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding: 1rem;
+        cursor: grab;
+        touch-action: pan-y; /* importante para mobile */
+        user-select: none;
+
+        scrollbar-width: none;       /* Firefox */
+        -ms-overflow-style: none;    /* IE 10+ */
+    }
+
+    .scrolleableImages.active { cursor: grabbing; }
+
+    .scrolleableImages img {
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+    }
+
+    .scrolleableImages {
+    touch-action: pan-y; /* 👈 esto es clave, bloquea pan-x para que JS lo maneje */
+    }
+
+    .scrolleableImages::-webkit-scrollbar {
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
 
 
 

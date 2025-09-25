@@ -1,96 +1,111 @@
 
 
 
-.cardAboutMeButton{
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s;
+/* ESTILOS GENERALES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#divMainAboutMe_Desktop, #divMainAboutMe_Desktop_title, #cardAboutMe_Desktop, #cardAboutMe_Desktop_sectionContent, #subDiv_AndroidSec, #screenshotsOfApps_Div, #imgAndroidArrowDown{
+    width: 100%;
 }
-.cardAboutMeButton:hover {
-    animation: bounce 0.5s; /* duración de la animación */
+#divMainAboutMe_Desktop_title, #divMainAboutMe_Desktop_content, #div_whoIAm_Desktop_Photo, #div_whoIAm_Desktop_Text, #div_whatIDo_Desktop_Btns, #div_whatIDo_Desktop_Btns button{
+    height: 100%;
 }
-
-/* Definición de la animación */
-@keyframes bounce {
-    0%   { transform: translateY(0); }
-    30%  { transform: translateY(-10px); } /* sube */
-    50%  { transform: translateY(0); }     /* baja */
-    70%  { transform: translateY(-5px); }  /* rebote pequeño */
-    100% { transform: translateY(0); }     /* vuelve */
+#divMainAboutMe_Desktop_title, #divMainAboutMe_Desktop_content{
+    flex:1; 
 }
 
+ #youWannaSeeMyGames{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    color:rgb(189, 22, 22);
+    text-decoration: underline;
+}
+    #youWannaSeeMyGames img{ max-width: 1.5vw; }
+
+.btnSelected{ filter: sepia(9) saturate(15) hue-rotate(-50deg); }
+.btnSelected2{ scale: 1.15; }
+.arrowDown{
+    max-width: 1.5vw;
+    filter: invert(100%);
+    text-align: center;
+    opacity: 0.3;
+}
+#imgAndroidArrowDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
 
 
 
 
 
 
+
+
+
+
+
+
+
+/* ESTILOS DIVS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #divMainAboutMe_Desktop {
     flex:1;
-    width: 100%;
     display: grid;
     grid-template-rows: 15% 85%;
     align-items: center;
 }
-    #divMainAboutMe_Desktop_title, #divMainAboutMe_Desktop_content{
-       flex:1; 
-    }
+    /* Titulo de la pagina */
     #divMainAboutMe_Desktop_title {
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
     }
-
+    /* Contenido de la pagina */
     #divMainAboutMe_Desktop_content {
         display: grid;
         align-items: start;
         margin-left: 15%;
         margin-right: 15%;
         width: 70%;
-        height: 100%;
         grid-template-rows: 75% 25%;
     }
+        /* Card de about me -------------------------------------------------------------*/
         #cardAboutMe_Desktop {
             border-radius: 3rem;
             flex:1;
             background-color: rgba(0, 0, 0, 0.35);
-            width: 100%;
             display: grid;
             grid-template-rows: 20% 80%;
             min-height: 60vh;
         }
+            /* Seccion de botones */
             #cardAboutMe_Desktop_sectionButtons {
-                padding-right: 15%;
-                padding-left: 15%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: center;
                 background-color: rgba(68, 238, 45, 0.15);
-                border-top-left-radius: 3rem;
-                border-top-right-radius: 3rem;
+                border-top-left-radius: 3rem; border-top-right-radius: 3rem;
+                padding-right: 15%; padding-left: 15%;
             }
+            /* Seccion de contenido */
             #cardAboutMe_Desktop_sectionContent {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
                 background-color: rgba(30, 255, 0, 0.034);
-                border-bottom-left-radius: 3rem;
-                border-bottom-right-radius: 3rem;
-                width: 100%;
+                border-bottom-left-radius: 3rem; border-bottom-right-radius: 3rem;
             }
 
 
-
-
-
+                /* WHO I AM ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_whoIAm_Desktop_Photo{
                     min-width: 25%;
                     margin-left: 3%;
@@ -100,13 +115,9 @@
                     justify-content: start;
                     align-items: center;
                     gap: 2rem;
-                    height: 100%;
                     margin-top: 6%;
                 }
-                    #div_whoIAm_Desktop_Photo img{
-                        width: 50%;
-                        border-radius: 15rem;
-                    }
+                #div_whoIAm_Desktop_Photo img{ width: 50%; border-radius: 15rem; }
                 #div_whoIAm_Desktop_Text{
                     display: flex;
                     flex-direction: column;
@@ -114,15 +125,11 @@
                     align-items: start;
                     margin-top: 6%;
                     margin-right: 3%;
-                    height: 100%;
                     font-size: 15px;
                 }
 
 
-
-
-
-
+                /* WHAT I DO ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_whatIDo_Desktop_Btns{
                     display: flex;
                     flex-direction: column;
@@ -131,565 +138,224 @@
                     margin-right: 3%;
                     min-width: 15rem;
                 }
-                    #div_whatIDo_Desktop_Btns button{
-                        background-color: rgba(142, 161, 37, 0.062);
-                        height: 100%;
-                        margin-right: 1%;
-                        color: whitesmoke;
-                    }
-                    #div_whatIDo_Desktop_Btns button:hover{
-                        background-color: rgba(142, 161, 37, 0.295);
-                    }
-                    #div_whatIDo_Desktop_Btns button:last-child {   
-                        border-bottom-left-radius: 3rem;
-                    }
-          
-
-
+                    #div_whatIDo_Desktop_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; }
+                    #div_whatIDo_Desktop_Btns button:hover{ background-color: rgba(142, 161, 37, 0.295); }
+                    #div_whatIDo_Desktop_Btns button:last-child { border-bottom-left-radius: 3rem; }
                 #div_whatIDo_Desktop_Text{
                     padding-top:2rem;
                     padding-bottom: 1rem;
+                    margin-right: 2rem;
                     flex:1;
                 }
                     #subDiv_AndroidSec{
                         display: grid;
                         grid-template-columns: 75% 25%;
-                        width: 100%;
                     }
-                #screenshotsOfApps_Div {
-                    display: flex;
-                    flex-direction: column; /* vertical */
-                    justify-content: flex-start; /* comienza desde arriba */
-                    align-items: center;
-                    width: 100%;
-                    height:40vh; /* altura fija o relativa según necesites */
-                    margin: 0;
-                    overflow-y: scroll; /* scroll vertical */
-                    overflow-x: hidden;
-                    gap: 1rem;
-                    padding: 1rem;
-                    scrollbar-width: none;       /* Firefox */
-                    -ms-overflow-style: auto;    /* IE 10+ */
+                    #screenshotsOfApps_Div {
+                        display: flex;
+                        flex-direction: column; /* vertical */
+                        justify-content: flex-start; /* comienza desde arriba */
+                        align-items: center;
+                        height:40vh; /* altura fija o relativa según necesites */
+                        margin: 0;
+                        overflow-y: scroll; /* scroll vertical */
+                        overflow-x: hidden;
+                        gap: 1rem;
+                        padding: 1rem;
+                        scrollbar-width: none;       /* Firefox */
+                        -ms-overflow-style: auto;    /* IE 10+ */
+                    }
+                        #screenshotsOfApps_Div p { font-size: 12px; font-style: italic; margin: 0.25rem 0;}
+                        #screenshotsOfApps_Div img{ border-radius: 1rem; max-height: 150px; }
+                        #screenshotsOfApps_Div div{ display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 1.5rem;}
+                        #screenshotsOfApps_Div div:last-child { margin: 0;}
+
+
+                /* WHAT CAN I DO ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_WhatCanIDo_Desktop_Section{
+                    display: grid;
+                    grid-template-columns: 49% 1% 50%;    
                 }
-                    #screenshotsOfApps_Div p {
-                        font-size: 12px;
-                        font-style: italic;
-                        margin: 0.25rem 0;
+                    #div_WhatCanIDo_Desktop_Section > div > div:empty {
+                            display: flex;
+                            justify-content: center;
+                            opacity: 0.075;
+                            width: 0.1rem;
+                            height: 100%;
+                            background-color: gainsboro;
                     }
-                    #screenshotsOfApps_Div img{
-                        border-radius: 1rem;
-                        max-height: 150px;
+                    #div_WhatCanIDo_Desktop_Sec1, #div_WhatCanIDo_Desktop_Sec2{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;                
                     }
-                    #screenshotsOfApps_Div div{
+                    #div_WhatCanIDo_Desktop_Sec1{ padding-right: 5%; padding-left: 10%;}
+                    #div_WhatCanIDo_Desktop_Sec2{ gap: 1rem; }
+                        #div_WhatCanIDo_Desktop_Sec2 > div{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 3rem;
+                        }
+                    #div_WhatCanIDo_Desktop_Sec2 > div > div:first-child, #div_WhatCanIDo_Desktop_Sec2 > div > div:last-child{ display: flex;flex-direction: column;justify-content: center; }
+                    #div_WhatCanIDo_Desktop_Sec2 > div > div:first-child{
+                        align-items: end;
+                    }
+                    #div_WhatCanIDo_Desktop_Sec2 > div > div:last-child{
+                        align-items: start;
+                    }
+
+
+                /* WHAT CAN I STUDY ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_WhatIStudy_Desktop_Section{
+                    display: grid;
+                    grid-template-columns: 45% 5% 50%;    
+                }
+                    #div_WhatIStudy_Desktop_Section > div > div:empty {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        margin-bottom: 1.5rem;
                     }
-                    #screenshotsOfApps_Div div:last-child {
-                        margin: 0;
-                    }
-
-
-
-
-        #sectionDonwloadCV_Desktop {
-            display: flex;
-            flex:1;
-            position: fixed;
-            bottom: 3%;
-            right: 5%;
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-
-            #buttonDonwloadCV_Desktop {
-                background-color: rgba(12, 97, 175, 0.13);
-                text-align: center;
-                display: flex;
-                flex-direction: row;
-                gap: 0.75rem;
-                padding: 1rem;
-                border-radius: 1rem;
-                color: white;
-                animation: bounceScale 1s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
-            }
-            #buttonDonwloadCV_Desktop img{
-                max-width: 1.5rem;
-            }
-
-
-            @keyframes bounceScale {
-            0% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(2);
-            }
-            40% {
-                transform: scale(0.7);
-            }
-            55% {
-                transform: scale(1.4);
-            }
-            70% {
-                transform: scale(0.85);
-            }
-            80% {
-                transform: scale(1.2);
-            }
-            90% {
-                transform: scale(0.95);
-            }
-            95% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-            }
-
-
-
-
-
-
-            #div_WhatCanIDo_Desktop_Sec2 > div > div:first-child{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: end;
-            }
-            #div_WhatCanIDo_Desktop_Sec2 > div > div:last-child{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: start;
-            }
-
-
-
-
-
-
-
-
-            #youWannaSeeMyGames{
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                display: flex;
-                flex-direction: row;
-                gap: 1rem;
-                justify-content: center;
-                align-items: center;
-                color:rgb(189, 22, 22);
-                text-decoration: underline;
-            }
-            #youWannaSeeMyGames img{
-                max-width: 1.5vw;
-            }
-
-
-
-            .btnSelected{
-                filter: sepia(9) saturate(15) hue-rotate(-50deg);
-            }
-            .btnSelected2{
-                scale: 1.15;
-            }
-
-
-            #div_whatIDo_Desktop_Text{
-                margin-right: 2rem;
-            }
-
-
-
-            .arrowDown{
-                max-width: 1.5vw;
-                filter: invert(100%);
-                text-align: center;
-                opacity: 0.3;
-            }
-
-
-
-            #imgAndroidArrowDown{
-                display: flex;
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-                margin-top: 0.5rem;
-            }
-
-
-
-
-
-
-
-            
-
-
-            #div_WhatCanIDo_Desktop_Section{
-                display: grid;
-                grid-template-columns: 49% 1% 50%;    
-            }
-            #div_WhatCanIDo_Desktop_Sec1{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;                
-                padding-right: 5%;
-                padding-left: 10%;
-            }
-            #div_WhatCanIDo_Desktop_Sec2{
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                justify-content: center;
-                align-items: center;
-            }
-                #div_WhatCanIDo_Desktop_Sec2 > div{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 3rem;
-                    justify-content: center;
-                    align-items: center;
-                }
-                    #div_WhatCanIDo_Desktop_Section > div > div:empty {
-                        display: flex;
-                        justify-content: center;
-                        opacity: 0.075;
+                    #div_WhatIStudy_Desktop_Section > div:empty {
+                        opacity: 0.5;
                         width: 0.1rem;
-                        height: 100%;
                         background-color: gainsboro;
                     }
+                    #div_WhatIStudy_Desktop_Sec1 > h2{ margin-bottom: 2rem; }
+                    #div_WhatIStudy_Desktop_Sec2 > h2{ margin-bottom: 2rem; }
+                    #div_WhatIStudy_Desktop_Sec1, #div_WhatIStudy_Desktop_Sec2{ display: flex;flex-direction: column;justify-content: start;align-items: center;}
 
-                @media (max-width:1200px){
-                    #div_WhatCanIDo_Desktop_Sec2 > div{
-                        gap: 1.5rem;
-                    }
-                }
-                @media (max-width:1100px){
-                    #div_WhatCanIDo_Desktop_Sec2 > div{
-                        gap: 1.2rem;
-                    }
-                }
-                @media (max-width:1000px){
-                    #div_WhatCanIDo_Desktop_Section{
-                        display: grid;
-                        grid-template-columns: 39% 1% 60%;    
-                    }                    
-                }
 
-            #div_WhatIStudy_Desktop_Section{
-                display: grid;
-                grid-template-columns: 45% 5% 50%;    
-            }
-            #div_WhatIStudy_Desktop_Section > div >  div:empty {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            #div_WhatIStudy_Desktop_Section > div:empty {
-                opacity: 0.5;
-                width: 0.1rem;
-                background-color: gainsboro;
-            }
 
 
 
-            
 
 
-            #div_WhatIStudy_Desktop_Sec1 > h2{
-                margin-bottom: 2rem;
-            }
-            #div_WhatIStudy_Desktop_Sec2 > h2{
-                margin-bottom: 2rem;
-            }
-            #div_WhatIStudy_Desktop_Sec1, #div_WhatIStudy_Desktop_Sec2{
-                display: flex;
-                flex-direction: column;
-                justify-content: start;
-                align-items: center;
-            }
 
 
 
 
 
 
-            @media (max-width:1500px){
-                body{
-                    overflow-y: auto;
-                }
-                #divMainAboutMe_Desktop_content{
-                    width: 96%;
-                    margin-right: 2%;
-                    margin-left: 2%;
-                    padding-bottom: 25vh;   
-                }
-                #cardAboutMe_Desktop{
-                    height: 70vh;
-                }
-                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
-                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
-                    font-size: 1.2rem;
-                } 
-                #cardAboutMe_Desktop_sectionContent * {
-                    font-size: calc(100% - 0.01rem);
-                }
-            }
-            @media (max-width:1100px){
-                #cardAboutMe_Desktop{
-                    max-height: 80vh;
-                }            
-                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
-                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
-                    font-size: 1.1rem;
-                } 
-                #cardAboutMe_Desktop_sectionContent * {
-                    font-size: calc(100% - 0.02rem);
-                }
-            }
-            @media (max-width:1050px){
-                #cardAboutMe_Desktop{
-                    max-height: 85vh;
-                }
-            }
-            @media (max-width:1000px){
-                #cardAboutMe_Desktop{
-                    max-height: 90vh;
-                }             
-                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
-                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
-                    font-size: 1rem;
-                } 
-            }
-            @media (max-width:950px){
-                #cardAboutMe_Desktop{
-                    max-height: 100vh;
-                }                
-                #cardAboutMe_Desktop_sectionContent * {
-                    font-size: calc(100% - 0.03rem);
-                }
-            }
-            @media (max-width:900px){
-                #cardAboutMe_Desktop{
-                    max-height: 105vh;
-                }                
-                #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
-                #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{
-                    font-size: 0.9rem;
-                } 
-                #cardAboutMe_Desktop_sectionContent * {
-                    font-size: calc(100% - 0.05rem);
-                }
-            }
-            @media (max-width:850px){
-                #cardAboutMe_Desktop{
-                    max-height: 110vh;
-                }                
-            }
-            
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.scrolleableImages {
-    margin-top: 2rem;
-    height: 100%;
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    padding: 1rem;
-    cursor: grab;
-    touch-action: pan-y; /* importante para mobile */
-    user-select: none;
-
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE 10+ */
-}
-
-.scrolleableImages.active { cursor: grabbing; }
-
-.scrolleableImages img {
-  height: 100px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  object-fit: cover;
-  -webkit-user-drag: none;
-  user-select: none;
-}
-
-.scrolleableImages {
-  touch-action: pan-y; /* 👈 esto es clave, bloquea pan-x para que JS lo maneje */
-}
-
-.scrolleableImages::-webkit-scrollbar {
-    display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.lightbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    cursor: zoom-out;
-}
-
-.lightbox-overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.formacionDIV{
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: rgba(80, 235, 240, 0.048);
-    box-shadow: inset 1px;
-}
-    .formacionDIV ul{
-        list-style: disc;
-        padding-left:3rem;
+/* ESTILOS BOTON DE DESCARGA DE CV --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    #sectionDonwloadCV_Desktop {
+        display: flex;
+        flex:1;
+        position: fixed;
+        bottom: 3%;
+        right: 5%;
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
     }
-    .formacionDIV h3{
-        font-weight: bold;
+        #buttonDonwloadCV_Desktop {
+            background-color: rgba(12, 97, 175, 0.13);
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: white;
+            animation: bounceScale 1s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+        }
+        #buttonDonwloadCV_Desktop img{
+            max-width: 1.5rem;
+        }
+        @keyframes bounceScale {
+        0% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(2);
+        }
+        40% {
+            transform: scale(0.7);
+        }
+        55% {
+            transform: scale(1.4);
+        }
+        70% {
+            transform: scale(0.85);
+        }
+        80% {
+            transform: scale(1.2);
+        }
+        90% {
+            transform: scale(0.95);
+        }
+        95% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    @media (max-width:1500px){
+        body{ overflow-y: auto; }
+        #divMainAboutMe_Desktop_content{ width: 96%; margin-right: 2%; margin-left: 2%; padding-bottom: 25vh; }
+        #cardAboutMe_Desktop{ height: 70vh; }
+        #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+        #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{ font-size: 1.2rem; } 
+        #cardAboutMe_Desktop_sectionContent * { font-size: calc(100% - 0.01rem); }
     }
-
-#div_WhatIStudy_Desktop_Sec2 > div{
-    display: flex;
-    flex-direction: row;
-
-    gap: 1rem;
-}
-
-.formacionDIVComplementary{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.4em;
-    align-items: center;   
-    padding: 0.5rem;
-    border-radius: 1rem;
-    margin-bottom:1rem ;
-    background-color: rgba(2, 253, 86, 0.103); 
-}
-    .formacionDIVComplementary img{
-        width: 1rem;
-    }
-
-
     @media (max-width:1200px){
-        .formacionDIV{
-            scale: 0.95;
-        }
-        .formacionDIVComplementary{
-            scale: 0.95;
-        }
-        #div_WhatIStudy_Desktop_Sec2 > div{
-            gap: 0.7rem;
-        }
-        #div_WhatIStudy_Desktop_Section{
-            display: grid;
-            grid-template-columns: 49% 2% 49%;    
-            margin-left: 3%;
-            margin-right: 3%;
-        }
+        #div_WhatCanIDo_Desktop_Sec2 > div{ gap: 1.5rem;}
+        .formacionDIV{ scale: 0.95; }
+        .formacionDIVComplementary{ scale: 0.95; }
+        #div_WhatIStudy_Desktop_Sec2 > div{ gap: 0.7rem; }
+        #div_WhatIStudy_Desktop_Section{ display: grid; grid-template-columns: 49% 2% 49%; margin-left: 3%; margin-right: 3%;}
+    }            
+    @media (max-width:1100px){
+        #cardAboutMe_Desktop{ max-height: 80vh; }            
+        #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+        #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{ font-size: 1.1rem; } 
+        #cardAboutMe_Desktop_sectionContent * { font-size: calc(100% - 0.02rem); }
+        #div_WhatCanIDo_Desktop_Sec2 > div{ gap: 1.2rem; }   
+        .formacionDIV{ scale: 0.90; }
+        .formacionDIVComplementary{ scale: 0.90; }        
+        #div_WhatIStudy_Desktop_Sec2 > div{ gap: 0.4rem; }
+        #div_WhatIStudy_Desktop_Section{ display: grid; grid-template-columns: 29% 1% 70%; }
     }
-    @media (max-width:1100px){
-        .formacionDIV{
-            scale: 0.90;
-        }
-        .formacionDIVComplementary{
-            scale: 0.90;
-        }        
-        #div_WhatIStudy_Desktop_Sec2 > div{
-            gap: 0.4rem;
-        }
-        #div_WhatIStudy_Desktop_Section{
-            display: grid;
-            grid-template-columns: 29% 1% 70%;    
-        }
-    }    
-    @media (max-width:1100px){
-        .formacionDIV{
-            scale: 0.90;
-        }
-        .formacionDIVComplementary{
-            scale: 0.90;
-        }        
-        #div_WhatIStudy_Desktop_Sec2 > div{
-            gap: 0.4rem;
-        }
-        #div_WhatIStudy_Desktop_Section{
-            display: grid;
-            grid-template-columns: 39% 1% 60%;    
-        }
-    }        
+    @media (max-width:1050px){
+        #cardAboutMe_Desktop{ max-height: 85vh;}
+    }
+    @media (max-width:1000px){
+        #cardAboutMe_Desktop{ max-height: 90vh; }             
+        #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+        #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{ font-size: 1rem; } 
+        #div_WhatCanIDo_Desktop_Section{ display: grid; grid-template-columns: 39% 1% 60%; }                    
+    }
+    @media (max-width:950px){
+        #cardAboutMe_Desktop{ max-height: 100vh; }                
+        #cardAboutMe_Desktop_sectionContent * { font-size: calc(100% - 0.03rem);}
+    }
+    @media (max-width:900px){
+        #cardAboutMe_Desktop{ max-height: 105vh;}                
+        #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
+        #cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo, #cardAboutMe_Desktop_sectionButtons_btnWhatIStudy{font-size: 0.9rem;} 
+        #cardAboutMe_Desktop_sectionContent * { font-size: calc(100% - 0.05rem);}
+    }
+    @media (max-width:850px){
+        #cardAboutMe_Desktop{ max-height: 110vh; }                
+    }

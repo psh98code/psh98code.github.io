@@ -1,0 +1,66 @@
+    .cardAboutMeButton{
+        display: inline-block;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .cardAboutMeButton:hover {
+        animation: bounce 0.5s; /* duración de la animación */
+    }
+
+    /* Definición de la animación */
+    @keyframes bounce {
+        0%   { transform: translateY(0); }
+        30%  { transform: translateY(-10px); } /* sube */
+        50%  { transform: translateY(0); }     /* baja */
+        70%  { transform: translateY(-5px); }  /* rebote pequeño */
+        100% { transform: translateY(0); }     /* vuelve */
+    }
+
+
+
+
+
+
+
+
+
+
+
+.formacionDIV{
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(80, 235, 240, 0.048);
+    box-shadow: inset 1px;
+}
+    .formacionDIV ul{
+        list-style: disc;
+        padding-left:3rem;
+    }
+    .formacionDIV h3{
+        font-weight: bold;
+    }
+
+#div_WhatIStudy_Desktop_Sec2 > div{
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+.formacionDIVComplementary{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.4em;
+    align-items: center;   
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom:1rem ;
+    background-color: rgba(2, 253, 86, 0.103); 
+}
+    .formacionDIVComplementary img{
+        width: 1rem;
+    }
