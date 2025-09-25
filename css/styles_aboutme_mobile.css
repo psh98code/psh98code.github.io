@@ -1,26 +1,226 @@
 
 
+/* ESTILOS GENERALES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#divMainAboutMe_Mobile_title, #cardAboutMe_Mobile, #cardAboutMe_Mobile_sectionContent, #subDiv_AndroidSec, #screenshotsOfApps_Div, #imgAndroidArrowDown{
+    width: 100%;
+}
+#divMainAboutMe_Mobile_title, #divMainAboutMe_Mobile_content, #div_whoIAm_Mobile_Photo, #div_whoIAm_Mobile_Text, #div_whatIDo_Mobile_Btns, #div_whatIDo_Mobile_Btns button{
+    height: 100%;
+}
+#divMainAboutMe_Mobile_title, #divMainAboutMe_Mobile_content{
+    flex:1; 
+}
 
+#youWannaSeeMyGames{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    color:rgb(189, 22, 22);
+    text-decoration: underline;
+}
+#youWannaSeeMyGames img{ max-width: 1.5vw; }
+
+.btnSelected{ filter: sepia(9) saturate(15) hue-rotate(-50deg); }
+.btnSelected2{ scale: 1.15; }
+.arrowDown{
+    max-width: 1.5vw;
+    filter: invert(100%);
+    text-align: center;
+    opacity: 0.3;
+}
+#imgAndroidArrowDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ESTILOS DIVS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #divMainAboutMe_Mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* empieza desde arriba */
+    align-items: center;          /* centra horizontal */
+    gap: 2rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    min-height: auto; /* ya no fuerza 100vh ni más */
 }
 
-.divMainAboutMe_Mobile_title {
-}
+    /* Titulo de la pagina */
+    #divMainAboutMe_Mobile_title {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Contenido de la pagina */
+    #divMainAboutMe_Mobile_content {
+        display: grid;
+        grid-template-rows: auto; /* crecer según el contenido */
+        margin: 0 auto;
+        width: 100%;
+    }
+        /* Card de about me -------------------------------------------------------------*/
+        #cardAboutMe_Mobile {
+            border-radius: 3rem;
+            background-color: rgba(0, 0, 0, 0.35);
+            display: grid;
+            grid-template-rows: auto; /* se ajusta al contenido */
+            padding: 0; /* opcional */
+            width: 100%;
+        }
+            /* Seccion de botones */
+            #cardAboutMe_Mobile_sectionButtons {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                background-color: rgba(68, 238, 45, 0.15);
+                border-top-left-radius: 3rem; border-top-right-radius: 3rem;
+                padding-right: 1%; padding-left: 1%;
+            }
+            /* Seccion de contenido */
+            #cardAboutMe_Mobile_sectionContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(30, 255, 0, 0.034);
+                border-bottom-left-radius: 3rem; border-bottom-right-radius: 3rem;
+            }
 
-.divMainAboutMe_Mobile_content {
-}
+                /* WHO I AM --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_whoIAm_Mobile_Photo{
+                    max-width: 20rem;
+                    margin-left: 3%;
+                    margin-right: 3%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 2rem;
+                    margin-top: 6%;
+                }
+                #div_whoIAm_Mobile_Photo img{ width: 50%; border-radius: 15rem; }
+                #div_whoIAm_Mobile_Text{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: start;
+                    margin-top: 6%;
+                    margin-right: 3%;
+                    font-size: 13px;
+                }
 
-#cardAboutMe_Mobile {
-}
+                /* WHAT I DO --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_whatIDo_Mobile_Btns{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    height: 100%;
+                    margin-right: 3%;
+                    min-width: 15rem;
+                }
+                #div_whatIDo_Mobile_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; }
+                #div_whatIDo_Mobile_Btns button:hover{ background-color: rgba(142, 161, 37, 0.295); }
+                #div_whatIDo_Mobile_Btns button:last-child { border-bottom-left-radius: 3rem; }
+                #div_whatIDo_Mobile_Text{
+                    padding-top:2rem;
+                    padding-bottom: 1rem;
+                    margin-right: 2rem;
+                    flex:1;
+                }
+                #subDiv_AndroidSec{
+                    display: grid;
+                    grid-template-columns: 75% 25%;
+                }
+                #screenshotsOfApps_Div {
+                    display: flex;
+                    flex-direction: column; /* vertical */
+                    justify-content: flex-start; /* comienza desde arriba */
+                    align-items: center;
+                    height:40vh; /* altura fija o relativa según necesites */
+                    margin: 0;
+                    overflow-y: scroll; /* scroll vertical */
+                    overflow-x: hidden;
+                    gap: 1rem;
+                    padding: 1rem;
+                    scrollbar-width: none;       /* Firefox */
+                    -ms-overflow-style: auto;    /* IE 10+ */
+                }
+                #screenshotsOfApps_Div p { font-size: 12px; font-style: italic; margin: 0.25rem 0;}
+                #screenshotsOfApps_Div img{ border-radius: 1rem; max-height: 150px; }
+                #screenshotsOfApps_Div div{ display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 1.5rem;}
+                #screenshotsOfApps_Div div:last-child { margin: 0;}
 
-#cardAboutMe_Mobile_sectionButtons {
-}
+                /* WHAT CAN I DO --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_WhatCanIDo_Mobile_Section{
+                    display: grid;
+                    grid-template-columns: 49% 1% 50%;    
+                }
+                #div_WhatCanIDo_Mobile_Section > div > div:empty {
+                        display: flex;
+                        justify-content: center;
+                        opacity: 0.075;
+                        width: 0.1rem;
+                        height: 100%;
+                        background-color: gainsboro;
+                }
+                #div_WhatCanIDo_Mobile_Sec1, #div_WhatCanIDo_Mobile_Sec2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;                
+                }
+                #div_WhatCanIDo_Mobile_Sec1{ padding-right: 5%; padding-left: 10%;}
+                #div_WhatCanIDo_Mobile_Sec2{ gap: 1rem; }
+                #div_WhatCanIDo_Mobile_Sec2 > div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 3rem;
+                }
+                #div_WhatCanIDo_Mobile_Sec2 > div > div:first-child, #div_WhatCanIDo_Mobile_Sec2 > div > div:last-child{ display: flex;flex-direction: column;justify-content: center; }
+                #div_WhatCanIDo_Mobile_Sec2 > div > div:first-child{
+                    align-items: end;
+                }
+                #div_WhatCanIDo_Mobile_Sec2 > div > div:last-child{
+                    align-items: start;
+                }
 
-#cardAboutMe_Mobile_sectionContent {
-}
-
-#sectionDonwloadCV_Mobile {
-}
-
-#buttonDonwloadCV_Mobile {
-}
+                /* WHAT CAN I STUDY --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                #div_WhatIStudy_Mobile_Section{
+                    display: grid;
+                    grid-template-columns: 45% 5% 50%;    
+                }
+                #div_WhatIStudy_Mobile_Section > div > div:empty {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                #div_WhatIStudy_Mobile_Section > div:empty {
+                    opacity: 0.5;
+                    width: 0.1rem;
+                    background-color: gainsboro;
+                }
+                #div_WhatIStudy_Mobile_Sec1 > h2{ margin-bottom: 2rem; }
+                #div_WhatIStudy_Mobile_Sec2 > h2{ margin-bottom: 2rem; }
+                #div_WhatIStudy_Mobile_Sec1, #div_WhatIStudy_Mobile_Sec2{ display: flex;flex-direction: column;justify-content: start;align-items: center;}

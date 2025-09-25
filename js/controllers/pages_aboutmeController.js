@@ -442,6 +442,7 @@ export class AboutMeController{
             }
         }
 
+        // DESKTOP ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         let html = `
             <div id="divMainAboutMe_Desktop">
                 <div id="divMainAboutMe_Desktop_title">
@@ -483,26 +484,34 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").addEventListener("click", () => { this.changeContentOfCard("WhatIStudy"); });
 
 
+        // MOBILE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         let html2 = `
             <div id="divMainAboutMe_Mobile">
                 <div class="divMainAboutMe_Mobile_title">
-                    ${txt_[lang].txt}
+                    <div class="text-white text-4xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">
+                     ${txt_[lang].txt}
+                    </div>
+                   
                 </div>
                 <div class="divMainAboutMe_Mobile_content">
                     <div id="cardAboutMe_Mobile">
                         <div id="cardAboutMe_Mobile_sectionButtons">
-                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhoIAm" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
-                                ${textsHeaders["WhoIAm"][lang].txt}
-                            </button>
-                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatIDo" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
-                                ${textsHeaders["WhatIDo"][lang].txt}
-                            </button>
-                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
-                                ${textsHeaders["WhatCanIDo"][lang].txt}                                
-                            </button>
-                            <button id="cardAboutMe_Desktop_sectionButtons_btnWhatIStudy" class="cardAboutMeButton px-5 py-2 m-2 rounded-xl font-semibold text-white text-lg tracking-wide bg-gradient-to-r  hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
-                                ${textsHeaders["WhatIStudy"][lang].txt}  
-                            </button>
+                            <div>
+                                <button id="cardAboutMe_Mobile_sectionButtons_btnWhoIAm" class="cardAboutMeButton px-3 py-1 m-2 rounded-xl font-semibold text-white text-sm tracking-wide bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                    ${textsHeaders["WhoIAm"][lang].txt}
+                                </button>
+                                <button id="cardAboutMe_Mobile_sectionButtons_btnWhatIDo" class="cardAboutMeButton px-3 py-1 m-2 rounded-xl font-semibold text-white text-sm tracking-wide bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                    ${textsHeaders["WhatIDo"][lang].txt}
+                                </button>
+                            </div>
+                            <div>
+                                <button id="cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo" class="cardAboutMeButton px-3 py-1 m-2 rounded-xl font-semibold text-white text-sm tracking-wide bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                    ${textsHeaders["WhatCanIDo"][lang].txt}                                
+                                </button>
+                                <button id="cardAboutMe_Mobile_sectionButtons_btnWhatIStudy" class="cardAboutMeButton px-3 py-1 m-2 rounded-xl font-semibold text-white text-sm tracking-wide bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700 hover:scale-105 active:scale-95 shadow-md transition-transform duration-200">
+                                    ${textsHeaders["WhatIStudy"][lang].txt}  
+                                </button>
+                            </div>
                         </div>
                         <div id="cardAboutMe_Mobile_sectionContent">
                         </div>                    
@@ -510,15 +519,20 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Mobile">
-                        <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>                  
+                    <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>                  
                 </div>  
             </div>            
         `;
+
         document.getElementById("sectionMobile").innerHTML = html2;       
-        
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhoIAm").addEventListener("click", () => { this.changeContentOfCard("whoIAm"); });
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").addEventListener("click", () => { this.changeContentOfCard("WhatIDo"); });
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").addEventListener("click", () => { this.changeContentOfCard("WhatCanIDo"); });
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").addEventListener("click", () => { this.changeContentOfCard("WhatIStudy"); });
+
+
         document.getElementById("buttonDonwloadCV_Desktop").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank"); });
         document.getElementById("buttonDonwloadCV_Mobile").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank");});
-
         this.initScrollableImages();
         this.changeContentOfCard("whoIAm");
     }
@@ -535,9 +549,20 @@ export class AboutMeController{
 
 
 
+
+
+
+
+
+
+
+
+
     changeContentOfCard(type){
         const lang = this.languageController.getLanguage();
         let html = ``;
+        let htmlMobile = ``;
+        // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.remove("btnSelected");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.remove("btnSelected");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected");
@@ -546,6 +571,16 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.remove("btnSelected2");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected2");
         document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.remove("btnSelected2");
+        // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhoIAm").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").classList.remove("btnSelected");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhoIAm").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").classList.remove("btnSelected2");
+        document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").classList.remove("btnSelected2");
+
 
         const txtsAux = {
             "es": {
@@ -588,6 +623,7 @@ export class AboutMeController{
 
         switch(type){
             case "whoIAm":
+                // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.add("btnSelected");
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhoIAm").classList.add("btnSelected2");
                 html = `
@@ -604,9 +640,27 @@ export class AboutMeController{
                         ${textWhoIAm[lang].txt}
                     </div>
                 `;
+                // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhoIAm").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhoIAm").classList.add("btnSelected2");
+                htmlMobile = `
+                    <div id="div_whoIAm_Mobile_Photo">
+                        <img src="../../res/img/me.jpg">
+                        <div>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt1}</span> Pablo Simón Hernández</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt2}</span> 27</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt3}</span> Talavera de la Reina, Toledo</p>
+                            <p style="color:green;"><span class="font-semibold text-blue-600">${txtsAux[lang].txt4}</span> ${txtsAux[lang].txt5}</p>                        
+                        </div>
+                    </div>
+                    <div id="div_whoIAm_Mobile_Text" class="text-gray-500">
+                        ${textWhoIAm[lang].txt}
+                    </div>
+                `;
             ;
             break;
             case "WhatIDo":
+                // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.add("btnSelected");
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIDo").classList.add("btnSelected2");
                 html = `
@@ -619,10 +673,26 @@ export class AboutMeController{
                     <div id="div_whatIDo_Desktop_Text" class="text-gray-500">
                         ${textsWhatIDo["Android"][lang].txt}
                     </div>
-                `;                
+                `;      
+                // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.add("btnSelected2");
+
+                htmlMobile = `
+                    <div id="div_whatIDo_Mobile_Btns">
+                        <button class="btnSelected" id="div_whatIDo_Mobile_Btns_btnAndroid">${txtsAux2[lang].txt1}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnWeb">${txtsAux2[lang].txt2}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnGames">${txtsAux2[lang].txt3}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnClases">${txtsAux2[lang].txt4}</button>
+                    </div>
+                    <div id="div_whatIDo_Mobile_Text" class="text-gray-500">
+                        ${textsWhatIDo["Android"][lang].txt}
+                    </div>
+                `;        
             ;
             break;
             case "WhatCanIDo":
+                // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected");
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatCanIDo").classList.add("btnSelected2");
                 html = `
@@ -664,10 +734,53 @@ export class AboutMeController{
                         </div>                    
                     </div>
                 `;
+                // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").classList.add("btnSelected2");
+                htmlMobile = `
+                    <div id="div_WhatCanIDo_Mobile_Section">
+                        <div id="div_WhatCanIDo_Mobile_Sec1" class="text-gray-500">
+                            ${txtWhatCanIDo[lang].txt}
+                        </div>
+                        <div><div></div></div>
+                        <div id="div_WhatCanIDo_Mobile_Sec2">
+                            <div class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">${txtsAux3[lang].txt}</div>
+                            <div>
+                                <div>
+                                    <div class="skills_Code">Java  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Kotlin  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Dart  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Javascript  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">Python  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">PHP  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Code">C#  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span></div>
+                                    <div class="skills_Web">HTML  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                    <div class="skills_Web">CSS  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
+                                    <div class="skills_Framework">Flutter  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>                                    
+                                    <div class="skills_Framework">Jetpack Compose  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                </div>
+                                <div>
+                                    <div class="skills_Framework"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Android</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  SQL</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Relational Databases</div>
+                                    <div class="skills_Database"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Firebase Databases</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Scrum</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Github</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span>  Proceso de desarrollo</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Desarrollo UI/UX</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  JSON & XML</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  API Rest</div>
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  Documentation</div>
+                                </div>                            
+                            </div>
+                        </div>                    
+                    </div>
+                `;
             ;
 
             break;
             case "WhatIStudy":
+                // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.add("btnSelected");
                 document.getElementById("cardAboutMe_Desktop_sectionButtons_btnWhatIStudy").classList.add("btnSelected2");
                 html = `
@@ -681,12 +794,29 @@ export class AboutMeController{
                         </div>                
                     </div>
                 `
+                // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").classList.add("btnSelected");
+                document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").classList.add("btnSelected2");
+                htmlMobile = `
+                    <div id="div_WhatIStudy_Mobile_Section" class="text-gray-500">
+                        <div id="div_WhatIStudy_Mobile_Sec1">
+                            ${txtWhatIStudy["titles"][lang].txt}
+                        </div>  
+                        <div><div></div></div>
+                        <div id="div_WhatIStudy_Mobile_Sec2">
+                            ${txtWhatIStudy["titlesComplementary"][lang].txt}
+                        </div>                
+                    </div>
+                `;
             ;
             break;
         }
         document.getElementById("cardAboutMe_Desktop_sectionContent").innerHTML = html;
-        
+        document.getElementById("cardAboutMe_Mobile_sectionContent").innerHTML = htmlMobile;
+
+
         if(type === "WhatIDo"){
+            // DESKTOP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             document.getElementById("div_whatIDo_Desktop_Text").innerHTML = 
             `
                 <div id="subDiv_AndroidSec"> 
@@ -717,8 +847,6 @@ export class AboutMeController{
                     </div>
                 </div>                
             `;
-        }
-        if(type === "WhatIDo"){
             document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").addEventListener("click", () => {
                 document.getElementById("div_whatIDo_Desktop_Btns_btnAndroid").classList.remove("btnSelected");
                 document.getElementById("div_whatIDo_Desktop_Btns_btnWeb").classList.remove("btnSelected");
@@ -800,15 +928,112 @@ export class AboutMeController{
                 
                 this.initScrollableImages();
             });
+                    
+            // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            document.getElementById("div_whatIDo_Mobile_Text").innerHTML = 
+            `
+                <div id="subDiv_AndroidSec"> 
+                    <div>${textsWhatIDo["Android"][lang].txt}</div> 
+                    <div style="display:flex;justify-content:center;flex-direction:column;">
+                        <div id="screenshotsOfApps_Div"> 
+                            <div class="scrolleableImagesVerticalWrapper"> 
+                                <div class="scrolleableImagesVertical"> 
+                                    <div>
+                                        <img src="../../res/img/app_TranScript.png"> 
+                                        <p>App Transcript (Propia)</p>
+                                    </div> 
+                                    <div> 
+                                        <img src="../../res/img/app_fotoVerse.png">
+                                        <p>App FotoVerse (TFG DAM)</p> 
+                                    </div> 
+                                    <div> 
+                                        <img src="../../res/img/app_APPCGA.png"> 
+                                        <p>App CGA (Prácticas DAM)</p> 
+                                    </div>  
+                                </div> 
+                            </div>
+                        </div>
+                        <div id="imgAndroidArrowDown">
+                            <img src="../../res/img/arrow.png" class="arrowDown">                                    
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").addEventListener("click", () => {
+                document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnClases").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnGames").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.add("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Text").innerHTML = 
+                    `
+                        <div id="subDiv_AndroidSec"> 
+                            <div>${textsWhatIDo["Android"][lang].txt}</div> 
+                            <div style="display:flex;justify-content:center;flex-direction:column;">
+                                <div id="screenshotsOfApps_Div"> 
+                                    <div class="scrolleableImagesVerticalWrapper"> 
+                                        <div class="scrolleableImagesVertical"> 
+                                            <div>
+                                                <img src="../../res/img/app_TranScript.png"> 
+                                                <p>App Transcript (Propia)</p>
+                                            </div> 
+                                            <div> 
+                                                <img src="../../res/img/app_fotoVerse.png">
+                                                <p>App FotoVerse (TFG DAM)</p> 
+                                            </div> 
+                                            <div> 
+                                                <img src="../../res/img/app_APPCGA.png"> 
+                                                <p>App CGA (Prácticas DAM)</p> 
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div id="imgAndroidArrowDown">
+                                    <img src="../../res/img/arrow.png" class="arrowDown">                                    
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            });
+            document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").addEventListener("click", () => {
+                document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnClases").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnGames").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").classList.add("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Text").innerHTML = `${textsWhatIDo["Web"][lang].txt}`;
+            });
+            document.getElementById("div_whatIDo_Mobile_Btns_btnGames").addEventListener("click", () => {
+                document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnClases").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnGames").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnGames").classList.add("btnSelected");  
+                document.getElementById("div_whatIDo_Mobile_Text").innerHTML = `${textsWhatIDo["Games"][lang].txt}`;
+            });
+            document.getElementById("div_whatIDo_Mobile_Btns_btnClases").addEventListener("click", () => {
+                document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnWeb").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnClases").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnGames").classList.remove("btnSelected");
+                document.getElementById("div_whatIDo_Mobile_Btns_btnClases").classList.add("btnSelected"); 
+                document.getElementById("div_whatIDo_Mobile_Text").innerHTML = 
+                    `
+                    ${textsWhatIDo["Clases"][lang].txt}
+                    <div class="scrolleableImages">
+                        <img src="../../res/img/testimonio1.png">
+                        <img src="../../res/img/testimonio2.png">
+                        <img src="../../res/img/testimonio3.png">
+                        <img src="../../res/img/testimonio4.png">
+                        <img src="../../res/img/testimonio5.png">
+                        <img src="../../res/img/testimonio6.png">
+                        <img src="../../res/img/testimonio7.png">
+                    </div>
+                `;       
+                this.initScrollableImages();
+            });
         }
     }
-
-
-
-
-
-
-
 
 
 
@@ -864,5 +1089,4 @@ export class AboutMeController{
         // Aseguramos estilo necesario
         slider.style.touchAction = 'pan-y'; // 👈 evita conflicto con scroll horizontal
     }
-
 }

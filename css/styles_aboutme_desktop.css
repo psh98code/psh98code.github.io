@@ -357,5 +357,8 @@
         #cardAboutMe_Desktop_sectionContent * { font-size: calc(100% - 0.05rem);}
     }
     @media (max-width:850px){
-        #cardAboutMe_Desktop{ max-height: 110vh; }                
+        #cardAboutMe_Desktop{ max-height: 110vh; }
+        #sectionDonwloadCV_Mobile {
+            display: none;
+        }        
     }
