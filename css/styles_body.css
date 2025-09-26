@@ -1,9 +1,10 @@
 
 /* Body y HTML ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-body, html{
-    overflow-x: hidden; 
+.bodyOverFlowYHidden{
     overflow-y: hidden;
-    height: 100%;
+}
+.bodyOverFlowYScroll{
+    overflow-y: scroll;
 }
 
 
@@ -23,7 +24,6 @@ body, html{
  
     );
     /* Altura minima para que ocupe todo el height y margenes-padding */
-    min-height: 100vh;         
     margin: 0;                 
     padding: 0;
 }
@@ -31,3 +31,5 @@ body, html{
 .bodyLoading{
     background-color: black;
 }
+
+

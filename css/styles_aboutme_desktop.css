@@ -312,7 +312,6 @@
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
     @media (max-width:1500px){
-        body{ overflow-y: auto; }
         #divMainAboutMe_Desktop_content{ width: 96%; margin-right: 2%; margin-left: 2%; padding-bottom: 25vh; }
         #cardAboutMe_Desktop{ height: 70vh; }
         #cardAboutMe_Desktop_sectionButtons_btnWhoIAm, #cardAboutMe_Desktop_sectionButtons_btnWhatIDo, 
@@ -358,7 +357,4 @@
     }
     @media (max-width:850px){
         #cardAboutMe_Desktop{ max-height: 110vh; }
-        #sectionDonwloadCV_Mobile {
-            display: none;
-        }        
     }

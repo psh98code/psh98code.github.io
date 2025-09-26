@@ -20,13 +20,22 @@
 #sectionMobile{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
     max-height: 500vh;
     margin-top: 5vh;
 }
+
+.sectionMobile_Min60{
+    min-height: 60vh;
+}
+.sectionMobile_Min120{
+    min-height: 120vh;
+}
+
+
+
 
 
 

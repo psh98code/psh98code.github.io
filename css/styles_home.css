@@ -26,6 +26,10 @@
         text-align: center;
         margin-bottom: 2vh;
     }
+    #pageHome_DivVertical:first-child{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 
     #pageHome_SubDiv_LastArticles{
         width: 100%;

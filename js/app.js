@@ -96,12 +96,15 @@ export class App {
                     this.homeController.renderAll();
                     this.homeController.setAllClickListeners();
                     this.homeController.loopOfLastArticles();
+                    this.setMinimumHeightMobileSection(60, true);
                 ;
                 break;
                 case "contactme":;
                 break;
                 case "aboutme":
+                    console.log("Entering about me");
                     this.aboutMeController.renderAll();    
+                    this.setMinimumHeightMobileSection(135, false);
                 ;
                 break;
                 case "blog":
@@ -248,5 +251,123 @@ export class App {
     clearAllPageRenders(){
         document.getElementById("sectionDesktop").innerHTML = `<div id="sectionMain_home_desktop"></div>`;
         document.getElementById("sectionMobile").innerHTML = `<div id="sectionMain_home_mobile"></div>`;
+    }
+
+
+
+
+
+    setMinimumHeightMobileSection(minimum, scrollYEver) {
+        const body = document.body;
+        const html = document.documentElement;
+
+        // Si ya existía un listener previo, removerlo
+        if (this._heightResizeListener) {
+            window.removeEventListener("resize", this._heightResizeListener);
+        }
+
+        // Función que aplica altura según ventana
+        const applyHeight = () => {
+            console.log("resize listened")
+            if (window.innerWidth < 350) {
+                if(scrollYEver){
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "hidden";
+                }
+                else{
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "scroll";  
+                }
+               
+                let newMinimum = minimum +30;
+                body.style.minHeight = "";
+                html.style.minHeight = "";
+                body.style.minHeight = newMinimum + "vh";
+                html.style.minHeight = newMinimum + "vh";
+            }                        
+            else if (window.innerWidth < 400) {
+                if(scrollYEver){
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "hidden";
+                }
+                else{
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "scroll";  
+                }
+               
+                let newMinimum = minimum +20;
+                body.style.minHeight = "";
+                html.style.minHeight = "";
+                body.style.minHeight = newMinimum + "vh";
+                html.style.minHeight = newMinimum + "vh";
+            }                        
+            else if (window.innerWidth < 500) {
+                if(scrollYEver){
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "hidden";
+                }
+                else{
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "scroll";  
+                }
+               
+                let newMinimum = minimum +10;
+                body.style.minHeight = "";
+                html.style.minHeight = "";
+                body.style.minHeight = newMinimum + "vh";
+                html.style.minHeight = newMinimum + "vh";
+            }                        
+            else if (window.innerWidth < 850) {
+                if(scrollYEver){
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "hidden";
+                }
+                else{
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "scroll";  
+                }
+               
+
+                body.style.minHeight = "";
+                html.style.minHeight = "";
+                body.style.minHeight = minimum + "vh";
+                html.style.minHeight = minimum + "vh";
+            } 
+            else {
+                body.style.overflowY = "";
+                html.style.overflowY = "";
+                body.style.overflowY = "hidden";
+                html.style.overflowY = "hidden";
+                body.style.minHeight = "";
+                html.style.minHeight = "";
+                body.style.minHeight = "100vh";
+                html.style.minHeight = "100vh";
+            }
+        };
+
+        // Guardar referencia para poder eliminar en la próxima llamada
+        this._heightResizeListener = applyHeight;
+
+        // Aplicar inmediatamente
+        applyHeight();
+
+        // Añadir listener para redimensionar
+        window.addEventListener("resize", applyHeight);
     }
 }

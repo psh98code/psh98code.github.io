@@ -116,8 +116,9 @@
                     align-items: center;
                     gap: 2rem;
                     margin-top: 6%;
+                    font-size: 15px;
                 }
-                #div_whoIAm_Mobile_Photo img{ width: 50%; border-radius: 15rem; }
+                #div_whoIAm_Mobile_Photo img{ width: 40%; border-radius: 15rem; }
                 #div_whoIAm_Mobile_Text{
                     display: flex;
                     flex-direction: column;
@@ -126,28 +127,32 @@
                     margin-top: 6%;
                     margin-right: 3%;
                     font-size: 13px;
+                    padding: 0 2rem 2rem 2rem;
                 }
 
                 /* WHAT I DO --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_whatIDo_Mobile_Btns{
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     justify-content: space-around;
                     height: 100%;
-                    margin-right: 3%;
+                    margin-right: 5%;
+                    margin-left: 5%;
+                    margin-top: 5%;
                     min-width: 15rem;
                 }
-                #div_whatIDo_Mobile_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; }
+                #div_whatIDo_Mobile_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; border-radius: 0.4rem; padding: 0.5rem; width:30%;font-size: 14px;}
                 #div_whatIDo_Mobile_Btns button:hover{ background-color: rgba(142, 161, 37, 0.295); }
-                #div_whatIDo_Mobile_Btns button:last-child { border-bottom-left-radius: 3rem; }
                 #div_whatIDo_Mobile_Text{
                     padding-top:2rem;
                     padding-bottom: 1rem;
-                    margin-right: 2rem;
                     flex:1;
+                    font-size: 14px;
+                    padding: 2rem;
                 }
-                #subDiv_AndroidSec{
+                #subDiv_AndroidSecMobile{
                     display: grid;
+                    gap: 1rem;
                     grid-template-columns: 75% 25%;
                 }
                 #screenshotsOfApps_Div {
@@ -172,38 +177,78 @@
                 /* WHAT CAN I DO --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_WhatCanIDo_Mobile_Section{
                     display: grid;
-                    grid-template-columns: 49% 1% 50%;    
+                    grid-template-rows: 50% 50%;  
+                    padding: 2rem;  
+                    gap: 2rem;
                 }
                 #div_WhatCanIDo_Mobile_Section > div > div:empty {
-                        display: flex;
-                        justify-content: center;
-                        opacity: 0.075;
-                        width: 0.1rem;
-                        height: 100%;
-                        background-color: gainsboro;
+                    display: flex;
+                    justify-content: center;
+                    opacity: 0.075;
+                    width: 0.1rem;
+                    height: 100%;
+                    background-color: gainsboro;
                 }
-                #div_WhatCanIDo_Mobile_Sec1, #div_WhatCanIDo_Mobile_Sec2{
+                #div_WhatCanIDo_Mobile_Sec1{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;                
+                    align-items: center;  
+                    margin: 0;
+                    padding: 0;             
                 }
-                #div_WhatCanIDo_Mobile_Sec1{ padding-right: 5%; padding-left: 10%;}
+                #div_WhatCanIDo_Mobile_Sec2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;  
+                    margin: 0;
+                    padding: 0;  
+                    margin-bottom: 2rem; 
+                }
+                #div_WhatCanIDo_Mobile_Sec1{
+                    font-size: 14px; 
+                }
+                #div_WhatCanIDo_Mobile_Sec2{
+                    font-size: 12px;
+                }
                 #div_WhatCanIDo_Mobile_Sec2{ gap: 1rem; }
                 #div_WhatCanIDo_Mobile_Sec2 > div{
                     display: flex;
                     flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 3rem;
+                    gap: 2rem;
                 }
-                #div_WhatCanIDo_Mobile_Sec2 > div > div:first-child, #div_WhatCanIDo_Mobile_Sec2 > div > div:last-child{ display: flex;flex-direction: column;justify-content: center; }
                 #div_WhatCanIDo_Mobile_Sec2 > div > div:first-child{
-                    align-items: end;
+                    text-align: right;
                 }
                 #div_WhatCanIDo_Mobile_Sec2 > div > div:last-child{
-                    align-items: start;
+                    text-align: left;
                 }
+                @media (max-width: 480px) {
+                    #div_WhatCanIDo_Mobile_Sec2 > div{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1.1rem;
+                    }
+                }
+                @media (max-width: 455px) {
+                    #div_WhatCanIDo_Mobile_Sec2 > div{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1.1rem;
+                        font-size: 12px;
+                    }
+                }
+                @media (max-width: 433px) {
+                    #div_WhatCanIDo_Mobile_Sec2 > div{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.5rem;
+                        font-size: 10px;
+                    }
+                }
+
+
 
                 /* WHAT CAN I STUDY --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_WhatIStudy_Mobile_Section{
@@ -224,3 +269,8 @@
                 #div_WhatIStudy_Mobile_Sec1 > h2{ margin-bottom: 2rem; }
                 #div_WhatIStudy_Mobile_Sec2 > h2{ margin-bottom: 2rem; }
                 #div_WhatIStudy_Mobile_Sec1, #div_WhatIStudy_Mobile_Sec2{ display: flex;flex-direction: column;justify-content: start;align-items: center;}
+
+
+
+
+

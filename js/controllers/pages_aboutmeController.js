@@ -519,7 +519,7 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Mobile">
-                    <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>                  
+                                    
                 </div>  
             </div>            
         `;
@@ -532,7 +532,6 @@ export class AboutMeController{
 
 
         document.getElementById("buttonDonwloadCV_Desktop").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank"); });
-        document.getElementById("buttonDonwloadCV_Mobile").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank");});
         this.initScrollableImages();
         this.changeContentOfCard("whoIAm");
     }
@@ -742,7 +741,6 @@ export class AboutMeController{
                         <div id="div_WhatCanIDo_Mobile_Sec1" class="text-gray-500">
                             ${txtWhatCanIDo[lang].txt}
                         </div>
-                        <div><div></div></div>
                         <div id="div_WhatCanIDo_Mobile_Sec2">
                             <div class="text-white text-2xl font-bold text-center mb-5 drop-shadow-lg tracking-wider">${txtsAux3[lang].txt}</div>
                             <div>
@@ -757,7 +755,7 @@ export class AboutMeController{
                                     <div class="skills_Web">HTML  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
                                     <div class="skills_Web">CSS  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span></div>
                                     <div class="skills_Framework">Flutter  <span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span></div>                                    
-                                    <div class="skills_Framework">Jetpack Compose  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>
+                                    <div class="skills_Framework">Jetpack Compose  <span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span></div>                                
                                 </div>
                                 <div>
                                     <div class="skills_Framework"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Android</div>
@@ -770,8 +768,8 @@ export class AboutMeController{
                                     <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  Desarrollo UI/UX</div>
                                     <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span>  JSON & XML</div>
                                     <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  API Rest</div>
-                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  Documentation</div>
-                                </div>                            
+                                    <div class="skills_General"><span class="circle filled"></span><span class="circle filled"></span><span class="circle"></span><span class="circle"></span><span class="circle"></span>  Documentation</div>                                
+                                </div>                                           
                             </div>
                         </div>                    
                     </div>
@@ -932,7 +930,7 @@ export class AboutMeController{
             // MOBILE -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             document.getElementById("div_whatIDo_Mobile_Text").innerHTML = 
             `
-                <div id="subDiv_AndroidSec"> 
+                <div id="subDiv_AndroidSecMobile"> 
                     <div>${textsWhatIDo["Android"][lang].txt}</div> 
                     <div style="display:flex;justify-content:center;flex-direction:column;">
                         <div id="screenshotsOfApps_Div"> 
@@ -967,7 +965,7 @@ export class AboutMeController{
                 document.getElementById("div_whatIDo_Mobile_Btns_btnAndroid").classList.add("btnSelected");
                 document.getElementById("div_whatIDo_Mobile_Text").innerHTML = 
                     `
-                        <div id="subDiv_AndroidSec"> 
+                        <div id="subDiv_AndroidSecMobile"> 
                             <div>${textsWhatIDo["Android"][lang].txt}</div> 
                             <div style="display:flex;justify-content:center;flex-direction:column;">
                                 <div id="screenshotsOfApps_Div"> 
