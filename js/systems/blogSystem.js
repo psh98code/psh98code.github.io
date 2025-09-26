@@ -37,4 +37,8 @@ export class BlogSystem{
         });
         return blog;
     }
+
+    getAllArticles(){
+        return this.blogParser.getAll();
+    }
 }

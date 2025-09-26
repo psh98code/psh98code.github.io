@@ -5,6 +5,7 @@ import { HomeController } from "./controllers/pages_homeController.js"
 import { LanguageController } from './controllers/languageController.js';
 import { BlogSystem } from "./systems/blogSystem.js";
 import { AboutMeController } from "./controllers/pages_aboutmeController.js";
+import { BlogController } from "./controllers/pages_blogController.js";
 
 
 // INICIALIZACIONES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,6 +31,7 @@ export class App {
      * @param {HomeController} homeController -- Controlador para el HOME
      * @param {AboutMeController} aboutMeController -- Controlador para el ABOUT ME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
+     * @param {BlogController} blogController
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
      * @param {BlogParser} blogParser -- Parseador para el blog
      * @param {ProjectParser} proyectParser -- Parseador para el parser
@@ -42,6 +44,7 @@ export class App {
         this.homeController = new HomeController(this.languageController, this.blogSystem);
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
         this.aboutMeController = new AboutMeController(this.languageController);
+        this.blogController = new BlogController(this.languageController, this.blogSystem);
     }
 
     async init() {
@@ -110,7 +113,7 @@ export class App {
                 case "blog":
                     {
                         const param = segments[1] // Usar para el parametro como por ejemplo la entrada de blog o de proyecto
-
+                        this.blogController.renderAll(() => {});
                     }    
                 ;
                 break;
