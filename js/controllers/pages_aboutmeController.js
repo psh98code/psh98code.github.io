@@ -280,14 +280,12 @@ const txtWhatIStudy={
                         <li>Ciclo formativo de grado medio</li>
                     </ul>
                 </div>
-                <br>
                 <div class="formacionDIV">
                     <h3>CFGS - Desarrollo de aplicaciones multiplataforma (2022-2024)</h3>
                     <ul>
                         <li>Ciclo formativo de grado superior</li>
                     </ul>
                 </div>
-                <br>
                 <div class="formacionDIV">
                     <h3>CFGS - Desarrollo de aplicaciones web (2024-2025)</h3>
                     <ul>
@@ -305,14 +303,12 @@ const txtWhatIStudy={
                         <li>Intermediate Vocational Training</li>
                     </ul>
                 </div>
-                <br>
                 <div class="formacionDIV">
                     <h3>CFGS - Cross-Platform Application Development (2022-2024)</h3>
                     <ul>
                         <li>Advanced Vocational Training</li>
                     </ul>
                 </div>
-                <br>
                 <div class="formacionDIV">
                     <h3>CFGS - Web Application Development (2024-2025)</h3>
                     <ul>
@@ -800,7 +796,6 @@ export class AboutMeController{
                         <div id="div_WhatIStudy_Mobile_Sec1">
                             ${txtWhatIStudy["titles"][lang].txt}
                         </div>  
-                        <div><div></div></div>
                         <div id="div_WhatIStudy_Mobile_Sec2">
                             ${txtWhatIStudy["titlesComplementary"][lang].txt}
                         </div>                

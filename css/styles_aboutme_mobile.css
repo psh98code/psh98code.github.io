@@ -238,6 +238,9 @@
                         gap: 1.1rem;
                         font-size: 12px;
                     }
+                    #cardAboutMe_Mobile_sectionButtons_btnWhoIAm, #cardAboutMe_Mobile_sectionButtons_btnWhatIDo, #cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo, #cardAboutMe_Mobile_sectionButtons_btnWhatIStudy{
+                        font-size: 12.5px;
+                    }
                 }
                 @media (max-width: 433px) {
                     #div_WhatCanIDo_Mobile_Sec2 > div{
@@ -247,29 +250,36 @@
                         font-size: 10px;
                     }
                 }
-
+                @media (max-width: 410px) {
+                    #cardAboutMe_Mobile_sectionButtons_btnWhoIAm, #cardAboutMe_Mobile_sectionButtons_btnWhatIDo, #cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo, #cardAboutMe_Mobile_sectionButtons_btnWhatIStudy{
+                        font-size: 10.5px;
+                    }
+                }
 
 
                 /* WHAT CAN I STUDY --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_WhatIStudy_Mobile_Section{
                     display: grid;
-                    grid-template-columns: 45% 5% 50%;    
+                    grid-template-rows: 50% 50%;
+                    gap: 1rem;    
+                    padding-top: 1rem;
+                    margin-left: 5%;
+                    margin-right: 5%;
                 }
-                #div_WhatIStudy_Mobile_Section > div > div:empty {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+                #div_WhatIStudy_Mobile_Sec1 > .formacionDIV{
+                    margin-left: 1%;
+                    margin-right: 1%;
+                    scale: 0.8;
                 }
-                #div_WhatIStudy_Mobile_Section > div:empty {
-                    opacity: 0.5;
-                    width: 0.1rem;
-                    background-color: gainsboro;
-                }
-                #div_WhatIStudy_Mobile_Sec1 > h2{ margin-bottom: 2rem; }
-                #div_WhatIStudy_Mobile_Sec2 > h2{ margin-bottom: 2rem; }
-                #div_WhatIStudy_Mobile_Sec1, #div_WhatIStudy_Mobile_Sec2{ display: flex;flex-direction: column;justify-content: start;align-items: center;}
 
+                #div_WhatIStudy_Mobile_Sec1 > h2{ margin-top: 1rem; font-size: 22px;}
+                #div_WhatIStudy_Mobile_Sec2 > h2{ margin-top: 1rem; font-size: 22px;}
+                #div_WhatIStudy_Mobile_Sec1, #div_WhatIStudy_Mobile_Sec2{ display: flex;flex-direction: column;justify-content: start;align-items: center; margin: 0; padding: 0; gap: 0rem;}
+
+                #div_WhatIStudy_Mobile_Sec2 > div{
+                    display: flex;
+                    flex-direction: row;
+                }
 
 
 
