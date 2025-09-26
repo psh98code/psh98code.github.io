@@ -469,7 +469,7 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Desktop">
-                        <button id="buttonDonwloadCV_Desktop"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>
+                    <button id="buttonDonwloadCV_Desktop"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>
                 </div>
             </div>
         `;
@@ -515,7 +515,7 @@ export class AboutMeController{
                 </div>
 
                 <div id="sectionDonwloadCV_Mobile">
-                                    
+                    <button id="buttonDonwloadCV_Mobile"><img src="../../res/img/download.png">${donwloadCVTxt[lang].txt}</button>                                    
                 </div>  
             </div>            
         `;
@@ -526,7 +526,7 @@ export class AboutMeController{
         document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatCanIDo").addEventListener("click", () => { this.changeContentOfCard("WhatCanIDo"); });
         document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIStudy").addEventListener("click", () => { this.changeContentOfCard("WhatIStudy"); });
 
-
+        document.getElementById("buttonDonwloadCV_Mobile").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank"); });
         document.getElementById("buttonDonwloadCV_Desktop").addEventListener("click", () => { window.open("https://drive.google.com/uc?export=download&id=1a6RrjIWrYZOLaxvr9OZY2UyQJaQ40z-H", "_blank"); });
         this.initScrollableImages();
         this.changeContentOfCard("whoIAm");

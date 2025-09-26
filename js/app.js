@@ -104,7 +104,7 @@ export class App {
                 case "aboutme":
                     console.log("Entering about me");
                     this.aboutMeController.renderAll();    
-                    this.setMinimumHeightMobileSection(140, false);
+                    this.setMinimumHeightMobileSection(150, false);
                 ;
                 break;
                 case "blog":

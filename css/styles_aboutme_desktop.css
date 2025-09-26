@@ -211,7 +211,11 @@
                 /* WHAT CAN I STUDY ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 #div_WhatIStudy_Desktop_Section{
                     display: grid;
-                    grid-template-columns: 45% 5% 50%;    
+                    grid-template-columns: 45% 5% 50%;  
+                    padding-bottom: 2rem;  
+                    padding-top: 1rem;
+                    margin-left: 5%;
+                    margin-right: 5%;
                 }
                     #div_WhatIStudy_Desktop_Section > div > div:empty {
                         display: flex;
@@ -311,6 +315,14 @@
 
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    @media (max-width:1510px){
+        #divMainAboutMe_Desktop {
+            flex:1;
+            display: grid;
+            grid-template-rows: 10% 90%;
+            align-items: center;
+        }        
+    }    
     @media (max-width:1500px){
         #divMainAboutMe_Desktop_content{ width: 96%; margin-right: 2%; margin-left: 2%; padding-bottom: 25vh; }
         #cardAboutMe_Desktop{ height: 70vh; }
