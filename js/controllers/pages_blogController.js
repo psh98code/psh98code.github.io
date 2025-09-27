@@ -20,17 +20,57 @@ export class BlogController{
     /**
      * @param {LanguageController} languageController
      * @param {BlogSystem} blogSystem
+     * @param actualPage
+     * @param handleGoTo
+     * @param handleToChangePage
      */
     constructor(languageController, blogSystem){
         this.languageController = languageController;
         this.blogSystem = blogSystem;
+        this.actualPage = 1;
     }
 
 
-    renderAll(handlerToGo){
+    renderAll(handlerToGo, handleToChangePage){
         this.renderDesktopContent();
-        this.insertBlogEntries(this.blogSystem.getAllArticles(), 1, handlerToGo);
+        this.insertBlogEntries(this.blogSystem.getAllArticles(), this.actualPage, handlerToGo, handleToChangePage);
+        this.handleGoTo = handlerToGo;
+        this.handleToChangePage = handleToChangePage;
     }
+
+    changeActualPage(index){
+        this.actualPage = index;
+        this.renderDesktopContent();
+        this.insertBlogEntries(this.blogSystem.getAllArticles(), this.actualPage, this.handlerToGo, this.handleToChangePage);
+    }
+
+
+
+
+
+
+
+    renderBlogEntry(entryId){
+        let entry = this.blogSystem.get // SEGUIR
+
+        let lang = this.languageController.getLanguage();
+        document.getElementById("sectionDesktop").innerHTML = ""; 
+        
+        let html = `
+            <div id="pagesBlog_Desktop_divMainSeeBlogEntry">
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv"> 
+                    <img src="">
+                </div>
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_ContentDiv">
+
+                </div>
+            <div>
+        `;
+
+        document.getElementById("sectionDesktop").innerHTML = hmtl;         
+    }
+
+
 
 
 
@@ -38,6 +78,8 @@ export class BlogController{
 
     renderDesktopContent(){
         let lang = this.languageController.getLanguage();
+        document.getElementById("sectionDesktop").innerHTML = ""; 
+
         let html = `
             <div id="pagesBlog_Desktop_divMain">
                 <div id="pagesBlog_Desktop_divMain_title">
@@ -73,59 +115,96 @@ export class BlogController{
 
 
 
-
-    insertBlogEntries(entries, page, handleGoTo){
-        const itemsPerPage = 4; // cantidad de elementos por página
+    insertBlogEntries(entries, page, handleGoTo, handleToChangePage) {
+        console.log(entries);
+        const itemsPerPage = 4;
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
 
         const entriesToShow = entries.slice(startIndex, endIndex);
 
-        // Dividir en dos arrays de máximo 2 elementos cada uno
         const firstHalf = entriesToShow.slice(0, 2);
         const secondHalf = entriesToShow.slice(2, 4);
 
-        let html = "";
-        let html2 = "";
+        const row1 = document.getElementById("pagesBlog_Desktop_divMain_entries_row1");
+        const row2 = document.getElementById("pagesBlog_Desktop_divMain_entries_row2");
+
+        // limpiar antes de insertar
+        row1.innerHTML = "";
+        row2.innerHTML = "";
 
         // Primer grupo
         firstHalf.forEach(entry => {
-            html += this.getBlogEntry(entry, () => { handleGoTo(entry.id); });
+            console.log("ASDASDAS "+entry.id);
+            const card = this.getBlogEntry(entry, () => handleGoTo(entry.id));
+            row1.appendChild(card);
         });
 
         // Segundo grupo
         secondHalf.forEach(entry => {
-            html2 += this.getBlogEntry(entry, () => { handleGoTo(entry.id); });
+            const card = this.getBlogEntry(entry, () => handleGoTo(entry.id));
+            row2.appendChild(card);
         });
 
-
-        document.getElementById("pagesBlog_Desktop_divMain_entries_row1").innerHTML = html;
-        document.getElementById("pagesBlog_Desktop_divMain_entries_row2").innerHTML = html2;
+        this.setPagesNumbers(entries, page, handleToChangePage);
     }
 
 
 
-    getBlogEntry(blogEntry, handler){
-        let newDescription = "";
-        if (blogEntry.description.length > 100) { newDescription = blogEntry.description.substring(0, 100) + "..."; } 
-        else { newDescription = blogEntry.description; }
 
-        let html = `
-            <div class="cardMiniEntryBlog"> 
-                <img src="${blogEntry.imgPortada}">
-                <div>
-                    <h2>${blogEntry.title}</h2>
-                    <p>${newDescription}</p>
-                    <button onclick="${handler()}">Ver más</button>
-                </div>
+
+    setPagesNumbers(entries, page, handleToChangePage){
+        let numPages = 0;
+        if(entries.length % 4 == 0){
+            numPages = entries.length / 4;
+        }
+        else{
+            numPages = entries.length / 4;
+        }
+
+        let fatherDiv = document.getElementById("pagesBlog_Desktop_divMain_pages");
+
+        for (let index = 1; index < numPages+1; index++) {
+            let div = document.createElement("div");
+            if(index === page){ 
+                div.classList.add("pageNum");
+                div.classList.add("pageNumActual");
+                div.innerHTML = `${index}`;
+                div.addEventListener("click", () => handleToChangePage(index));
+            }
+            else { 
+                div.classList.add("pageNum");
+                div.innerHTML = `${index}`;
+                div.addEventListener("click", () => handleToChangePage(index));
+            }
+            fatherDiv.appendChild(div);
+        }
+    }
+
+
+
+
+    getBlogEntry(blogEntry, handler) {
+        let newDescription = blogEntry.description.length > 75
+            ? blogEntry.description.substring(0, 75) + "..."
+            : blogEntry.description;
+
+        const div = document.createElement("div");
+        div.classList.add("cardMiniEntryBlog");
+        div.innerHTML = `
+            <img src="${blogEntry.imgPortada}">
+            <div>
+                <h2>${blogEntry.title}</h2>
+                <p>${newDescription}</p>
+                <button>Ver más</button>
             </div>
         `;
 
-        return html;
+        // asignar el evento correctamente
+        div.querySelector("button").addEventListener("click", () => handler(blogEntry.id));
+
+        return div;
     }
-
-
-
 
 
 

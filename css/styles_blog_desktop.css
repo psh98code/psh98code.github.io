@@ -12,6 +12,9 @@
 
 
 
+
+
+
 #pagesBlog_Desktop_divMain{
     display: grid;
     grid-template-rows: 10% 15% 50% 15%;
@@ -92,6 +95,25 @@
 
 
 
+    #pagesBlog_Desktop_divMain_pages{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap:1rem;
+    }
+        #pagesBlog_Desktop_divMain_pages div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+
+
+
+
 
 
         .input-wrapper {
@@ -117,3 +139,20 @@
             height: 1.2rem;
             pointer-events: none; /* que no bloquee el click en el input */
         }
+
+
+
+
+
+
+
+
+/* -------------------------------------------- MEDIA QUERIES -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    @media (max-width: 1400px) {
+        #pagesBlog_Desktop_divMain_entries_row1, #pagesBlog_Desktop_divMain_entries_row2{ gap: 4rem; }
+    }
+    @media (max-width: 1000px) {
+        #pagesBlog_Desktop_divMain_entries_row1, #pagesBlog_Desktop_divMain_entries_row2{ gap: 3rem; }
+        #pagesBlog_Desktop_divMain_searchAndFilter_filter{ font-size: 20px; }
+        #pagesBlog_Desktop_divMain_searchAndFilter_filter img { max-width: 1.5rem ;}
+    }

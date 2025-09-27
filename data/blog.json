@@ -1,56 +1,210 @@
 [
-    {
-        "id": 1,
-        "imgPortada": "../res/blogs/1/portada.png",
-        "imgsExtras":[
-
-        ],
-        "link": "",
-        "es":{
-            "title": "Entrada 1",
-            "description": "",
-            "text": ""
-        },
-        "en":{
-            "title": "Entry 1",
-            "description": "",
-            "text": ""
-        }
+  {
+    "id": 1,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
     },
-    {
-        "id": 2,
-        "imgPortada": "../res/blogs/1/portada.png",
-        "imgsExtras":[
-
-        ],
-        "link": "",
-        "es":{
-            "title": "Entrada 2",
-            "description": "",
-            "text": ""
-        },
-        "en":{
-            "title": "Entry 2",
-            "description": "",
-            "text": ""
-        } 
-    },
-    {
-        "id": 3,
-        "imgPortada": "../res/blogs/1/portada.png",
-        "imgsExtras":[
-
-        ],
-        "link": "",
-        "es":{
-            "title": "Entrada 3",
-            "description": "",
-            "text": ""
-        },
-        "en":{
-            "title": "Entry 3",
-            "description": "",
-            "text": ""
-        }        
+    "en": {
+      "title": "Entry 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
     }
+  },
+  {
+    "id": 2,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 3,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 4,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 5,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 6,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 6",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 6",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 7,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 7",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 7",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 8,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 8",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 8",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 9,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 9",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 9",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 10,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 10",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 10",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 11,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 11",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 11",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 12,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 12",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 12",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  },
+  {
+    "id": 13,
+    "imgPortada": "../res/blogs/1/portada.png",
+    "imgsExtras": [],
+    "link": "",
+    "es": {
+      "title": "Entrada 13",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    },
+    "en": {
+      "title": "Entry 13",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "text": ""
+    }
+  }
 ]

@@ -17,12 +17,12 @@
 
     .cardMiniEntryBlog > div{
         display: grid;
-        grid-template-rows: 40% 30% 30%;
+        grid-template-rows: 30% 35% 35%;
         height: 100%;
         justify-content: center;
         align-items: center;
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
     .cardMiniEntryBlog img{
         width: 100%;
@@ -30,4 +30,55 @@
         object-fit: cover;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
+    }
+    .cardMiniEntryBlog p {
+        font-size: 13px;
+        margin-left: 3%;
+    }
+    .cardMiniEntryBlog h2 {
+        font-weight: 800;
+        font-size: 19px;
+    }
+
+
+    @media (max-width: 1500px) { .cardMiniEntryBlog p { font-size: 12px; } .cardMiniEntryBlog h2 { font-size: 18px; } }
+    @media (max-width: 1330px) { .cardMiniEntryBlog p { font-size: 11px; } .cardMiniEntryBlog h2 { font-size: 17px; } }
+    @media (max-width: 1230px) { .cardMiniEntryBlog p { font-size: 10.5px; } .cardMiniEntryBlog h2 { font-size: 16px; } }
+    @media (max-width: 1165px) { .cardMiniEntryBlog p { font-size: 10.3px; } .cardMiniEntryBlog h2 { font-size: 16px; } }
+    @media (max-width: 1140px) { .cardMiniEntryBlog p { font-size: 10px; } .cardMiniEntryBlog h2 { font-size: 16px; } }
+    @media (max-width: 1110px) { .cardMiniEntryBlog p { font-size: 9px; } .cardMiniEntryBlog h2 { font-size: 16px; } }
+
+
+
+.pageNum{
+    background-color: rgba(17, 133, 201, 0.11);
+    border-radius: 0.5rem;
+    font-size: 15px;
+    color: rgb(134, 134, 134);
+    padding: 0.5rem;
+    cursor: pointer;
+}
+    .pageNumActual{ scale:1.2;  filter: contrast(150%); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #pagesBlog_Desktop_divMainSeeBlogEntry{
+        
     }

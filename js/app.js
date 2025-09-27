@@ -113,7 +113,16 @@ export class App {
                 case "blog":
                     {
                         const param = segments[1] // Usar para el parametro como por ejemplo la entrada de blog o de proyecto
-                        this.blogController.renderAll(() => {});
+                        console.log("param " +param);
+                        if(param !== undefined){
+
+                        }
+                        else{
+                            this.blogController.renderAll(
+                                (blogEntry) => { console.log("Click en:", blogEntry); },
+                                (indexPage) => { this.blogController.changeActualPage(indexPage); }
+                            );
+                        }
                     }    
                 ;
                 break;
