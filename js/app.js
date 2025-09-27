@@ -118,7 +118,7 @@ export class App {
 
                         }
                         else{
-                            this.setMinimumHeightMobileSection(100, true);
+                            this.setMinimumHeightMobileSection(100, false);
                             this.blogController.renderAll(
                                 (blogEntryId) => {
                                     this.blogController.renderBlogEntry(blogEntryId) 
@@ -386,7 +386,7 @@ export class App {
                     body.style.overflowY = "";
                     html.style.overflowY = "";
                     body.style.overflowY = "hidden";
-                    html.style.overflowY = "scroll";
+                    html.style.overflowY = "hidden";
                     body.style.minHeight = "";
                     html.style.minHeight = "";
                     body.style.minHeight = minimum + "vh";

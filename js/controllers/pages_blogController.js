@@ -34,6 +34,7 @@ export class BlogController{
 
     renderAll(handlerToGo, handleToChangePage, onBack){
         this.renderDesktopContent();
+        this.renderMobileContent();
         this.insertBlogEntries(this.blogSystem.getAllArticles(), this.actualPage, handlerToGo, handleToChangePage);
         this.handleGoTo = handlerToGo;
         this.handleToChangePage = handleToChangePage;
@@ -43,6 +44,7 @@ export class BlogController{
     changeActualPage(index){
         this.actualPage = index;
         this.renderDesktopContent();
+        this.renderMobileContent();
         this.insertBlogEntries(this.blogSystem.getAllArticles(), this.actualPage, this.handlerToGo, this.handleToChangePage);
     }
 
@@ -53,6 +55,10 @@ export class BlogController{
 
 
     renderBlogEntry(entryId){
+        this.renderBlogEntryDesktop(entryId);
+        this.renderBlogEntryMobile(entryId);
+    }
+    renderBlogEntryDesktop(entryId){
         let lang = this.languageController.getLanguage();
         let entry = this.blogSystem.getArticleById(entryId, lang);
         document.getElementById("sectionDesktop").innerHTML = ""; 
@@ -124,9 +130,83 @@ export class BlogController{
         `;
         }
         
-
         document.getElementById("sectionDesktop").innerHTML = html;  
-        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() })   
+        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() }) 
+    }
+    renderBlogEntryMobile(entryId){
+        let lang = this.languageController.getLanguage();
+        let entry = this.blogSystem.getArticleById(entryId, lang);
+        document.getElementById("sectionMobile").innerHTML = ""; 
+        let htmlText = this.getTextParagrahpsOfEntry(entry);
+        let textVisitLink = {
+            "es": {txt: "Visitar enlace externo del artículo"},
+            "en": {txt: "Visit external link of article"}
+        }
+
+        let html = ""; 
+        if(entry.link === undefined || entry.link === ""){
+            html = `
+            <div id="pagesBlog_Mobile_divMainSeeBlogEntry">
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv"> 
+                    <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_1">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                    </div>
+                    <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_2">
+                        <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
+                        <img src="${entry.imgPortada}">
+                        <div id="divOfLabelsAndDate">
+                            <div>
+                                ${this.getLabelsOfEntry(entry)}
+                            </div>
+                            <div>
+                                <p class="text-1xl font-medium text-gray-400 mb-2">${entry.date}</p>                            
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_DescriptionDiv">
+                    <h3 class="text-xl font-medium text-gray-400 mb-2">${entry.description}</h3>
+                </div>
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_ContentDiv">
+                    ${htmlText}
+                </div>
+            <div>
+        `;
+        }   
+        else{
+            html = `
+            <div id="pagesBlog_Mobile_divMainSeeBlogEntry">
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv"> 
+                    <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_1">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                    </div>
+                    <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_2">
+                        <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
+                        <img src="${entry.imgPortada}">
+                        <div id="divOfLabelsAndDate">
+                            <div>
+                                ${this.getLabelsOfEntry(entry)}
+                            </div>
+                            <div>
+                                <p class="text-1xl font-medium text-gray-400 mb-2">${entry.date}</p>                            
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_DescriptionDiv">
+                    <h3 class="text-xl font-medium text-gray-400 mb-2">${entry.description}</h3>
+                    <hr>
+                </div>
+                <div id="pagesBlog_Mobile_divMainSeeBlogEntry_ContentDiv">
+                    ${htmlText}
+                    <a href="${entry.link}" id="linkBtnOfEntryBlogMobile" target="_blank">${textVisitLink[lang].txt}</a>
+                </div>
+            <div>
+        `;
+        }
+
+        document.getElementById("sectionMobile").innerHTML = html;
+        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() }) 
     }
 
     getTextParagrahpsOfEntry(entry)
@@ -213,6 +293,37 @@ export class BlogController{
         `;
         document.getElementById("sectionDesktop").innerHTML = html;
     }
+    renderMobileContent(){
+        let lang = this.languageController.getLanguage();
+        document.getElementById("sectionMobile").innerHTML = ""; 
+
+        let html = `
+            <div id="pagesBlog_Mobile_divMain">
+                <div id="pagesBlog_Mobile_divMain_title">
+                    <div class="text-4xl font-bold text-center text-gray-400 tracking-wide uppercase">BLOG</div>
+                </div>
+                <div id="pagesBlog_Mobile_divMain_searchAndFilter">
+                    <div id="pagesBlog_Mobile_divMain_searchAndFilter_empty"> 
+                    </div>
+                    <div id="pagesBlog_Mobile_divMain_searchAndFilter_search"> 
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Buscar...">
+                            <img src="../../res/img/search.png" alt="buscar">
+                        </div>
+                    </div>
+                    <div id="pagesBlog_Mobile_divMain_searchAndFilter_filter" class="text-2xl font-bold text-center text-gray-400 tracking-wide"> 
+                        <img src="../../res/img/filter.png">
+                    </div>
+                </div>
+                <div id="pagesBlog_Mobile_divMain_entries">
+                </div>
+                <div id="pagesBlog_Mobile_divMain_pages">
+                    
+                </div>
+            </div>
+        `;
+        document.getElementById("sectionMobile").innerHTML = html;
+    }
 
 
 
@@ -230,24 +341,31 @@ export class BlogController{
         const firstHalf = entriesToShow.slice(0, 2);
         const secondHalf = entriesToShow.slice(2, 4);
 
-        const row1 = document.getElementById("pagesBlog_Desktop_divMain_entries_row1");
-        const row2 = document.getElementById("pagesBlog_Desktop_divMain_entries_row2");
+        const row1Desktop = document.getElementById("pagesBlog_Desktop_divMain_entries_row1");
+        const row2Desktop = document.getElementById("pagesBlog_Desktop_divMain_entries_row2");
+        const divMobile = document.getElementById("pagesBlog_Mobile_divMain_entries");
 
         // limpiar antes de insertar
-        row1.innerHTML = "";
-        row2.innerHTML = "";
+        row1Desktop.innerHTML = "";
+        row2Desktop.innerHTML = "";
+        divMobile.innerHTML = "";
 
         // Primer grupo
         firstHalf.forEach(entry => {
             console.log("ASDASDAS "+entry.id);
             const card = this.getBlogEntry(entry, () => handleGoTo(entry.id));
-            row1.appendChild(card);
+            row1Desktop.appendChild(card);
         });
 
         // Segundo grupo
         secondHalf.forEach(entry => {
             const card = this.getBlogEntry(entry, () => handleGoTo(entry.id));
-            row2.appendChild(card);
+            row2Desktop.appendChild(card);
+        });
+
+        entriesToShow.forEach(entry => {
+            const card = this.getBlogEntry(entry, () => handleGoTo(entry.id));
+            divMobile.appendChild(card);
         });
 
         this.setPagesNumbers(entries, page, handleToChangePage);
@@ -265,9 +383,8 @@ export class BlogController{
         else{
             numPages = entries.length / 4;
         }
-
+        /* -------------------------------------------------------------- DESKTOP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
         let fatherDiv = document.getElementById("pagesBlog_Desktop_divMain_pages");
-
         for (let index = 1; index < numPages+1; index++) {
             let div = document.createElement("div");
             if(index === page){ 
@@ -283,6 +400,24 @@ export class BlogController{
             }
             fatherDiv.appendChild(div);
         }
+        /* -------------------------------------------------------------- MOBILE ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+        let fatherDiv2 = document.getElementById("pagesBlog_Mobile_divMain_pages");
+        for (let index = 1; index < numPages+1; index++) {
+            let div = document.createElement("div");
+            if(index === page){ 
+                div.classList.add("pageNum");
+                div.classList.add("pageNumActual");
+                div.innerHTML = `${index}`;
+                div.addEventListener("click", () => handleToChangePage(index));
+            }
+            else { 
+                div.classList.add("pageNum");
+                div.innerHTML = `${index}`;
+                div.addEventListener("click", () => handleToChangePage(index));
+            }
+            fatherDiv2.appendChild(div);
+        }
+
     }
 
 
@@ -309,22 +444,4 @@ export class BlogController{
 
         return div;
     }
-
-
-
-    /*
-
-        export class BlogPost {
-            constructor({ id, title, description, imgPortada, imgsExtras = [], link = "", text = "" }) {
-                this.id = id;                     // número
-                this.title = title;               // string
-                this.description = description;   // string
-                this.imgPortada = imgPortada;     // string
-                this.imgsExtras = imgsExtras;     // array de strings
-                this.link = link;                 // string
-                this.text = text;                 // string
-            }
-        }
-
-    */
 }
