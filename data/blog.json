@@ -3,16 +3,18 @@
     "id": 1,
     "imgPortada": "../res/blogs/1/portada.png",
     "imgsExtras": [],
-    "link": "",
+    "link": "https://www.google.es",
+    "date" : "27/09/2025",
+    "labels" : ["android", "kotlin", "jetpackCompose"],
     "es": {
       "title": "Entrada 1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nCurabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.\nInteger in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit.\nEtiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.\nMaecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi.\nDuis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat.\nCras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi.\nAenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.\n\nPraesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.\nUt et mauris vel pede varius sollicitudin. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.\nTotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     },
     "en": {
       "title": "Entry 1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nCurabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.\nInteger in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit.\nEtiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.\nMaecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi.\nDuis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat.\nCras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi.\nAenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.\n\nPraesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.\nUt et mauris vel pede varius sollicitudin. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.\nTotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     }
   },
   {
@@ -20,6 +22,8 @@
     "imgPortada": "../res/blogs/1/portada.png",
     "imgsExtras": [],
     "link": "",
+    "date" : "",
+    "labels" : [],
     "es": {
       "title": "Entrada 2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -36,6 +40,8 @@
     "imgPortada": "../res/blogs/1/portada.png",
     "imgsExtras": [],
     "link": "",
+    "date" : "",
+    "labels" : [],
     "es": {
       "title": "Entrada 3",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -43,166 +49,6 @@
     },
     "en": {
       "title": "Entry 3",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 4,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 4",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 4",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 5,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 5",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 5",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 6,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 6",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 6",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 7,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 7",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 7",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 8,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 8",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 8",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 9,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 9",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 9",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 10,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 10",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 10",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 11,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 11",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 11",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 12,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 12",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 12",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    }
-  },
-  {
-    "id": 13,
-    "imgPortada": "../res/blogs/1/portada.png",
-    "imgsExtras": [],
-    "link": "",
-    "es": {
-      "title": "Entrada 13",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "text": ""
-    },
-    "en": {
-      "title": "Entry 13",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "text": ""
     }

@@ -33,6 +33,8 @@ export class BlogSystem{
             imgPortada: blogsJsonObject.imgPortada,
             imgsExtras: blogsJsonObject.imgsExtras,
             link: blogsJsonObject.link,
+            labels: blogsJsonObject.labels,
+            date: blogsJsonObject.date,
             text: blogsJsonObject.text
         });
         return blog;
@@ -40,5 +42,9 @@ export class BlogSystem{
 
     getAllArticles(){
         return this.blogParser.getAll();
+    }
+
+    getArticleById(id, lang){
+        return this.blogParser.getById(id);
     }
 }

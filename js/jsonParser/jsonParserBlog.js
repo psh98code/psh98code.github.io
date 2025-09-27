@@ -20,6 +20,8 @@ export class BlogParser {
             link: item.link,
             title: item[lang].title,
             description: item[lang].description,
+            labels: item.labels,
+            date: item.date,
             text: item[lang].text
         }));
     }
@@ -39,6 +41,8 @@ export class BlogParser {
             link: blog.link,
             title: blog[lang].title,
             description: blog[lang].description,
+            labels: blog.labels,
+            date: blog.date,
             text: blog[lang].text
         }) : null;
     }

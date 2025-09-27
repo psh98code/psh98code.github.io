@@ -80,5 +80,174 @@
 
 
     #pagesBlog_Desktop_divMainSeeBlogEntry{
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin-left: 15%;
+        margin-right: 15%;   
+        min-height: 100vh;
+        padding-bottom: 20vh;
     }
+        #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:1rem;
+        }
+            #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1 {
+                width: 100%;
+                justify-content: start;
+                align-items: center;
+            }
+                #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2 h1 { margin-bottom: 3vh;}
+                #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1 p{ text-align: right;}
+                #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1 img { max-width: 3rem; filter: invert(100%);}
+            #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2{
+                width: 100%;
+            }                
+                #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2 img { width: 100%; height: 50vh; object-fit: cover;}
+
+            #divOfLabelsAndDate{
+                background-color: rgba(219, 219, 219, 0.062);
+                padding-top: 1vh;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                padding-left: 2%;
+                padding-right: 2%;
+                padding-bottom: 1%;
+                padding-top: 1%;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+            }
+                #divOfLabelsAndDate > div:last-child{
+                    display: flex;
+                    justify-content: end;
+                    align-items: end;
+                }
+                #divOfLabelsAndDate > div:first-child{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: start;
+                    align-items: start;
+                    gap: 1rem;
+                }
+
+
+
+
+
+
+    #pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 2.5%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+        #pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv a{
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: rgba(10, 91, 129, 0.205);
+            border-radius: 1rem;
+            color: rgba(13, 111, 202, 0.877);
+        }
+        #pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv hr {
+            border: none;              /* elimina el borde por defecto */
+            height: 2px;               /* grosor de la barra */
+            background-color: rgba(54, 54, 54, 0.384); /* color */
+            width: 100%;               /* ocupa todo el ancho */
+            margin: 1rem 0;            /* espacio arriba y abajo (opcional) */
+        }
+        #pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv h3 { text-align: center;} 
+
+    
+    #pagesBlog_Desktop_divMainSeeBlogEntry_ContentDiv{
+        width: 94%;
+        margin-left: 3%; margin-right: 3%;
+        color:white;
+        margin-top: 1%;
+    }
+
+
+
+
+
+
+
+
+    #linkBtnOfEntryBlog {
+        position: fixed;       /* se fija respecto a la ventana */
+        bottom: 20px;          /* 20px desde abajo */
+        right: 20px;           /* 20px desde la derecha */
+        padding: 12px 18px;    /* tamaño del botón */
+        background-color: rgba(102, 51, 153, 0.199);
+        color: white;
+        border: none;
+        border-radius: 10px;   /* bordes redondeados estilo "pill" */
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* sombra para efecto flotante */
+        z-index: 1000;         /* siempre encima de otros elementos */
+        transition: transform 0.2s; /* animación al hacer hover */
+    }
+
+    #linkBtnOfEntryBlog:hover {
+        transform: translateY(-3px); /* pequeño “lift” al pasar el mouse */
+    }
+
+
+
+
+
+
+    #backBtn_OfEntryBlog:hover{
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+    .labelDiv{
+        padding: 0.3rem;
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+        font-size: 12px;
+    }
+        .lbl_android  { background-color: rgba(51, 255, 0, 0.15); color: #c0c0c0;}   /* verde claro */
+        .lbl_unity    { background-color: rgba(64, 128, 255, 0.15); color: #c0c0c0;} /* azul Unity */
+        .lbl_csharp   { background-color: rgba(37, 99, 235, 0.15); color: #c0c0c0; } /* azul oscuro */
+        .lbl_java     { background-color: rgba(255, 87, 34, 0.15); color: #c0c0c0;}  /* naranja */
+        .lbl_kotlin   { background-color: rgba(102, 51, 153, 0.15); color: #c0c0c0; } /* púrpura */
+        .lbl_javascript { background-color: rgba(255, 223, 0, 0.15); color: #c0c0c0;} /* amarillo */
+        .lbl_typescript  { background-color: rgba(51, 102, 255, 0.15); color: #c0c0c0; }
+        .lbl_python     { background-color: rgba(53, 114, 165, 0.15); color: #c0c0c0; }
+        .lbl_html       { background-color: rgba(227, 76, 38, 0.15); color: #c0c0c0;}
+        .lbl_css        { background-color: rgba(38, 77, 228, 0.15); color: #c0c0c0; }
+        .lbl_sql        { background-color: rgba(6, 78, 59, 0.15); color: #c0c0c0;}
+        .lbl_mysql      { background-color: rgba(0, 123, 167, 0.15); color: #c0c0c0; }
+        .lbl_mongodb    { background-color: rgba(75, 150, 75, 0.15); color: #c0c0c0;}
+        .lbl_docker     { background-color: rgba(0, 123, 255, 0.15); color: #c0c0c0; }
+        .lbl_git        { background-color: rgba(240, 80, 40, 0.15); color: #c0c0c0; }
+        .lbl_linux      { background-color: rgba(51, 51, 51, 0.15); color: #c0c0c0; }
+        .lbl_aws        { background-color: rgba(255, 153, 0, 0.15); color: #c0c0c0;}
+        .lbl_azure      { background-color: rgba(0, 120, 212, 0.15); color: #fff; }
+        .lbl_react      { background-color: rgba(97, 218, 251, 0.15); color: #c0c0c0;}
+        .lbl_vue        { background-color: rgba(65, 184, 131, 0.15); color: #c0c0c0;}
+        .lbl_angular    { background-color: rgba(221, 27, 36, 0.15); color: #c0c0c0; }
+        .lbl_node       { background-color: rgba(123, 199, 82, 0.15); color: #c0c0c0;}
+        .lbl_php        { background-color: rgba(79, 93, 149, 0.15); color: #c0c0c0; }
+        .lbl_ruby       { background-color: rgba(170, 35, 85, 0.15); color: #c0c0c0;}
+        .lbl_go         { background-color: rgba(0, 173, 216, 0.15); color: #c0c0c0;}
+        .lbl_swift      { background-color: rgba(255, 90, 0, 0.15); color: #c0c0c0; }
+        .lbl_flutter    { background-color: rgba(41, 117, 255, 0.15); color: #c0c0c0; }
+        .lbl_flutter    { background-color: rgba(33, 150, 243, 0.15); color: #c0c0c0; } /* alternativa */
+        .lbl_bash       { background-color: rgba(32, 32, 32, 0.15); color: #c0c0c0;}
+        .lbl_cplusplus  { background-color: rgba(0, 97, 255, 0.15); color: #c0c0c0; }
+        .lbl_jetpackCompose { background-color: rgba(49, 151, 243, 0.15); color: #c0c0c0;}

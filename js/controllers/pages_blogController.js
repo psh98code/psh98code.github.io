@@ -23,6 +23,7 @@ export class BlogController{
      * @param actualPage
      * @param handleGoTo
      * @param handleToChangePage
+     * @param onBack
      */
     constructor(languageController, blogSystem){
         this.languageController = languageController;
@@ -31,11 +32,12 @@ export class BlogController{
     }
 
 
-    renderAll(handlerToGo, handleToChangePage){
+    renderAll(handlerToGo, handleToChangePage, onBack){
         this.renderDesktopContent();
         this.insertBlogEntries(this.blogSystem.getAllArticles(), this.actualPage, handlerToGo, handleToChangePage);
         this.handleGoTo = handlerToGo;
         this.handleToChangePage = handleToChangePage;
+        this.onBack = onBack;
     }
 
     changeActualPage(index){
@@ -51,26 +53,128 @@ export class BlogController{
 
 
     renderBlogEntry(entryId){
-        let entry = this.blogSystem.get // SEGUIR
-
         let lang = this.languageController.getLanguage();
+        let entry = this.blogSystem.getArticleById(entryId, lang);
         document.getElementById("sectionDesktop").innerHTML = ""; 
-        
-        let html = `
+        let htmlText = this.getTextParagrahpsOfEntry(entry);
+        let textVisitLink = {
+            "es": {txt: "Visitar enlace externo del artículo"},
+            "en": {txt: "Visit external link of article"}
+        }
+
+        let html = ""; 
+        if(entry.link === undefined || entry.link === ""){
+            html = `
             <div id="pagesBlog_Desktop_divMainSeeBlogEntry">
                 <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv"> 
-                    <img src="">
+                    <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                    </div>
+                    <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2">
+                        <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
+                        <img src="${entry.imgPortada}">
+                        <div id="divOfLabelsAndDate">
+                            <div>
+                                ${this.getLabelsOfEntry(entry)}
+                            </div>
+                            <div>
+                                <p class="text-1xl font-medium text-gray-400 mb-2">${entry.date}</p>                            
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv">
+                    <h3 class="text-xl font-medium text-gray-400 mb-2">${entry.description}</h3>
                 </div>
                 <div id="pagesBlog_Desktop_divMainSeeBlogEntry_ContentDiv">
-
+                    ${htmlText}
                 </div>
             <div>
         `;
+        }   
+        else{
+            html = `
+            <div id="pagesBlog_Desktop_divMainSeeBlogEntry">
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv"> 
+                    <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                    </div>
+                    <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2">
+                        <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
+                        <a href="${entry.link}" id="linkBtnOfEntryBlog" target="_blank">${textVisitLink[lang].txt}</a>
+                        <img src="${entry.imgPortada}">
+                        <div id="divOfLabelsAndDate">
+                            <div>
+                                ${this.getLabelsOfEntry(entry)}
+                            </div>
+                            <div>
+                                <p class="text-1xl font-medium text-gray-400 mb-2">${entry.date}</p>                            
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_DescriptionDiv">
+                    <h3 class="text-xl font-medium text-gray-400 mb-2">${entry.description}</h3>
+                    <hr>
+                </div>
+                <div id="pagesBlog_Desktop_divMainSeeBlogEntry_ContentDiv">
+                    ${htmlText}
+                </div>
+            <div>
+        `;
+        }
+        
 
-        document.getElementById("sectionDesktop").innerHTML = hmtl;         
+        document.getElementById("sectionDesktop").innerHTML = html;  
+        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() })   
     }
 
+    getTextParagrahpsOfEntry(entry)
+    {
+        let totalImages = entry.imgsExtras.length;
+        let entryText = entry.text.split(/\r?\n/).filter(p => p.trim() !== "");
 
+        let htmlText = "";
+
+        // Primer párrafo
+        if (entryText.length > 0) {
+            htmlText += `<p class="prose max-w-4xl mx-auto p-1 rounded-lg shadow-md>${entryText[0]}</p>\n`;
+        }
+
+        // Párrafos restantes (excepto el primero)
+        let remainingParagraphs = entryText.slice(1);
+        let paragraphsPerImage = totalImages > 0 ? Math.ceil(remainingParagraphs.length / totalImages) : remainingParagraphs.length;
+
+        let imgIndex = 0;
+        for (let i = 0; i < remainingParagraphs.length; i++) {
+            htmlText += `<p class="prose max-w-4xl mx-auto p-1 rounded-lg shadow-md>${remainingParagraphs[i]}</p>\n`;
+
+            // Insertar imagen si toca
+            if (totalImages > 0 && (i + 1) % paragraphsPerImage === 0 && imgIndex < totalImages) {
+                htmlText += `<img src="${entry.imgsExtras[imgIndex]}" alt="Imagen ${imgIndex + 1}">\n`;
+                imgIndex++;
+            }
+        }
+
+        // Último párrafo igual al primero
+        if (entryText.length > 0) {
+            htmlText += `<p class="prose max-w-4xl mx-auto p-1 rounded-lg shadow-md">${entryText[0]}</p>\n`;
+        }
+
+        return htmlText;
+    }   
+    getLabelsOfEntry(entry){
+        console.log("MMMM - " + JSON.stringify(entry, null, 2));
+
+        let html = ``;
+        entry.labels.forEach(lbl => {
+            console.log("MMMM - " + lbl);
+
+            html += `<div class="labelDiv lbl_${lbl}">${lbl}</div>`
+        });
+
+        return html;
+    }
 
 
 

@@ -118,9 +118,19 @@ export class App {
 
                         }
                         else{
+                            this.setMinimumHeightMobileSection(100, true);
                             this.blogController.renderAll(
-                                (blogEntry) => { console.log("Click en:", blogEntry); },
-                                (indexPage) => { this.blogController.changeActualPage(indexPage); }
+                                (blogEntryId) => {
+                                    this.blogController.renderBlogEntry(blogEntryId) 
+                                    this.setMinimumHeightMobileSection(100, false);
+                                },
+                                (indexPage) => { 
+                                    this.blogController.changeActualPage(indexPage); 
+                                    this.setMinimumHeightMobileSection(100, true);
+                                },
+                                () => {
+                                    this.route();
+                                }
                             );
                         }
                     }    
@@ -362,14 +372,26 @@ export class App {
                 html.style.minHeight = minimum + "vh";
             } 
             else {
-                body.style.overflowY = "";
-                html.style.overflowY = "";
-                body.style.overflowY = "hidden";
-                html.style.overflowY = "hidden";
-                body.style.minHeight = "";
-                html.style.minHeight = "";
-                body.style.minHeight = "100vh";
-                html.style.minHeight = "100vh";
+                if(scrollYEver){
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "hidden";
+                    body.style.minHeight = "";
+                    html.style.minHeight = "";
+                    body.style.minHeight = "100vh";
+                    html.style.minHeight = "100vh";
+                }
+                else{
+                    body.style.overflowY = "";
+                    html.style.overflowY = "";
+                    body.style.overflowY = "hidden";
+                    html.style.overflowY = "scroll";
+                    body.style.minHeight = "";
+                    html.style.minHeight = "";
+                    body.style.minHeight = minimum + "vh";
+                    html.style.minHeight = minimum + "vh";
+                }
             }
         };
 
