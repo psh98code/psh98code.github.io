@@ -188,9 +188,7 @@
 
 
         #pageHome_CardLastArticlesV{
-            width: 84%;
-            margin-left: 8%;
-            margin-right: 8%;
+            width: 100%;
             border-radius: 1em;
             height: auto;
             padding: 0;
@@ -203,7 +201,7 @@
         }
             #pageHome_CardLastArticles_imgOfArticleV{
                 width: 100%;   
-                max-height: 15vh;    
+                max-height: 10vh;    
                 object-fit: cover;
                 padding: 0;
                 border-top-left-radius: 1em;
@@ -212,14 +210,14 @@
             }
             #pageHome_CardLastArticles_textsSecionV{
                 margin: 0;
+                padding: 1em 0 0 0 ;
+                width: 100%;
             }
                 #pageHome_CardLastArticles_titleOfArticleV{
-                    padding-bottom: 0.5em;
                     font-size: 1.5rem;       /* tamaño grande, ajustable */
                     font-weight: 700;        /* negrita */
                     color: #A3F7BF;          /* verde suave tech */
                     text-align: center;      /* centrado */
-                    margin-top: 0.6rem;     /* separación arriba/abajo e izquierda/derecha */
                     line-height: 1.2;        /* espacio entre líneas */
                 }
                 #pageHome_CardLastArticles_txtOfArticleV{
