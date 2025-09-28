@@ -68,13 +68,7 @@
     margin: auto;   
 }
 
-    #linkedIn{
-        width: 5em;
-    }
-    #github{
-        width: 5em;
-    }
-    #classgap{
+    #linkedIn, #github, #classgap{
         width: 5em;
     }
 
@@ -83,6 +77,8 @@
         #sectionMobile { display: flex;}
         #divRssDesktop { display: none; }
         #sectionDesktop { display: none;}
+        .linkedIn, .gitHub, .classgap{ width: 4em; height: 4em; }
+        #divRssMobile { bottom: 1em; } 
     }
     @media (min-width: 769px) {
         #divRssMobile { display: none; }
