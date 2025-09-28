@@ -8,7 +8,7 @@
 
 #pagesBlog_Mobile_divMain {
     display: flex; flex-direction: column;
-    margin: 0 5% 10% 5%;
+    margin: 0 5% 15vh 5%;
     gap:3rem;
     width: 90%;
     height: auto;
