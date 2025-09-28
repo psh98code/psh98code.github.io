@@ -60,7 +60,7 @@
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 20vh;
     min-height: auto; /* ya no fuerza 100vh ni más */
 }
 
