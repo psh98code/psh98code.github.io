@@ -325,72 +325,91 @@
         height: 17vh;
     }
 }
+/* Para tablets y móviles grandes */
 @media (max-width: 800px) {
-    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.7rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.8rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.7rem;}
-    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
-        max-width: 1.5rem;
+    /* Texto dentro del card */
+    #pageHome_CardLastArticles_textsSecionV p {
+        font-size: 0.85rem;
     }
-    #pageHome_CardLastArticles_dotsAndArrowsSection{
-        padding-left: 15%;
-        padding-right: 15%;
+    #pageHome_CardLastArticles_textsSecionV h3 {
+        font-size: 0.95rem;
+    } 
+    #pageHome_CardLastArticles_textsSecionV a {
+        font-size: 0.85rem;
     }
-    .dot, .dotScaled {
-        max-width: 1.6em;
-    }
-    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV{
-        max-width: 1.7rem;
-    }
-    #pageHome_CardLastArticles_dotsAndArrowsSectionV{
-        padding-left: 15%;
-        padding-right: 15%;
-    }
-}
-@media (max-width: 450px) {
-    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.6rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.7rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.6rem;}
 
-    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
-        max-width: 1.2rem;
+    /* Dots y flechas */
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
+        max-width: 1.6rem;
     }
-    #pageHome_CardLastArticles_dotsAndArrowsSection{
+    #pageHome_CardLastArticles_dotsAndArrowsSection {
+        padding-left: 12%;
+        padding-right: 12%;
+    }
+    .dot, .dotScaled {
+        max-width: 1.7em;
+    }
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV {
+        max-width: 1.8rem;
+    }
+    #pageHome_CardLastArticles_dotsAndArrowsSectionV {
+        padding-left: 12%;
+        padding-right: 12%;
+    }
+}
+
+/* Móviles medianos */
+@media (max-width: 450px) {
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
+        max-width: 1.3rem;
+    }
+    #pageHome_CardLastArticles_dotsAndArrowsSection {
         padding-left: 10%;
         padding-right: 10%;
     }
     .dot, .dotScaled {
-        max-width: 1.2em;
+        max-width: 1.3em;
     }
-    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV{
-        max-width: 1.5rem;
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV {
+        max-width: 1.6rem;
     }
-    #pageHome_CardLastArticles_dotsAndArrowsSectionV{
+    #pageHome_CardLastArticles_dotsAndArrowsSectionV {
         padding-left: 10%;
         padding-right: 10%;
     }
-    #pageHome_DivVertical > div:first-child h1{
-        font-size: 2.5em;
-    }
-    #pageHome_DivVertical > div:first-child p{
-        font-size: 1.1em;
-    }
-}
-@media (max-width: 300px) {
-    #pageHome_DivVertical > div:first-child h1{
+
+    #pageHome_DivVertical > div:first-child h1 {
         font-size: 2.2em;
     }
-    #pageHome_DivVertical > div:first-child p{
+    #pageHome_DivVertical > div:first-child p {
         font-size: 1em;
     }
-    #pageHome_CardLastArticles_textsSecionV h3{
-        font-size: 1em;
+}
+
+/* Móviles pequeños */
+@media (max-width: 300px) {
+    #pageHome_DivVertical > div:first-child h1 {
+        font-size: 1.9em;
     }
-    #pageHome_CardLastArticles_textsSecionV p{
-        font-size: 0.8em;
+    #pageHome_DivVertical > div:first-child p {
+        font-size: 0.95em;
     }
-    #pageHome_CardLastArticles_textsSecionV a{
-        font-size: 0.8em;
+
+    #pageHome_CardLastArticles_textsSecionV h3 {
+        font-size: 0.95em;
+    }
+    #pageHome_CardLastArticles_textsSecionV p {
+        font-size: 0.75em;
+    }
+    #pageHome_CardLastArticles_textsSecionV a {
+        font-size: 0.75em;
+    }
+
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
+        max-width: 1rem;
+    }
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV {
+        max-width: 1.2rem;
     }
 }
 
