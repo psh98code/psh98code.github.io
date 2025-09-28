@@ -74,6 +74,7 @@ export class App {
         const segments = path.split("/").filter(seg => seg !== ""); // ["projects", "1"]
 
         if (segments.length === 0) {
+            document.body.classList.add(".bodyOverFlowYHidden");
             document.getElementById("loadingDiv").style.display = "flex";
             document.body.classList.remove("bodyGeneral");
             document.body.classList.add("bodyLoading");
