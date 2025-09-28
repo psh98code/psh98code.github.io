@@ -326,33 +326,17 @@
     }
 }
 @media (max-width: 800px) {
-    .dot {
-        max-width: 1.5rem;
-    }
-    .dotScaled {
-        max-width: 1.5rem;
-    }
-    #pageHome_CardLastArticles_arrorLeft{
-        max-width: 1.5rem;
-    }
-    #pageHome_CardLastArticles_arrowRight{
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.5rem;
     }
     #pageHome_CardLastArticles_dotsAndArrowsSection{
         padding-left: 15%;
         padding-right: 15%;
     }
-
-    .dot {
+    .dot, .dotScaled {
         max-width: 1.6em;
     }
-    .dotScaled {
-        max-width: 1.6em;
-    }
-    #pageHome_CardLastArticles_arrorLeftV{
-        max-width: 1.7rem;
-    }
-    #pageHome_CardLastArticles_arrowRightV{
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV{
         max-width: 1.7rem;
     }
     #pageHome_CardLastArticles_dotsAndArrowsSectionV{
@@ -360,8 +344,57 @@
         padding-right: 15%;
     }
 }
-
-
+@media (max-width: 450px) {
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
+        max-width: 1.2rem;
+    }
+    #pageHome_CardLastArticles_dotsAndArrowsSection{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .dot, .dotScaled {
+        max-width: 1.2em;
+    }
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV{
+        max-width: 1.5rem;
+    }
+    #pageHome_CardLastArticles_dotsAndArrowsSectionV{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #pageHome_DivVertical > div:first-child h1{
+        font-size: 2.5em;
+    }
+    #pageHome_DivVertical > div:first-child p{
+        font-size: 1.1em;
+    }
+    #pageHome_CardLastArticles_textsSecionV h3{
+        font-size: 1.2em;
+    }
+    #pageHome_CardLastArticles_textsSecionV p{
+        font-size: 0.9em;
+    }
+    #pageHome_CardLastArticles_textsSecionV a{
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 300px) {
+    #pageHome_DivVertical > div:first-child h1{
+        font-size: 2.2em;
+    }
+    #pageHome_DivVertical > div:first-child p{
+        font-size: 1em;
+    }
+    #pageHome_CardLastArticles_textsSecionV h3{
+        font-size: 1em;
+    }
+    #pageHome_CardLastArticles_textsSecionV p{
+        font-size: 0.8em;
+    }
+    #pageHome_CardLastArticles_textsSecionV a{
+        font-size: 0.8em;
+    }
+}
 
 
 

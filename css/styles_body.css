@@ -33,6 +33,7 @@ body,html{
 
 .bodyLoading{
     background-color: black;
+    overflow-y: hidden;
 }
 
 
