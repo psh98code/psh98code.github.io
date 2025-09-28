@@ -188,7 +188,7 @@
             width: 100%;
             border-radius: 1em;
             height: auto;
-            padding: 0;
+            padding: 0 5vw 0 5vw;
             background-color: rgba(0, 0, 0, 0.25);  /* negro casi opaco */
             display: flex;
             flex-direction: column;
