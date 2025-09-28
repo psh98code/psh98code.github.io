@@ -74,7 +74,6 @@ export class App {
         const segments = path.split("/").filter(seg => seg !== ""); // ["projects", "1"]
 
         if (segments.length === 0) {
-            //document.body.classList.add(".bodyOverFlowYHidden");
             document.getElementById("loadingDiv").style.display = "flex";
             document.body.classList.remove("bodyGeneral");
             document.body.classList.add("bodyLoading");
@@ -100,7 +99,7 @@ export class App {
                     this.homeController.renderAll();
                     this.homeController.setAllClickListeners();
                     this.homeController.loopOfLastArticles();
-                    this.setMinimumHeightMobileSection(60, false);
+                    this.setMinimumHeightSection(60, { allowScrollMobile: true, allowScrollDesktop: false, autoHeight: true });
                 ;
                 break;
                 case "contactme":;
@@ -108,7 +107,7 @@ export class App {
                 case "aboutme":
                     console.log("Entering about me");
                     this.aboutMeController.renderAll();    
-                    this.setMinimumHeightMobileSection(150, false);
+                    this.setMinimumHeightSection(150, { allowScrollMobile: true, allowScrollDesktop: true, autoHeight: true });
                 ;
                 break;
                 case "blog":
@@ -119,15 +118,15 @@ export class App {
 
                         }
                         else{
-                            this.setMinimumHeightMobileSection(100, false);
+                            this.setMinimumHeightSection(100, { allowScrollMobile: true, allowScrollDesktop: false, autoHeight: true });
                             this.blogController.renderAll(
                                 (blogEntryId) => {
                                     this.blogController.renderBlogEntry(blogEntryId) 
-                                    this.setMinimumHeightMobileSection(100, false);
+                                    this.setMinimumHeightSection(100, { allowScrollMobile: true, allowScrollDesktop: true, autoHeight: true });
                                 },
                                 (indexPage) => { 
                                     this.blogController.changeActualPage(indexPage); 
-                                    this.setMinimumHeightMobileSection(100, true);
+                                    this.setMinimumHeightSection(100, { allowScrollMobile: true, allowScrollDesktop: false, autoHeight: true });
                                 },
                                 () => {
                                     this.route();
@@ -279,8 +278,53 @@ export class App {
 
 
 
+    setMinimumHeightSection(minimum, options = {}) {
+        // options = { allowScrollMobile: true/false, allowScrollDesktop: true/false, autoHeight: true/false }
 
-    setMinimumHeightMobileSection(minimum, scrollYEver) {
+        const body = document.body;
+        const html = document.documentElement;
+        const w = window.innerWidth;
+
+        if (options.autoHeight) {
+            // Forzar altura automática
+            body.style.height = "auto";
+            html.style.height = "auto";
+            body.style.minHeight = "100vh";
+            html.style.minHeight = "100vh";
+        } 
+        else {
+            // Ajuste de altura mínima según ancho
+            let newMinimum = minimum;
+            if (w < 350) newMinimum += 30;
+            else if (w < 400) newMinimum += 20;
+            else if (w < 500) newMinimum += 10;
+
+            body.style.height = "";
+            html.style.height = "";
+            body.style.minHeight = newMinimum + "vh";
+            html.style.minHeight = newMinimum + "vh";
+        }
+
+        // Control de scroll según dispositivo y opciones
+        if (w < 850) {
+            // Móvil
+            body.style.overflowY = options.allowScrollMobile ? "auto" : "hidden";
+            html.style.overflowY = options.allowScrollMobile ? "scroll" : "hidden";
+        } else {
+            // Desktop
+            body.style.overflowY = options.allowScrollDesktop ? "auto" : "hidden";
+            html.style.overflowY = options.allowScrollDesktop ? "scroll" : "hidden";
+        }
+
+        // Listener resize para reajustar
+        if (this._heightResizeListener) window.removeEventListener("resize", this._heightResizeListener);
+
+        this._heightResizeListener = () => this.setMinimumHeightSection(minimum, options);
+        window.addEventListener("resize", this._heightResizeListener);
+    }
+
+
+    /*setMinimumHeightMobileSection(minimum, scrollYEver) {
         const body = document.body;
         const html = document.documentElement;
 
@@ -404,5 +448,5 @@ export class App {
 
         // Añadir listener para redimensionar
         window.addEventListener("resize", applyHeight);
-    }
+    }*/
 }
