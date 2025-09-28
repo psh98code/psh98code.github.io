@@ -103,7 +103,7 @@ export class BlogController{
             <div id="pagesBlog_Desktop_divMainSeeBlogEntry">
                 <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv"> 
                     <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_1">
-                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog_Desktop">
                     </div>
                     <div id="pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2">
                         <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
@@ -131,7 +131,7 @@ export class BlogController{
         }
         
         document.getElementById("sectionDesktop").innerHTML = html;  
-        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() }) 
+        document.getElementById("backBtn_OfEntryBlog_Desktop").addEventListener("click", () => { this.onBack() }) 
     }
     renderBlogEntryMobile(entryId){
         let lang = this.languageController.getLanguage();
@@ -178,7 +178,7 @@ export class BlogController{
             <div id="pagesBlog_Mobile_divMainSeeBlogEntry">
                 <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv"> 
                     <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_1">
-                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog">
+                        <img src="../../res/img/back.png" id="backBtn_OfEntryBlog_Mobile">
                     </div>
                     <div id="pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_2">
                         <h1 class="text-4xl font-bold text-gray-300 mb-4 text-center">${entry.title}</h1>
@@ -206,7 +206,7 @@ export class BlogController{
         }
 
         document.getElementById("sectionMobile").innerHTML = html;
-        document.getElementById("backBtn_OfEntryBlog").addEventListener("click", () => { this.onBack() }) 
+        document.getElementById("backBtn_OfEntryBlog_Mobile").addEventListener("click", () => { this.onBack() }) 
     }
 
     getTextParagrahpsOfEntry(entry)

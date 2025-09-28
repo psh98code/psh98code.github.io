@@ -693,7 +693,7 @@ export class AboutMeController{
                 htmlMobile = `
                     <div id="div_whatIDo_Mobile_Btns">
                         <button class="btnSelected" id="div_whatIDo_Mobile_Btns_btnAndroid">${txt1}</button>
-                        <button id="div_whatIDo_Mobile_Btns_btnWeb">$${txt2}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnWeb">${txt2}</button>
                         <button id="div_whatIDo_Mobile_Btns_btnGames">${txt3}</button>
                         <button id="div_whatIDo_Mobile_Btns_btnClases">${txt4}</button>
                     </div>

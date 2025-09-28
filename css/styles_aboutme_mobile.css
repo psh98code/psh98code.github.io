@@ -149,8 +149,9 @@
                     margin-left: 5%;
                     margin-top: 5%;
                     min-width: 15rem;
+                    gap:1rem;
                 }
-                #div_whatIDo_Mobile_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; border-radius: 0.4rem; padding: 0.5rem; width:30%;font-size: 14px;}
+                #div_whatIDo_Mobile_Btns button{ background-color: rgba(142, 161, 37, 0.062); margin-right: 1%; color: whitesmoke; border-radius: 0.4rem; padding:1rem; width:30%;font-size: 14px;}
                 #div_whatIDo_Mobile_Btns button:hover{ background-color: rgba(142, 161, 37, 0.295); }
                 #div_whatIDo_Mobile_Text{
                     padding-top:2rem;
