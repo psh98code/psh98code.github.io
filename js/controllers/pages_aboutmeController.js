@@ -603,7 +603,7 @@ export class AboutMeController{
             "en": {
                 txt1: "Android Development",
                 txt2: "Web Development",
-                txt3: "Video Game Development",
+                txt3: "Videogames Development",
                 txt4: "Private Tutor"
             }                 
         }
@@ -673,12 +673,29 @@ export class AboutMeController{
                 document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.add("btnSelected");
                 document.getElementById("cardAboutMe_Mobile_sectionButtons_btnWhatIDo").classList.add("btnSelected2");
 
+                let txt1, txt2, txt3, txt4;
+
+                if (lang === "en") {
+                    // En inglés: al revés
+                    txt1 = capitalizeFirstWord(txtsAux2[lang].txt1);
+                    txt2 = capitalizeFirstWord(txtsAux2[lang].txt2);
+                    txt3 = capitalizeFirstWord(txtsAux2[lang].txt3);
+                    txt4 = capitalizeLastWord(txtsAux2[lang].txt4);
+                } 
+                else {
+                    // Otros idiomas: original
+                    txt1 = capitalizeLastWord(txtsAux2[lang].txt1);
+                    txt2 = capitalizeLastWord(txtsAux2[lang].txt2);
+                    txt3 = capitalizeLastWord(txtsAux2[lang].txt3);
+                    txt4 = capitalizeFirstWord(txtsAux2[lang].txt4);
+                }
+
                 htmlMobile = `
                     <div id="div_whatIDo_Mobile_Btns">
-                        <button class="btnSelected" id="div_whatIDo_Mobile_Btns_btnAndroid">${txtsAux2[lang].txt1}</button>
-                        <button id="div_whatIDo_Mobile_Btns_btnWeb">${txtsAux2[lang].txt2}</button>
-                        <button id="div_whatIDo_Mobile_Btns_btnGames">${txtsAux2[lang].txt3}</button>
-                        <button id="div_whatIDo_Mobile_Btns_btnClases">${txtsAux2[lang].txt4}</button>
+                        <button class="btnSelected" id="div_whatIDo_Mobile_Btns_btnAndroid">${txt1}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnWeb">$${txt2}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnGames">${txt3}</button>
+                        <button id="div_whatIDo_Mobile_Btns_btnClases">${txt4}</button>
                     </div>
                     <div id="div_whatIDo_Mobile_Text" class="text-gray-500">
                         ${textsWhatIDo["Android"][lang].txt}
@@ -1082,4 +1099,26 @@ export class AboutMeController{
         // Aseguramos estilo necesario
         slider.style.touchAction = 'pan-y'; // 👈 evita conflicto con scroll horizontal
     }
+}
+
+
+
+
+
+
+
+
+
+// Función auxiliar para capitalizar la primera letra de la última palabra
+function capitalizeLastWord(str) {
+    const words = str.trim().split(" ");
+    const lastWord = words[words.length - 1];
+    return lastWord.charAt(0).toUpperCase() + lastWord.slice(1);
+}
+
+// Función auxiliar para capitalizar la primera palabra
+function capitalizeFirstWord(str) {
+    const words = str.trim().split(" ");
+    const firstWord = words[0];
+    return firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
 }
