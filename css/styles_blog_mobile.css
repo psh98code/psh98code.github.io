@@ -11,7 +11,7 @@
     grid-template-rows: 10% 15% 50% 15%;
     margin: 0 5% 0 5%;
     width: 100%;
-    min-height: 150vh;
+    height: auto;
 }
 #pagesBlog_Mobile_divMain_title {
     display: flex;
