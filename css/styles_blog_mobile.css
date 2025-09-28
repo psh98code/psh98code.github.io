@@ -26,7 +26,7 @@
 }
 #pagesBlog_Mobile_divMain_searchAndFilter_empty { width: 25%; }
 #pagesBlog_Mobile_divMain_searchAndFilter_filter { width: 25%; }
-#pagesBlog_Mobile_divMain_searchAndFilter_search { width: 40%; }
+#pagesBlog_Mobile_divMain_searchAndFilter_search { width: 100%; }
 #pagesBlog_Mobile_divMain_searchAndFilter_search,
 #pagesBlog_Mobile_divMain_searchAndFilter_empty {
     height: 100%;
