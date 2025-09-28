@@ -345,6 +345,9 @@
     }
 }
 @media (max-width: 450px) {
+    #pageHome_CardLastArticlesV{
+        margin:0;
+    }
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.2rem;
     }
