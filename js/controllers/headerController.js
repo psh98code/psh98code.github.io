@@ -204,9 +204,6 @@ export class HeaderController{
                 <div id="pages_general_headerDivOfLang2">
                     <img src="${langBtns[lang].link}" class="pages_general_iconsOfHeader2 btnChangeLang">
                 </div>
-                <div id="pages_general_headerDivOfSearch2">
-                    <img src="../../res/img/search.png" class="search_btnOpen pages_general_iconsOfHeader">
-                </div>
             </div>
         `;
         this.headerMobile.innerHTML = html;
