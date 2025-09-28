@@ -34,17 +34,18 @@ export class ContactController{
             "en": { txt: "Send me an email" }
         };
         let optionsOfSelect = {
-            "es": { txt1: "Empresa", txt2: "Particular"},
-            "en": { txt1: "Company", txt2: "Individual" }
+            "es": { txt0: "Seleccione uno", txt1: "Empresa", txt2: "Particular"},
+            "en": { txt0: "Select one", txt1: "Company", txt2: "Individual" }
         };
         let typeOfContact = {
-            "es": {txt: "Selecciona tipo de contacto"},
-            "en": {txt: "Select contact type"}
+            "es": {txt: "Tipo de contacto"},
+            "en": {txt: "Contact type"}
         }
         const offerType = {
             "es": {
                 txt: "Tipo de oferta",
                 options: {
+                    txt0 : "Seleccione uno",
                     txt1: "Oferta laboral",
                     txt2: "Clases particulares",
                     txt3: "Curso a medida",
@@ -54,6 +55,7 @@ export class ContactController{
             "en": {
                 txt: "Offer type",
                 options: {
+                    txt0: "Select one",
                     txt1: "Job offer",
                     txt2: "Private lessons",
                     txt3: "Tailored course",
@@ -66,26 +68,31 @@ export class ContactController{
         let html = `
             <div id="pages_contact_Desktop_DivMain">
                 <div>
-                    <h1 class="text-3xl md:text-6xl font-bold text-gray-200 mb-4 text-left">${txtTitle[lang].txt}</h1>
-                    <br>
-                    <p class="text-base md:text-lg text-gray-400 mb-6 text-left max-w-2xl mx-auto">${contactContent[lang].txt}</p>
+                    <h1 class="text-3xl md:text-6xl font-bold text-gray-200 mb-4 text-center">${txtTitle[lang].txt}</h1>
+                    <p class="text-base md:text-lg text-gray-400 mb-6 text-center mx-auto">${contactContent[lang].txt}</p>
                 </div>
                 <div id="cardContactMe">
-                    <h2 class="text-2xl md:text-2xl font-semibold text-gray-300 mb-3 text-center">${txtEmail[lang].txt}</h2>
-                    <form id="contactForm_Desktop" class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg space-y-6">
+                    <h2 class="text-2xl md:text-2xl font-semibold text-gray-200 mb-3 text-center">${txtEmail[lang].txt}</h2>
+                    <form id="contactForm_Desktop" class=" p-6 shadow-lg rounded-lg" action="https://formspree.io/f/mldpgyny" method="POST">
                         <div class="flex flex-col">
-                            <label for="contactType_Desktop" class="text-gray-700 font-semibold mb-2">${typeOfContact[lang].txt}</label>
-                            <select id="contactType_Desktop" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                                <option value="empresa" selected>${optionsOfSelect[lang].txt1}</option>
-                                <option value="particular">${optionsOfSelect[lang].txt2}</option>
-                            </select>
-                            <label for="offerType_Desktop" class="text-gray-700 font-semibold mb-2">${offerType[lang].txt}</label>
-                            <select id="offerType_Desktop" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                                <option value="jobOffer" selected>${offerType[lang].options.txt1}</option>
-                                <option value="privateLessons">${offerType[lang].options.txt2}</option>
-                                <option value="privateCourses">${offerType[lang].options.txt3}</option>
-                                <option value="specificProject">${offerType[lang].options.txt4}</option>
-                            </select>
+                            <div>
+                                <label for="contactType_Desktop" class="font-semibold mb-2">${typeOfContact[lang].txt}</label>
+                                <select id="contactType_Desktop" name="Tipo de contacto" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                                    <option value="none" selected>${optionsOfSelect[lang].txt0}</option>
+                                    <option value="empresa">${optionsOfSelect[lang].txt1}</option>
+                                    <option value="particular">${optionsOfSelect[lang].txt2}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="offerType_Desktop" class=" font-semibold mb-2">${offerType[lang].txt}</label>
+                                <select id="offerType_Desktop" name="Tipo de oferta" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                                    <option value="none" selected>${offerType[lang].options.txt0}</option>                                   
+                                    <option value="jobOffer">${offerType[lang].options.txt1}</option>
+                                    <option value="privateLessons">${offerType[lang].options.txt2}</option>
+                                    <option value="privateCourses">${offerType[lang].options.txt3}</option>
+                                    <option value="specificProject">${offerType[lang].options.txt4}</option>
+                                </select>
+                            </div>
                         </div>
                         <div id="contactForm_Desktop_Content_DataPersonal">
                         </div>
@@ -101,10 +108,19 @@ export class ContactController{
                 <img src="../../res/img/whatsapp.png">
             </div>
             <div id="errorDivMsgContact_Desktop">
-                <img src="../../res/img/close.png" id="errorDivMsgContact_Desktop_CloseBtn">
+                <div id="errorDivMsgContact_Desktop_CARD">
+                    <h1 class="text-2xl font-bold text-center text-red-600 mb-4">¡Revisa tus errores!</h1>
+                    <div id="errorDivMsgContact_Desktop_Content">
+                    </div>
+                    <div>
+                        <h2 id="errorDivMsgContact_Desktop_CloseBtn">Cerrar</h2>
+                    </div>                
+                </div>
             </div>
         `;
         document.getElementById("sectionDesktop").innerHTML = html;
+
+
 
         const contactTypeSelect = document.getElementById("contactType_Desktop");
         contactTypeSelect.addEventListener("change", (e) => {
@@ -131,258 +147,231 @@ export class ContactController{
 
             // Supongamos que lang puede ser "es" o "en"
             let html = "";
+            document.getElementById("contactForm_Desktop_Content_DataPersonal").innerHTML = "";
 
-            if(e.target.value === "Particular" || e.target.value === "Individual"){
+            if(e.target.value == "particular"){
                 html = `
                     <div class="field-group">
-                        <input type="text" id="particularName" placeholder="${contactTexts[lang].particularName}" class="input-field">
+                        <input type="text" id="particularName" name="Nombre del particular" placeholder="${contactTexts[lang].particularName}" class="input-field">
                     </div>
                     <div class="field-group flex gap-4">
-                        <input type="tel" id="particularPhone" placeholder="${contactTexts[lang].particularPhone}" class="input-field flex-1">
-                        <input type="email" id="particularEmail" placeholder="${contactTexts[lang].particularEmail}" class="input-field flex-1">
+                        <input type="tel" id="particularPhone" name="Telefono del particular" placeholder="${contactTexts[lang].particularPhone}" class="input-field flex-1">
+                        <input type="email" id="particularEmail" name="Email del particular" placeholder="${contactTexts[lang].particularEmail}" class="input-field flex-1">
                     </div>
                 `;
+                document.getElementById("contactForm_Desktop_Content_DataPersonal").style.display = "flex";
             } 
-            else {
+            else if(e.target.value == "empresa") {
                 html = `
                     <div class="field-group flex gap-4">
-                        <input type="text" id="empresaName" placeholder="${contactTexts[lang].empresaName}" class="input-field flex-1">
-                        <input type="text" id="empresaLocation" placeholder="${contactTexts[lang].empresaLocation}" class="input-field flex-1">
+                        <input type="text" id="empresaName" name="Nombre de la empresa" placeholder="${contactTexts[lang].empresaName}" class="input-field flex-1">
+                        <input type="text" id="empresaLocation" name="Localizacion de la empresa" placeholder="${contactTexts[lang].empresaLocation}" class="input-field flex-1">
                     </div>
                     <div class="field-group flex gap-4">
-                        <input type="tel" id="empresaPhone" placeholder="${contactTexts[lang].empresaPhone}" class="input-field flex-1">
-                        <input type="email" id="empresaEmail" placeholder="${contactTexts[lang].empresaEmail}" class="input-field flex-1">
+                        <input type="tel" id="empresaPhone" name="Telefono de la empresa" placeholder="${contactTexts[lang].empresaPhone}" class="input-field flex-1">
+                        <input type="email" id="empresaEmail" name="Email de la empresa" placeholder="${contactTexts[lang].empresaEmail}" class="input-field flex-1">
                     </div>
                 `;
+                document.getElementById("contactForm_Desktop_Content_DataPersonal").style.display = "flex";
             }
-
+            else{
+                document.getElementById("contactForm_Desktop_Content_DataPersonal").style.display = "none";
+            }
             document.getElementById("contactForm_Desktop_Content_DataPersonal").innerHTML = html;
         });
+
         const proyectTypeSelect = document.getElementById("offerType_Desktop");
         proyectTypeSelect.addEventListener("change", (e) => {
-            const offerTexts = {
-                "es": {
-                    jobTitle: "Puesto laboral",
-                    jobDescription: "Descripción de la oferta laboral",
-                    jobRequirements: "Requisitos / habilidades necesarias",
-                    studentCourse: "Curso / carrera del estudiante",
-                    studentSubjects: "Áreas / asignaturas en las que necesita ayuda",
-                    customCourseTitle: "Curso a medida de",
-                    customCourseDescription: "Descripción de lo que desea aprender",
-                    projectName: "Nombre del proyecto",
-                    projectBudget: "Presupuesto máximo (€)",
-                    projectTechnologies: "Lenguajes / tecnologías necesarios",
-                    projectDescription: "Descripción del proyecto"
-                },
-                "en": {
-                    jobTitle: "Job position",
-                    jobDescription: "Job offer description",
-                    jobRequirements: "Requirements / skills needed",
-                    studentCourse: "Student course / degree",
-                    studentSubjects: "Subjects / areas where help is needed",
-                    customCourseTitle: "Tailored course in",
-                    customCourseDescription: "Description of what you want to learn",
-                    projectName: "Project name",
-                    projectBudget: "Maximum budget (€)",
-                    projectTechnologies: "Required languages / technologies",
-                    projectDescription: "Project description"
-                }
-            };
-            let html = "";
-
-            switch(e.target.value) {
-                case offerType["es"].options.txt1:
-                case offerType["en"].options.txt1:
-                    html = `
-                        <div class="field-group">
-                            <input type="text" placeholder="${offerTexts[lang].jobTitle}" class="input-field">
-                        </div>
-                        <div class="field-group">
-                            <textarea placeholder="${offerTexts[lang].jobDescription}" class="input-field"></textarea>
-                        </div>
-                        <div class="field-group">
-                            <textarea placeholder="${offerTexts[lang].jobRequirements}" class="input-field"></textarea>
-                        </div>
-                    `;
-                    break;
-
-                case offerType["es"].options.txt2:
-                case offerType["en"].options.txt2:
-                    html = `
-                        <div class="field-group">
-                            <input type="text" placeholder="${offerTexts[lang].studentCourse}" class="input-field">
-                        </div>
-                        <div class="field-group">
-                            <textarea placeholder="${offerTexts[lang].studentSubjects}" class="input-field"></textarea>
-                        </div>
-                    `;
-                    break;
-
-                case offerType["es"].options.txt3:
-                case offerType["en"].options.txt3:
-                    html = `
-                        <div class="field-group">
-                            <input type="text" placeholder="${offerTexts[lang].customCourseTitle}" class="input-field">
-                        </div>
-                        <div class="field-group">
-                            <textarea placeholder="${offerTexts[lang].customCourseDescription}" class="input-field"></textarea>
-                        </div>
-                    `;
-                    break;
-
-                case offerType["es"].options.txt4:
-                case offerType["en"].options.txt4:
-                    html = `
-                        <div class="field-group flex gap-4">
-                            <input type="text" placeholder="${offerTexts[lang].projectName}" class="input-field flex-1">
-                            <input type="text" placeholder="${offerTexts[lang].projectBudget}" class="input-field flex-1">
-                        </div>
-                        <div class="field-group">
-                            <input type="text" placeholder="${offerTexts[lang].projectTechnologies}" class="input-field">
-                        </div>
-                        <div class="field-group">
-                            <textarea placeholder="${offerTexts[lang].projectDescription}" class="input-field"></textarea>
-                        </div>
-                    `;
-                    break;
+        const offerTexts = {
+            "es": {
+                jobTitle: "Puesto laboral",
+                jobDescription: "Descripción de la oferta laboral",
+                jobRequirements: "Requisitos / habilidades necesarias",
+                studentCourse: "Curso / carrera del estudiante",
+                studentSubjects: "Áreas / asignaturas en las que necesita ayuda",
+                customCourseTitle: "Curso a medida de",
+                customCourseDescription: "Descripción de lo que desea aprender",
+                projectName: "Nombre del proyecto",
+                projectBudget: "Presupuesto máximo (€)",
+                projectTechnologies: "Lenguajes / tecnologías necesarios",
+                projectDescription: "Descripción del proyecto"
+            },
+            "en": {
+                jobTitle: "Job position",
+                jobDescription: "Job offer description",
+                jobRequirements: "Requirements / skills needed",
+                studentCourse: "Student course / degree",
+                studentSubjects: "Subjects / areas where help is needed",
+                customCourseTitle: "Tailored course in",
+                customCourseDescription: "Description of what you want to learn",
+                projectName: "Project name",
+                projectBudget: "Maximum budget (€)",
+                projectTechnologies: "Required languages / technologies",
+                projectDescription: "Project description"
             }
+        };
+        let html = "";
+        document.getElementById("contactForm_Desktop_Content_DataProyect").innerHTML = "";
 
-            document.getElementById("contactForm_Desktop_Content_DataProyect").innerHTML = html;
+        switch(e.target.value) {
+            case "jobOffer":
+                html = `
+                    <div class="field-group">
+                        <input id="puestoLaboral" name="Puesto laboral" type="text" placeholder="${offerTexts[lang].jobTitle}" class="input-field">
+                    </div>
+                    <div class="field-group">
+                        <textarea id="descripcionOferta" name="Descripción de la oferta laboral" placeholder="${offerTexts[lang].jobDescription}" class="input-field"></textarea>
+                        <textarea id="requisitosHabilidades" name="Requisitos o habilidades necesarias" placeholder="${offerTexts[lang].jobRequirements}" class="input-field"></textarea>
+                    </div>
+                `;
+                break;
+
+            case "privateLessons":
+                html = `
+                    <div class="field-group">
+                        <input id="cursoEstudiante" name="Curso del estudiante" type="text" placeholder="${offerTexts[lang].studentCourse}" class="input-field">
+                    </div>
+                    <div class="field-group">
+                        <textarea id="areasAsignaturas" name="Áreas o asignaturas" placeholder="${offerTexts[lang].studentSubjects}" class="input-field"></textarea>
+                    </div>
+                `;
+                break;
+
+            case "privateCourses":
+                html = `
+                    <div class="field-group">
+                        <input id="cursoPersonalizado" name="Curso a medida" type="text" placeholder="${offerTexts[lang].customCourseTitle}" class="input-field">
+                    </div>
+                    <div class="field-group">
+                        <textarea id="descripcionCurso" name="Descripción del curso" placeholder="${offerTexts[lang].customCourseDescription}" class="input-field"></textarea>
+                    </div>
+                `;
+                break;
+
+            case "specificProject":
+                html = `
+                    <div class="field-group flex gap-4">
+                        <input id="nombreProyecto" name="Nombre del proyecto" type="text" placeholder="${offerTexts[lang].projectName}" class="input-field">
+                        <input id="presupuestoProyecto" name="Presupuesto máximo" type="text" placeholder="${offerTexts[lang].projectBudget}" class="input-field">
+                    </div>
+                    <div class="field-group">
+                        <input id="tecnologiasProyecto" name="Lenguajes o tecnologías" type="text" placeholder="${offerTexts[lang].projectTechnologies}" class="input-field">
+                        <textarea id="descripcionProyecto" name="Descripción del proyecto" placeholder="${offerTexts[lang].projectDescription}" class="input-field"></textarea>
+                    </div>
+                `;
+                break;
+
+            case "none":
+                document.getElementById("contactForm_Desktop_Content_DataProyect").style.display = "none";                                        
+                break;
+        }
+
+        if(e.target.value !== "none") {
+            document.getElementById("contactForm_Desktop_Content_DataProyect").style.display = "flex";
+        }
+
+        document.getElementById("contactForm_Desktop_Content_DataProyect").innerHTML = html;
+    });
+
+// ---------------------------------------------- BOTON DE ENVIAR -------------------------------------------------
+document.getElementById("btnSubmit_Desktop").addEventListener("click", (e) => {
+    const lang = document.documentElement.lang || "es"; 
+    const contactType = document.getElementById("contactType_Desktop").value;
+    const offerType = document.getElementById("offerType_Desktop")?.value;
+    const inputs = document.querySelectorAll(".input-field, .text-area-field");
+
+    let formData = {};
+    inputs.forEach(input => {
+        formData[input.id] = input.value; // ahora usamos el ID
+    });
+
+    let ok = true;
+    let errors = [];
+    const errorDivContent = document.getElementById("errorDivMsgContact_Desktop_Content");
+
+    const errorTexts = {
+        es: {
+            selectContact: "Debes seleccionar un tipo de contacto",
+            selectOffer: "Debes seleccionar un tipo de oferta",
+            puestoLaboral: "Debes indicar el puesto laboral.",
+            descripcionOferta: "Debes describir en qué consiste la oferta.",
+            requisitosHabilidades: "Debes indicar los requisitos o habilidades.",
+            cursoEstudiante: "Debes indicar el curso del estudiante.",
+            areasAsignaturas: "Debes indicar las áreas o asignaturas a reforzar.",
+            cursoPersonalizado: "Debes indicar de qué es el curso.",
+            descripcionCurso: "Debes describir lo que quieres aprender.",
+            nombreProyecto: "Debes indicar el nombre del proyecto.",
+            presupuestoProyecto: "Debes indicar el presupuesto máximo.",
+            tecnologiasProyecto: "Debes indicar los lenguajes o tecnologías necesarias.",
+            descripcionProyecto: "Debes describir el proyecto.",
+            particularName: "Debes indicar tu nombre y apellidos.",
+            particularEmail: "Debes indicar tu email.",
+            companyName: "Debes indicar el nombre de la empresa.",
+            companyEmail: "Debes indicar el email de contacto."
+        },
+        en: { /* ... equivalente en inglés ... */ }
+    };
+
+    if(contactType == "none"){
+        ok = false; 
+        errors.push(errorTexts[lang].selectContact);
+    } else if(offerType == "none"){
+        ok = false; 
+        errors.push(errorTexts[lang].selectOffer);
+    } else {
+        // Validaciones según oferta
+        if (offerType === "jobOffer") {
+            if (!formData["puestoLaboral"]) ok = false, errors.push(errorTexts[lang].puestoLaboral);
+            if (!formData["descripcionOferta"]) ok = false, errors.push(errorTexts[lang].descripcionOferta);
+            if (!formData["requisitosHabilidades"]) ok = false, errors.push(errorTexts[lang].requisitosHabilidades);
+        } 
+        else if (offerType === "privateLessons") {
+            if (!formData["cursoEstudiante"]) ok = false, errors.push(errorTexts[lang].cursoEstudiante);
+            if (!formData["areasAsignaturas"]) ok = false, errors.push(errorTexts[lang].areasAsignaturas);
+        } 
+        else if (offerType === "privateCourses") {
+            if (!formData["cursoPersonalizado"]) ok = false, errors.push(errorTexts[lang].cursoPersonalizado);
+            if (!formData["descripcionCurso"]) ok = false, errors.push(errorTexts[lang].descripcionCurso);
+        } 
+        else if (offerType === "specificProject") {
+            if (!formData["nombreProyecto"]) ok = false, errors.push(errorTexts[lang].nombreProyecto);
+            if (!formData["presupuestoProyecto"]) ok = false, errors.push(errorTexts[lang].presupuestoProyecto);
+            if (!formData["tecnologiasProyecto"]) ok = false, errors.push(errorTexts[lang].tecnologiasProyecto);
+            if (!formData["descripcionProyecto"]) ok = false, errors.push(errorTexts[lang].descripcionProyecto);
+        }
+
+        // Validación tipo de contacto
+        if(contactType =="particular") {
+            const name = formData["particularName"];
+            const email = formData["particularEmail"];
+            if(!name) ok = false, errors.push(errorTexts[lang].particularName);
+            if(!email) ok = false, errors.push(errorTexts[lang].particularEmail);
+        } else {
+            const companyName = formData["empresaName"];
+            const email = formData["empresaEmail"];
+            if(!companyName) ok = false, errors.push(errorTexts[lang].companyName);
+            if(!email) ok = false, errors.push(errorTexts[lang].companyEmail);
+        }
+    }
+
+    if(!ok){
+        e.preventDefault();
+        e.stopPropagation();
+        document.getElementById("errorDivMsgContact_Desktop").style.display = "flex";
+        errorDivContent.innerHTML = "";
+        errors.forEach(err => {
+            const p = document.createElement("p");
+            p.textContent = err;
+            errorDivContent.appendChild(p);
         });
-        document.getElementById("btnSubmit_Desktop").addEventListener("click", () => {
-            const contactType = document.getElementById("contactType_Desktop").value;
-            const offerType = document.getElementById("offerType_Desktop")?.value; // si existe
-            const inputs = document.querySelectorAll(".input-field, .text-area-field"); // incluye inputs y textareas
-           
-            let formData = {};
-            inputs.forEach(input => {
-                formData[input.id] = input.value;
-            });
+    } else {
+        // aquí iría el envío del formulario
+    }
+});
 
-            let ok = true;
-            let errors = [];
-            const errorDiv = document.getElementById("errorDivMsgContact_Desktop");
-
-            // Manejo según tipo de oferta
-            if (offerType === "Oferta laboral" || offerType === "Job offer") {
-                // Aquí accedes a los campos específicos de oferta laboral
-                const jobPosition = formData["jobPosition"];
-                const jobDescription = formData["jobDescription"];
-                const jobRequirements = formData["jobRequirements"];
-
-                if (!jobPosition) { ok = false; errors.push("Debes indicar el puesto laboral."); }
-                if (!jobDescription) { ok = false; errors.push("Debes describir en qué consiste la oferta."); }
-                if (!jobRequirements) { ok = false; errors.push("Debes indicar los requisitos o habilidades."); }
-
-                    // Validación según tipo de contacto
-                    if (contactType === "Particular" || contactType === "Individual") {
-                        const name = formData["particularName"];
-                        const email = formData["particularEmail"];
-
-                        if (!name) { ok = false; errors.push("Debes indicar tu nombre y apellidos."); }
-                        if (!email) { ok = false; errors.push("Debes indicar tu email."); }
-                    } 
-                    else if (contactType === "Empresa" || contactType === "Company") {
-                        const companyName = formData["empresaName"];
-                        const email = formData["empresaEmail"];
-
-                        if (!companyName) { ok = false; errors.push("Debes indicar el nombre de la empresa."); }
-                        if (!email) { ok = false; errors.push("Debes indicar el email de contacto."); }
-                    }
-
-                if(ok){
-
-                }
-            } 
-            else if (offerType === "Clases particulares" || offerType === "Private lessons") {
-                // Campos de clases particulares
-                const studentCourse = formData["studentCourse"];
-                const studentSubjects = formData["studentSubjects"];
-
-                if (!studentCourse) { ok = false; errors.push("Debes indicar el curso del estudiante."); }
-                if (!studentSubjects) { ok = false; errors.push("Debes indicar las áreas, lenguajes o asignaturas a reforzar."); }
-
-                    // Validación según tipo de contacto
-                    if (contactType === "Particular" || contactType === "Individual") {
-                        const name = formData["particularName"];
-                        const email = formData["particularEmail"];
-
-                        if (!name) { ok = false; errors.push("Debes indicar tu nombre y apellidos."); }
-                        if (!email) { ok = false; errors.push("Debes indicar tu email."); }
-                    } 
-                    else if (contactType === "Empresa" || contactType === "Company") {
-                        const companyName = formData["empresaName"];
-                        const email = formData["empresaEmail"];
-
-                        if (!companyName) { ok = false; errors.push("Debes indicar el nombre de la empresa."); }
-                        if (!email) { ok = false; errors.push("Debes indicar el email de contacto."); }
-                    }                
-            } 
-            else if (offerType === "Curso a medida" || offerType === "Tailored course") {
-                // Campos de curso a medida
-                const courseTopic = formData["courseTopic"];
-                const courseDescription = formData["courseDescription"];
-
-                if (!courseTopic) { ok = false; errors.push("Debes indicar de qué es el curso."); }
-                if (!courseDescription) { ok = false; errors.push("Debes describir lo que quieres aprender."); }
-
-                    // Validación según tipo de contacto
-                    if (contactType === "Particular" || contactType === "Individual") {
-                        const name = formData["particularName"];
-                        const email = formData["particularEmail"];
-
-                        if (!name) { ok = false; errors.push("Debes indicar tu nombre y apellidos."); }
-                        if (!email) { ok = false; errors.push("Debes indicar tu email."); }
-                    } 
-                    else if (contactType === "Empresa" || contactType === "Company") {
-                        const companyName = formData["empresaName"];
-                        const email = formData["empresaEmail"];
-
-                        if (!companyName) { ok = false; errors.push("Debes indicar el nombre de la empresa."); }
-                        if (!email) { ok = false; errors.push("Debes indicar el email de contacto."); }
-                    }                
-            } 
-            else if (offerType === "Proyecto puntual" || offerType === "Specific project") {
-                // Campos de proyecto puntual
-                const projectName = formData["projectName"];
-                const projectBudget = formData["projectBudget"];
-                const projectTechnologies = formData["projectTechnologies"];
-                const projectDescription = formData["projectDescription"];
-
-                if (!projectName) { ok = false; errors.push("Debes indicar el nombre del proyecto."); }
-                if (!projectBudget) { ok = false; errors.push("Debes indicar el presupuesto máximo."); }
-                if (!projectTechnologies) { ok = false; errors.push("Debes indicar los lenguajes o tecnologías necesarias."); }
-                if (!projectDescription) { ok = false; errors.push("Debes describir el proyecto."); }
-
-                    // Validación según tipo de contacto
-                    if (contactType === "Particular" || contactType === "Individual") {
-                        const name = formData["particularName"];
-                        const email = formData["particularEmail"];
-
-                        if (!name) { ok = false; errors.push("Debes indicar tu nombre y apellidos."); }
-                        if (!email) { ok = false; errors.push("Debes indicar tu email."); }
-                    } 
-                    else if (contactType === "Empresa" || contactType === "Company") {
-                        const companyName = formData["empresaName"];
-                        const email = formData["empresaEmail"];
-
-                        if (!companyName) { ok = false; errors.push("Debes indicar el nombre de la empresa."); }
-                        if (!email) { ok = false; errors.push("Debes indicar el email de contacto."); }
-                    }                
-            }
-
-
-            if(!ok){
-                errorDiv.style.display = "block"; // asegurarse de que el div sea visible
-                errors.forEach(err => {
-                    const p = document.createElement("p");
-                    p.textContent = err;
-                    errorDiv.appendChild(p);
-                });
-            }
-        });
+                
         document.getElementById("errorDivMsgContact_Desktop_CloseBtn").addEventListener("click", () => {
-            errorDiv.style.display = "none";
+            document.getElementById("errorDivMsgContact_Desktop").style.display = "none";
         })
     }
 

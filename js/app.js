@@ -106,6 +106,7 @@ export class App {
                 ;
                 break;
                 case "contactme":
+                    this.setMinimumHeightSection(150, { allowScrollMobile: true, allowScrollDesktop: true, autoHeight: true });
                     this.contactController.renderAll();    
                 ;
                 break;
