@@ -325,7 +325,7 @@
         height: 17vh;
     }
 }
-@media (max-width: 800px) {
+@media (max-device-width: 800px) {
     #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.8rem;}
     #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.9rem;} 
     #pageHome_CardLastArticles_textsSecionV a {font-size: 0.8rem;}
@@ -347,7 +347,7 @@
         padding-right: 15%;
     }
 }
-@media (max-width: 450px) {
+@media (max-device-width: 450px) {
     #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.7rem;}
     #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.8rem;} 
     #pageHome_CardLastArticles_textsSecionV a {font-size: 0.7rem;}
