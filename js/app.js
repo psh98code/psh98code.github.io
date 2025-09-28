@@ -100,7 +100,7 @@ export class App {
                     this.homeController.renderAll();
                     this.homeController.setAllClickListeners();
                     this.homeController.loopOfLastArticles();
-                    this.setMinimumHeightMobileSection(60, true);
+                    this.setMinimumHeightMobileSection(60, false);
                 ;
                 break;
                 case "contactme":;
