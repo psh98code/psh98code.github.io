@@ -56,10 +56,11 @@
     flex-direction: column;
     justify-content: flex-start;  /* empieza desde arriba */
     align-items: center;          /* centra horizontal */
-    gap: 2rem;
+    gap: 1rem;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 10%;
     min-height: auto; /* ya no fuerza 100vh ni más */
 }
 
