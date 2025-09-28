@@ -325,7 +325,10 @@
         height: 17vh;
     }
 }
-/* Para tablets y móviles grandes */
+
+/* ------------------------------
+   Tablets y móviles grandes
+------------------------------ */
 @media (max-width: 800px) {
     /* Texto dentro del card */
     #pageHome_CardLastArticles_textsSecionV p {
@@ -358,8 +361,11 @@
     }
 }
 
-/* Móviles medianos */
+/* ------------------------------
+   Móviles medianos
+------------------------------ */
 @media (max-width: 450px) {
+    /* Dots y flechas */
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
         max-width: 1.3rem;
     }
@@ -378,23 +384,46 @@
         padding-right: 10%;
     }
 
+    /* Títulos y párrafos del divVertical */
     #pageHome_DivVertical > div:first-child h1 {
-        font-size: 2.2em;
+        font-size: 1.8em; /* reducido */
     }
     #pageHome_DivVertical > div:first-child p {
-        font-size: 1em;
+        font-size: 0.95em; /* reducido */
     }
 }
 
-/* Móviles pequeños */
+/* ------------------------------
+   Móviles pequeños
+------------------------------ */
 @media (max-width: 300px) {
-    #pageHome_DivVertical > div:first-child h1 {
-        font-size: 1.9em;
+    /* Dots y flechas */
+    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
+        max-width: 1rem;
     }
-    #pageHome_DivVertical > div:first-child p {
-        font-size: 0.95em;
+    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV {
+        max-width: 1.2rem;
     }
 
+    /* Padding de secciones */
+    #pageHome_CardLastArticles_dotsAndArrowsSection {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+    #pageHome_CardLastArticles_dotsAndArrowsSectionV {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    /* Títulos y párrafos del divVertical */
+    #pageHome_DivVertical > div:first-child h1 {
+        font-size: 1.6em; /* reducido aún más */
+    }
+    #pageHome_DivVertical > div:first-child p {
+        font-size: 0.9em; /* reducido aún más */
+    }
+
+    /* Texto dentro del card */
     #pageHome_CardLastArticles_textsSecionV h3 {
         font-size: 0.95em;
     }
@@ -404,14 +433,8 @@
     #pageHome_CardLastArticles_textsSecionV a {
         font-size: 0.75em;
     }
-
-    .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight {
-        max-width: 1rem;
-    }
-    #pageHome_CardLastArticles_arrorLeftV, #pageHome_CardLastArticles_arrowRightV {
-        max-width: 1.2rem;
-    }
 }
+
 
 
 
