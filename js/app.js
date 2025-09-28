@@ -290,7 +290,7 @@ export class App {
             body.style.height = "auto";
             html.style.height = "auto";
             body.style.minHeight = "100vh";
-            html.style.minHeight = "100vh";
+            html.style.minHeight = "0";
         } 
         else {
             // Ajuste de altura mínima según ancho
