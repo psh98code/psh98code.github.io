@@ -79,13 +79,13 @@
         width: 5em;
     }
 
-    @media (max-width: 799px) {
+    @media (max-width: 768px) {
         #divRssMobile { display: flex; }
         #sectionMobile { display: flex;}
         #divRssDesktop { display: none; }
         #sectionDesktop { display: none;}
     }
-    @media (min-width: 800px) {
+    @media (min-width: 769px) {
         #divRssMobile { display: none; }
         #sectionMobile { display: none;}
         #divRssDesktop { display: flex; }
