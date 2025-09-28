@@ -325,10 +325,10 @@
         height: 17vh;
     }
 }
-@media (max-device-width: 800px) {
-    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.8rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.9rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.8rem;}
+@media (max-width: 800px) {
+    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.7rem;}
+    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.8rem;} 
+    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.7rem;}
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.5rem;
     }
@@ -347,10 +347,10 @@
         padding-right: 15%;
     }
 }
-@media (max-device-width: 450px) {
-    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.7rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.8rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.7rem;}
+@media (max-width: 450px) {
+    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.6rem;}
+    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.7rem;} 
+    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.6rem;}
 
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.2rem;
