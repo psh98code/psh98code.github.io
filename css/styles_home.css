@@ -348,9 +348,9 @@
     }
 }
 @media (max-width: 450px) {
-    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.6rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.7rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.6rem;}
+    #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.1rem;}
+    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.1rem;} 
+    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.1rem;}
 
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.2rem;
@@ -375,22 +375,8 @@
     #pageHome_DivVertical > div:first-child p{
         font-size: 1.1em;
     }
-    #pageHome_CardLastArticles_textsSecionV h3{
-        font-size: 1.2em;
-    }
-    #pageHome_CardLastArticles_textsSecionV p{
-        font-size: 0.9em;
-    }
-    #pageHome_CardLastArticles_textsSecionV a{
-        font-size: 0.8em;
-    }
 }
 @media (max-width: 300px) {
-        #pageHome_CardLastArticles_textsSecionV p{ font-size: 0.6rem;}
-    #pageHome_CardLastArticles_textsSecionV h3{ font-size: 0.7rem;} 
-    #pageHome_CardLastArticles_textsSecionV a {font-size: 0.6rem;}
-
-
     #pageHome_DivVertical > div:first-child h1{
         font-size: 2.2em;
     }
