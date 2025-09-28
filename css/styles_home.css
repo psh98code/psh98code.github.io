@@ -326,6 +326,11 @@
     }
 }
 @media (max-width: 800px) {
+        #pageHome_CardLastArticlesV{
+        width: 100%;
+        margin:0;
+    }
+
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
         max-width: 1.5rem;
     }
