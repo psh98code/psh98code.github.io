@@ -1,0 +1,51 @@
+
+
+
+#pages_contact_Desktop_DivMain{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    min-height: 80vh;
+    align-items: center;
+    padding-bottom: 10vh;
+    width: 100%;
+}
+    #pages_contact_Desktop_DivMain p{
+        padding-left: 0.5vw;
+    }
+    #pages_contact_Desktop_DivMain br{
+    }
+
+
+#contactMeButtonWhatsapp{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    position: fixed;       /* Fija el div en la pantalla */
+    bottom: 1rem;          /* 20px desde la parte inferior */
+    right: 1rem;           /* 20px desde la derecha */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;       /* Opcional, si quieres que se vea clicable */
+    z-index: 1000;         /* Para que quede por encima de otros elementos */
+}
+#contactMeButtonWhatsapp img{
+    width: 5%;
+    height: 5%;
+}
+
+#errorDivMsgContact_Desktop{
+    position: fixed;       /* Fija el div en la pantalla */
+    display: none;
+}
+
+
+
+
+#cardContactMe{
+    text-align: center;
+}
+    #cardContactMe h2{  
+        padding: 0 0 0.5rem 0;
+    }

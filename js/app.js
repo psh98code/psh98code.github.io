@@ -6,6 +6,7 @@ import { LanguageController } from './controllers/languageController.js';
 import { BlogSystem } from "./systems/blogSystem.js";
 import { AboutMeController } from "./controllers/pages_aboutmeController.js";
 import { BlogController } from "./controllers/pages_blogController.js";
+import { ContactController } from "./controllers/contact_Controller.js";
 
 
 // INICIALIZACIONES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -35,6 +36,7 @@ export class App {
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
      * @param {BlogParser} blogParser -- Parseador para el blog
      * @param {ProjectParser} proyectParser -- Parseador para el parser
+     * @param {ContactController} contactController
      */
     constructor() {
         this.blogParser = new BlogParser("../data/blog.json");
@@ -45,6 +47,7 @@ export class App {
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
         this.aboutMeController = new AboutMeController(this.languageController);
         this.blogController = new BlogController(this.languageController, this.blogSystem);
+        this.contactController = new ContactController(this.languageController);
     }
 
     async init() {
@@ -102,7 +105,9 @@ export class App {
                     this.setMinimumHeightSection(60, { allowScrollMobile: true, allowScrollDesktop: false, autoHeight: true });
                 ;
                 break;
-                case "contactme":;
+                case "contactme":
+                    this.contactController.renderAll();    
+                ;
                 break;
                 case "aboutme":
                     console.log("Entering about me");
