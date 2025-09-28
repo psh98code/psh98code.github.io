@@ -346,6 +346,7 @@
 }
 @media (max-width: 450px) {
     #pageHome_CardLastArticlesV{
+        width: 100%;
         margin:0;
     }
     .dot, .dotScaled, #pageHome_CardLastArticles_arrorLeft, #pageHome_CardLastArticles_arrowRight{
