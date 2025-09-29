@@ -35,7 +35,7 @@ export class App {
      * @param {AboutMeController} aboutMeController -- Controlador para el ABOUT ME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
      * @param {BlogController} blogController
-     * @param {ProyectController} ProyectController
+     * @param {ProyectController} proyectController
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
      * @param {BlogParser} blogParser -- Parseador para el blogç
      * @param {ProyectSystem} proyectSystem
@@ -53,7 +53,7 @@ export class App {
         this.aboutMeController = new AboutMeController(this.languageController);
         this.blogController = new BlogController(this.languageController, this.blogSystem);
         this.contactController = new ContactController(this.languageController);
-        this.ProyectController = new ProyectController(this.proyectSystem, this.languageController);
+        this.proyectController = new ProyectController(this.proyectSystem, this.languageController);
     }
 
     async init() {
@@ -156,12 +156,18 @@ export class App {
                         const param = segments[1]
                         this.setMinimumHeightSection(100, { allowScrollMobile: true, allowScrollDesktop: true, autoHeight: true });
 
-                        this.ProyectController.renderAll(
-                            () => {
-
+                        this.proyectController.renderAll(
+                            (category) => {
+                                this.proyectController.renderProyectsCards(category);
+                            },
+                            (proyect) => {
+                                this.proyectController.renderProyectContent(proyect);
                             },
                             () => {
-
+                                this.route();
+                            },
+                            (category) => {
+                                this.proyectController.renderProyectsCards(category);
                             }
                         )
                     }                    

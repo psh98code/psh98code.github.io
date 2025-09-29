@@ -8,6 +8,7 @@
     align-items: center;
     gap: 6rem;
     padding-bottom: 15vh;
+    padding-top: 5vh;
 }
 
 #pages_proyects_Desktop_DivMain div:first-child h1{
@@ -24,6 +25,298 @@
     align-items: center;
     gap: 2rem;
 }
-    #pages_proyects_Desktop_DivMain_proyects div{
 
+
+
+
+#pages_proyects_Desktop_DivSecondary_proyects .cardProyectsType p{
+    text-align: center;
+    padding: 0 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    color: rgb(211, 211, 211);
+    font-style: normal;
+}
+#pages_proyects_Desktop_DivSecondary_proyects .cardProyectsType p:last-child{
+    text-align: right;
+    padding: 0 1rem 0.5rem 0;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgb(170, 170, 170);
+}
+
+
+
+
+
+
+#pages_proyects_Mobile_DivSecondary_proyects .cardProyectsType p{
+    text-align: center;
+    padding: 0 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    color: rgb(211, 211, 211);
+    font-style: normal;
+}
+#pages_proyects_Mobile_DivSecondary_proyects .cardProyectsType p:last-child{
+    text-align: right;
+    padding: 0 1rem 0.5rem 0;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgb(170, 170, 170);
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#divProyectView_Desktop_secondDiv_secondDiv h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+}
+
+
+#divProyectView_Desktop_secondDiv_secondDiv div:last-child p{
+    padding-left: 1rem;
+    opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pages_proyects_Desktop_DivSecondary{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    height: auto;
+    min-height: 60vh;
+}
+    #pages_proyects_Desktop_DivSecondary_backBtn_btn{
+        width: 3rem;
+        filter: invert(60%);
     }
+
+    #pages_proyects_Desktop_DivSecondary_proyects{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+#pages_proyects_Desktop_DivSecondary .cardProyectsType{
+    min-width: 70vw;
+}
+    #pages_proyects_Desktop_DivSecondary .cardProyectsType img{
+        width: 100%;
+        max-width: none;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#divProyectView_Desktop{
+    width: 90%;
+    margin: 0 5% 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 75vh;
+    padding:10vh 0 10vh 0;
+}
+    #divProyectView_Desktop_secondDiv, #divProyectView_Desktop_thirdDiv{
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+    }
+    #divProyectView_Desktop_firstDiv{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    #divProyectView_Desktop_backBtn{
+        width: 4vw;
+        filter: invert(80%);
+    }
+
+
+
+    #divProyectView_Desktop_secondDiv{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        gap:1.5rem;
+        justify-content: start;
+        align-items: center;
+        color: rgba(170, 170, 170, 0.658);
+    }
+        #divProyectView_Desktop_secondDiv_firstDiv{
+            display: flex;
+            justify-content: center;
+            position: relative; 
+        }
+            #divProyectView_Desktop_secondDiv_firstDiv p{
+                border-top-left-radius: 0.3rem;
+                border-bottom-right-radius: 0.3rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 0; /* opcional, elimina separación por defecto */
+                padding: 4px 8px; /* opcional, para darle aire */
+                background: rgba(0, 0, 0, 0.5); /* opcional, para contraste */
+                color: white; /* opcional */
+                font-size: 0.9rem;
+            }
+            #divProyectView_Desktop_secondDiv_firstDiv img{
+                border-radius: 0.3rem;
+                opacity: 0.7;
+            }
+
+        #divProyectView_Desktop_secondDiv_secondDiv{
+            display: grid;
+            grid-template-rows: 40% 60%;
+            grid-template-columns: 100%;
+            justify-content: start;
+            align-items: start;
+            height: 100%;
+            gap:1rem;
+            padding: 3vh 0 3vh 0;
+        }
+        #divProyectView_Desktop_secondDiv_secondDiv div{
+            height: 100%;
+        }
+            #divProyectView_Desktop_secondDiv_secondDiv div:first-child{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+                #divProyectView_Desktop_secondDiv_secondDiv div:first-child p:last-child{
+                    font-size: 1rem;
+                    font-style: italic;
+                }
+            #divProyectView_Desktop_secondDiv_secondDiv div:last-child{
+                
+            }
+
+
+
+
+
+
+    #divProyectView_Desktop_thirdDiv{
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 100%;
+        gap: 2rem;
+        padding: 3rem 1rem 10vh 1rem;
+    }
+        #divProyectView_Desktop_thirdDiv div:last-child{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            #divProyectView_Desktop_thirdDiv div:last-child img{
+                padding: 0 10% 0 10%;
+            }
+            #divProyectView_Desktop_thirdDiv p{
+                color: rgba(228, 228, 228, 0.774);
+            }
+
+
+
+
+
+
+
+
+
+#divProyectView_Desktop_viewImageOverlay{
+    display: none; /* sigue oculto hasta que lo actives */
+    position: fixed; /* flotante sobre todo */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    flex-direction: column;
+    justify-content: center; /* centra contenido verticalmente */
+    align-items: center;     /* centra horizontalmente */
+    gap : 2rem;
+
+    background-color: rgba(0, 0, 0, 0.89); /* oscurecer fondo */
+    z-index: 12000; /* por encima de todo */
+}
+    #divProyectView_Desktop_viewImageOverlay div:last-child{
+        position: relative;
+        width: 40rem;
+        max-height: 70vh;
+        padding: 7rem 2rem 2rem 2rem;
+        background-color: rgba(146, 146, 146, 0.274);
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }   
+        #divProyectView_Desktop_viewImageOverlay div:last-child img:first-child{
+            position: absolute;
+            top: 1rem;   /* separación desde arriba */
+            right: 1rem;  /* separación desde la izquierda */
+            width: 4rem;
+            filter: invert(60%);
+            cursor: pointer; /* para que se note que es clicable */
+        }
+        #divProyectView_Desktop_viewImageOverlay div:last-child img:last-child{
+            width: 100%;
+            max-height: 70vh;
+            border-radius: 0.4rem;
+            opacity: 0.9;
+            border-radius: 1rem;
+        }
+        #divProyectView_Desktop_viewImageOverlay div:last-child p{
+            padding: 0 1rem 0 1rem;
+            color: rgba(211, 211, 211, 0.788);
+        }

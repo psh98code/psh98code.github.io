@@ -1,10 +1,10 @@
 [
     {
         "id": "1",
-        "imgPortada": "",
-        "categoria": "",
-        "dateStart": "",
-        "dateEnd": "",
+        "imgPortada": "../../res/img/category_other.jpg",
+        "categoria": "android",
+        "dateStart": "10/01/2025",
+        "dateEnd": "15/04/2025",
         "collaborators": {
             "Eva": {
                 "link": ""
@@ -12,23 +12,31 @@
         },
         "screenshots": {
             "Pagina de inicio": {
-                "link": ""
+                "link": "../../res/img/category_other.jpg"
             }
         },
-        "link": "",
+        "link": "https://www.google.com",
         "es": {
-            "title": "proyecto 1",
-            "description": "",
-            "texts": {
-                
-            }
+            "title": "Fotoverse",
+            "description": "Fotoverse es una app Android de tipo red social orientada a la fotografía. 100% nativa, desarrollada en Kotlin + Jetpack Compose para mi TFG de DAM.",
+            "texts": [
+                "Fotoverse es una aplicación Android de tipo red social enfocada en la fotografía, donde los usuarios pueden compartir imágenes y explorar las de otros.",
+                "El proyecto fue desarrollado íntegramente en Kotlin, utilizando Jetpack Compose para la construcción de la interfaz de usuario.",
+                "La aplicación sigue las guías de Material Design, ofreciendo una experiencia moderna y fluida.",
+                "Se implementó un sistema de autenticación y almacenamiento en la nube utilizando Firebase.",
+                "El desarrollo de Fotoverse formó parte de mi Trabajo de Fin de Grado en Desarrollo de Aplicaciones Multiplataforma (DAM)."
+            ]
         },
         "en": {
-            "title": "project 1",
-            "description": "",
-            "texts": {
-                
-            }
+            "title": "Fotoverse",
+            "description": "Fotoverse is an Android social network app focused on photography. 100% native, developed in Kotlin + Jetpack Compose as my final project for the DAM degree.",
+            "texts": [
+                "Fotoverse is an Android application designed as a social network for photography, where users can share images and explore those of others.",
+                "The project was fully developed in Kotlin, using Jetpack Compose to build the user interface.",
+                "The app follows Material Design guidelines, offering a modern and fluid user experience.",
+                "A cloud-based authentication and storage system was implemented using Firebase.",
+                "The development of Fotoverse was part of my Final Degree Project in Multiplatform Application Development (DAM)."
+            ]
         }
     }
 ]

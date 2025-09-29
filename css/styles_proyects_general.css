@@ -37,6 +37,12 @@
 
 
 
+.cardProyectsType:not(.cardDisabled):hover {
+    /* estilos solo para los que no están deshabilitados */
+    cursor: pointer;
+    transition: transform 0.2s;
+    scale: 1.1;
+}
 
 
 
@@ -52,3 +58,35 @@
 .cardDisabled{
     opacity: 0.5;
 }
+
+
+
+#pages_proyects_Desktop_DivSecondary_backBtn_btn:hover, #pages_proyects_Mobile_DivSecondary_backBtn_btn:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+    
+#sectionMobile .cardProyectsType{
+    height: 25vh;
+    width: 30vw;
+} 
+
+#sectionMobile .cardProyectsType img{
+    height: 20vh;
+    width: 30vw;
+    max-width: 30vw;
+}
+#sectionMobile .cardProyectsType h2{
+    font-size: 1.3rem;
+}
+#sectionMobile .cardProyectsType p{
+    font-size: 0.7rem;
+}
+
+

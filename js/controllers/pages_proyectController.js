@@ -35,6 +35,8 @@ export class ProyectController{
      * @param {ProyectSystem} proyectSystem 
      * @param handlerToGoToCategories
      * @param handlerToSeeProyect
+     * @param onBackFromCategories
+     * @param onBackFromProyectView
      */
     constructor(proyectSystem, languageController){
         this.proyectSystem = proyectSystem;
@@ -43,9 +45,11 @@ export class ProyectController{
 
 
 
-    renderAll(handlerToGoToCategories, handlerToSeeProyect){
+    renderAll(handlerToGoToCategories, handlerToSeeProyect, onBackFromCategories, onBackFromProyectView){
         this.handlerToGoToCategories = handlerToGoToCategories;
         this.handlerToSeeProyect = handlerToSeeProyect;
+        this.onBackFromCategories = onBackFromCategories;
+        this.onBackFromProyectView = onBackFromProyectView;
         this.renderDesktopContent();
         this.renderMobileContent();
         this.chargeProyectCategories();
@@ -58,7 +62,7 @@ export class ProyectController{
 
         let html = `
             <div id="pages_proyects_Desktop_DivMain">
-                <div><h1>${txtTitle[lang].txt}</h1></div>
+                <div><h1 class="text-4xl md:text-4xl font-semibold text-gray-200">${txtTitle[lang].txt}</h1></div>
                 <div id="pages_proyects_Desktop_DivMain_proyects"></div>
             </div>
         `;
@@ -72,7 +76,7 @@ export class ProyectController{
 
         let html = `
             <div id="pages_proyects_Mobile_DivMain">
-                <div><h1>${txtTitle[lang].txt}</h1></div>
+                <div><h1 class="text-4xl md:text-4xl font-semibold text-gray-200">${txtTitle[lang].txt}</h1></div>
                 <div id="pages_proyects_Mobile_DivMain_proyects"></div>
             </div>
         `;
@@ -89,25 +93,10 @@ export class ProyectController{
             const categoriesGroup = [list[i], list[i + 1], list[i + 2]].filter(Boolean); // evita undefined si hay número impar
             const desktopRow = document.createElement("div");
             desktopRow.classList.add("rowProyectsDesktop"); // puedes añadir estilos CSS
-            const mobileRow = document.createElement("div");
-            mobileRow.classList.add("rowProyectsMobile");
 
             categoriesGroup.forEach(actualCategory => {
                 const numOfProyects = this.proyectSystem.getNumberOfProyectsByCategory(actualCategory);
-                const idMobile = "cardProyectsType_" + actualCategory + "_mobile";
                 const idDesktop = "cardProyectsType_" + actualCategory + "_desktop";
-
-                // Crear card Mobile
-                const tempMobile = document.createElement("div");
-                tempMobile.innerHTML = `
-                    <div class="cardProyectsType" id="${idMobile}">
-                        <img src="${getImgOfCategory(actualCategory)}">
-                        <h2>${txtsCategories[actualCategory][lang].txt}</h2>
-                        <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
-                    </div>
-                `;
-                const cardMobileNode = tempMobile.firstElementChild;
-
                 // Crear card Desktop
                 const tempDesktop = document.createElement("div");
                 tempDesktop.innerHTML = `
@@ -122,22 +111,51 @@ export class ProyectController{
                 // Manejar estado y eventos
                 if(numOfProyects == 0){
                     cardDesktopNode.classList.add("cardDisabled");
-                    cardMobileNode.classList.add("cardDisabled");
                 } else {
                     cardDesktopNode.addEventListener("click", () => this.handlerToGoToCategories(actualCategory));
-                    cardMobileNode.addEventListener("click", () => this.handlerToGoToCategories(actualCategory));
                 }
 
                 // Agregar cards a sus respectivas filas
                 desktopRow.appendChild(cardDesktopNode);
+            });
+            document.getElementById("pages_proyects_Desktop_DivMain_proyects").appendChild(desktopRow);
+        }
+        for(let i = 0; i < list.length; i += 2){  // avanzamos de 2 en 2
+            const categoriesGroup = [list[i], list[i + 1]].filter(Boolean); // evita undefined si hay número impar
+            const mobileRow = document.createElement("div");
+            mobileRow.classList.add("rowProyectsMobile");
+
+            categoriesGroup.forEach(actualCategory => {
+                const numOfProyects = this.proyectSystem.getNumberOfProyectsByCategory(actualCategory);
+                const idMobile = "cardProyectsType_" + actualCategory + "_mobile";
+
+                // Crear card Mobile
+                const tempMobile = document.createElement("div");
+                tempMobile.innerHTML = `
+                    <div class="cardProyectsType" id="${idMobile}">
+                        <img src="${getImgOfCategory(actualCategory)}">
+                        <h2>${txtsCategories[actualCategory][lang].txt}</h2>
+                        <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
+                    </div>
+                `;
+                const cardMobileNode = tempMobile.firstElementChild;
+
+
+                // Manejar estado y eventos
+                if(numOfProyects == 0){
+                    cardMobileNode.classList.add("cardDisabled");
+                }
+                else {
+                    cardMobileNode.addEventListener("click", () => this.handlerToGoToCategories(actualCategory));
+                }
+
+                // Agregar cards a sus respectivas filas
                 mobileRow.appendChild(cardMobileNode);
             });
 
             // Agregar la fila completa a los contenedores principales
-            document.getElementById("pages_proyects_Desktop_DivMain_proyects").appendChild(desktopRow);
             document.getElementById("pages_proyects_Mobile_DivMain_proyects").appendChild(mobileRow);
         }
-
     }
 
 
@@ -149,6 +167,8 @@ export class ProyectController{
 
     renderProyectsCards(category){
         let lang = this.languageController.getLanguage();
+
+        console.log(category);
 
         let htmlDesktop = `
             <div id="pages_proyects_Desktop_DivSecondary">
@@ -174,8 +194,8 @@ export class ProyectController{
         document.getElementById("sectionDesktop").innerHTML = "";
         document.getElementById("sectionDesktop").innerHTML = htmlDesktop;       
         // Click listeners de botones BACK
-        document.getElementById("pages_proyects_Desktop_DivSecondary_backBtn_btn").addEventListener("click", () => this.renderAll());
-        document.getElementById("pages_proyects_Mobile_DivSecondary_backBtn_btn").addEventListener("click", () => this.renderAll());
+        document.getElementById("pages_proyects_Desktop_DivSecondary_backBtn_btn").addEventListener("click", () => this.onBackFromCategories());
+        document.getElementById("pages_proyects_Mobile_DivSecondary_backBtn_btn").addEventListener("click", () => this.onBackFromCategories());
 
 
         // CARGA de los proyectos
@@ -235,20 +255,241 @@ export class ProyectController{
             desktopContainer.appendChild(cardDesktopDiv.firstElementChild);
             mobileContainer.appendChild(cardMobileDiv.firstElementChild);
 
-            document.getElementById(idDesktop).addEventListener("click", this.handlerToSeeProyect(proyect));
-            document.getElementById(idMobile).addEventListener("click", this.handlerToSeeProyect(proyect));
+            document.getElementById(idDesktop).addEventListener("click", () => this.handlerToSeeProyect(proyect));
+            document.getElementById(idMobile).addEventListener("click", () => this.handlerToSeeProyect(proyect));
         });
     }
 
     renderProyectContent(proyect){
         let lang = this.languageController.getLanguage();
+        let txts = "";
+        let sctsDesktop = "";
+        let sctsMobile = "";
+        if(lang === "es"){
+            proyect.es.texts.forEach(txt => {
+                txts += `<p>${txt}</p>`
+            });
+        }
+        else{
+            proyect.en.texts.forEach(txt => {
+                txts += `<p>${txt}</p>`
+            });
+        }
+        Object.entries(proyect.screenshots).forEach(([name, data]) => {
+            sctsDesktop += `<img src="${data.link}" id="divProyectView_Desktop_screenshot_${name}">`;
+            sctsMobile += `<img src="${data.link}" id="divProyectView_Mobile_screenshot_${name}">`;
+        });
 
-        let htmlDesktop = `
-
+        let htmlDesktop =  ""
+        if(lang === "es"){
+            htmlDesktop = `
+            <div id="divProyectView_Desktop">
+                <div id="divProyectView_Desktop_firstDiv">
+                    <img src="../../res/img/back.png" id="divProyectView_Desktop_backBtn">                
+                </div>
+                <div id="divProyectView_Desktop_secondDiv">
+                    <div id="divProyectView_Desktop_secondDiv_firstDiv">
+                        <img src="${proyect.imgPortada}">
+                        <p>${proyect.categoria}</p>
+                    </div>
+                    <div id="divProyectView_Desktop_secondDiv_secondDiv">
+                        <div>
+                            <h2>${proyect.es.title}</h2>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        </div>
+                        <div>
+                            <p>${proyect.es.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="divProyectView_Desktop_thirdDiv">
+                    <div>
+                        ${txts}
+                    </div>
+                    <div>
+                        ${sctsDesktop}
+                    </div>
+                </div>
+            </div>
+            <div id="divProyectView_Desktop_viewImageOverlay">
+                <div>
+                    <img src="../../res/img/close.png" id="divProyectView_Desktop_viewImageOverlay_closeBtn">
+                    <img src="" id="divProyectView_Desktop_viewImageOverlay_img">
+                    <p id="divProyectView_Desktop_viewImageOverlay_txt"></p>                
+                </div>
+            </div>
         `
-        let htmlMobile = `
-
+        }
+        else{
+            htmlDesktop = `
+            <div id="divProyectView_Desktop">
+                <div id="divProyectView_Desktop_firstDiv">
+                    <img src="../../res/img/back.png" id="divProyectView_Desktop_backBtn">                
+                </div>
+                <div id="divProyectView_Desktop_secondDiv">
+                    <div id="divProyectView_Desktop_secondDiv_firstDiv">
+                        <img src="${proyect.imgPortada}">
+                        <p>${proyect.categoria}</p>
+                    </div>
+                    <div id="divProyectView_Desktop_secondDiv_secondDiv">
+                        <div>
+                            <h2>${proyect.en.title}</h2>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        </div>
+                        <div>
+                            <p>${proyect.en.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="divProyectView_Desktop_thirdDiv">
+                    <div>
+                        ${txts}
+                    </div>
+                    <div>
+                        ${sctsDesktop}
+                    </div>
+                </div>
+            </div>
+            <div id="divProyectView_Desktop_viewImageOverlay">
+                <div>
+                    <img src="../../res/img/close.png" id="divProyectView_Desktop_viewImageOverlay_closeBtn">
+                    <img src="" id="divProyectView_Desktop_viewImageOverlay_img">
+                    <p id="divProyectView_Desktop_viewImageOverlay_txt"></p>                
+                </div>
+            </div>
         `
+        }
+        
+        document.getElementById("sectionDesktop").innerHTML = "";
+        document.getElementById("sectionDesktop").innerHTML = htmlDesktop;
+
+        Object.entries(proyect.screenshots).forEach(([name, data]) => {
+            let id = "divProyectView_Desktop_screenshot_" + name;
+            let link = data.link;
+
+            document.getElementById(id).addEventListener("click", () => {
+                this.seeOverlay(link, id);
+            });
+        });
+
+        document.getElementById("divProyectView_Desktop_backBtn").addEventListener("click", () => this.onBackFromProyectView(proyect.categoria));
+        document.getElementById("divProyectView_Desktop_viewImageOverlay_closeBtn").addEventListener("click", () => 
+            document.getElementById("divProyectView_Desktop_viewImageOverlay").style.display = "none"
+        );
+
+
+
+
+        // ------------------------------------------- MOVILES ---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+        let htmlMobile =  ""
+        if(lang === "es"){
+            htmlMobile = `
+            <div id="divProyectView_Mobile">
+                <div id="divProyectView_Mobile_firstDiv">
+                    <img src="../../res/img/back.png" id="divProyectView_Mobile_backBtn">                
+                </div>
+                <div id="divProyectView_Mobile_secondDiv">
+                    <div id="divProyectView_Mobile_secondDiv_firstDiv">
+                        <img src="${proyect.imgPortada}">
+                        <p>${proyect.categoria}</p>
+                    </div>
+                    <div id="divProyectView_Mobile_secondDiv_secondDiv">
+                        <div>
+                            <h2>${proyect.es.title}</h2>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        </div>
+                        <div>
+                            <p>${proyect.es.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="divProyectView_Mobile_thirdDiv">
+                    <div>
+                        ${txts}
+                    </div>
+                    <div>
+                        ${sctsMobile}
+                    </div>
+                </div>
+            </div>
+            <div id="divProyectView_Mobile_viewImageOverlay">
+                <div>
+                    <img src="../../res/img/close.png" id="divProyectView_Mobile_viewImageOverlay_closeBtn">
+                </div>
+                <div>
+                    <img src="" id="divProyectView_Mobile_viewImageOverlay_img">
+                    <p id="divProyectView_Mobile_viewImageOverlay_txt"></p>                
+                </div>
+            </div>
+            `
+        }
+        else{
+            htmlMobile = `
+            <div id="divProyectView_Mobile">
+                <div id="divProyectView_Mobile_firstDiv">
+                    <img src="../../res/img/back.png" id="divProyectView_Mobile_backBtn">                
+                </div>
+                <div id="divProyectView_Mobile_secondDiv">
+                    <div id="divProyectView_Mobile_secondDiv_firstDiv">
+                        <img src="${proyect.imgPortada}">
+                        <p>${proyect.categoria}</p>
+                    </div>
+                    <div id="divProyectView_Mobile_secondDiv_secondDiv">
+                        <div>
+                            <h2>${proyect.en.title}</h2>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        </div>
+                        <div>
+                            <p>${proyect.en.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="divProyectView_Mobile_thirdDiv">
+                    <div>
+                        ${txts}
+                    </div>
+                    <div>
+                        ${sctsMobile}
+                    </div>
+                </div>
+            </div>
+            <div id="divProyectView_Mobile_viewImageOverlay">
+                <div>
+                    <img src="../../res/img/close.png" id="divProyectView_Mobile_viewImageOverlay_closeBtn">
+                </div>
+                <div>
+                    <img src="" id="divProyectView_Mobile_viewImageOverlay_img">
+                    <p id="divProyectView_Mobile_viewImageOverlay_txt"></p>                
+                </div>
+            </div>
+            `
+        }
+
+        document.getElementById("sectionMobile").innerHTML = "";
+        document.getElementById("sectionMobile").innerHTML = htmlMobile;
+
+        Object.entries(proyect.screenshots).forEach(([name, data]) => {
+            let id = "divProyectView_Desktop_screenshot_" + name;
+            let id2 = "divProyectView_Mobile_screenshot_" + name;
+            let link = data.link;
+
+            document.getElementById(id).addEventListener("click", () => {
+                this.seeOverlay(link, name);
+            });
+            document.getElementById(id2).addEventListener("click", () => {
+                this.seeOverlay(link, name);
+            });
+        });
+    }
+
+
+    seeOverlay(captureImg, captureText){ 
+        document.getElementById("divProyectView_Desktop_viewImageOverlay_img").src = captureImg;
+        document.getElementById("divProyectView_Desktop_viewImageOverlay_txt").innerHTML = captureText;
+        document.getElementById("divProyectView_Desktop_viewImageOverlay").style.display = "flex";
     }
 }
 

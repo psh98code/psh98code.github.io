@@ -8,8 +8,8 @@ export class Project {
     collaborators = {},
     screenshots = {},
     link = "",
-    es = { title: "", description: "", texts: {} },
-    en = { title: "", description: "", texts: {} }
+    es = { title: "", description: "", texts: [] },
+    en = { title: "", description: "", texts: [] }
   }) {
     this.id = id;                   // string
     this.imgPortada = imgPortada;   // string
