@@ -1,0 +1,30 @@
+
+
+
+
+.cardProyectsType {
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    justify-content: space-between;
+    align-content: center;
+    gap: 1rem;
+    min-width: 60%;
+    background-color: rebeccapurple;
+    border-radius: 1rem;
+}
+    .cardProyectsType img{
+        width: 100%;
+        max-height: 20vh;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+    .cardProyectsType p{
+
+    }
+    .cardProyectsType h2{
+
+    }
+
+.cardDisabled{
+    opacity: 0.5;
+}

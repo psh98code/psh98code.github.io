@@ -7,6 +7,8 @@ import { BlogSystem } from "./systems/blogSystem.js";
 import { AboutMeController } from "./controllers/pages_aboutmeController.js";
 import { BlogController } from "./controllers/pages_blogController.js";
 import { ContactController } from "./controllers/contact_Controller.js";
+import { ProyectController } from "./controllers/pages_proyectController.js";
+import { ProyectSystem } from "./systems/proyectSystem.js";
 
 
 // INICIALIZACIONES --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,8 +35,10 @@ export class App {
      * @param {AboutMeController} aboutMeController -- Controlador para el ABOUT ME
      * @param {LanguageController} languageController -- Controlador para el IDIOMA
      * @param {BlogController} blogController
+     * @param {ProyectController} ProyectController
      * @param {BlogSystem} blogSystem -- Controlador para el SISTEMA DE BLOG
-     * @param {BlogParser} blogParser -- Parseador para el blog
+     * @param {BlogParser} blogParser -- Parseador para el blogç
+     * @param {ProyectSystem} proyectSystem
      * @param {ProjectParser} proyectParser -- Parseador para el parser
      * @param {ContactController} contactController
      */
@@ -43,16 +47,21 @@ export class App {
         this.proyectParser = new ProjectParser("../data/proyects.json");
         this.languageController = new LanguageController();
         this.blogSystem = new BlogSystem(this.blogParser, this.proyectParser);
+        this.proyectSystem = new ProyectSystem(this.languageController, this.proyectParser);
         this.homeController = new HomeController(this.languageController, this.blogSystem);
         this.headerController = new HeaderController(this.languageController,headerDesktop,headerMobile,desktopNavLinks,mobileNavLinks,divMenuHamburger,divSearchBarMobile,divSearchBarDesktop);
         this.aboutMeController = new AboutMeController(this.languageController);
         this.blogController = new BlogController(this.languageController, this.blogSystem);
         this.contactController = new ContactController(this.languageController);
+        this.ProyectController = new ProyectController(this.proyectSystem, this.languageController);
     }
 
     async init() {
         await Promise.all([
-            this.blogSystem.loadAllParsers()
+            this.blogSystem.loadAllParsers()        
+        ]);
+        await Promise.all([
+            this.proyectSystem.loadAllParsers()
         ]);
 
         this.route();
@@ -145,7 +154,16 @@ export class App {
                 case "proyects":
                     {
                         const param = segments[1]
+                        this.setMinimumHeightSection(100, { allowScrollMobile: true, allowScrollDesktop: true, autoHeight: true });
 
+                        this.ProyectController.renderAll(
+                            () => {
+
+                            },
+                            () => {
+
+                            }
+                        )
                     }                    
                 ;
                 break;

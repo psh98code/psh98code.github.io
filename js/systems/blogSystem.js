@@ -20,7 +20,6 @@ export class BlogSystem{
         // Esperamos a que ambos fetch terminen
         await Promise.all([
             this.blogParser.loadBlogs(),
-            this.proyectParser.loadProjects()
         ]);
     }
 

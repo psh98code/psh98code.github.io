@@ -12,17 +12,25 @@ export class ProjectParser {
     this.projects = await response.json();
   }
 
-  // Devolver todos los proyectos en un idioma
-  getAll(lang = "es") {
-    return this.projects.map(item => new Project({
+  // Convertir objeto crudo en instancia de Project
+  mapToProject(item) {
+    return new Project({
       id: item.id,
       imgPortada: item.imgPortada,
-      imgsExtras: item.imgsExtras,
+      categoria: item.categoria,
+      dateStart: item.dateStart,
+      dateEnd: item.dateEnd,
+      collaborators: item.collaborators,
+      screenshots: item.screenshots,
       link: item.link,
-      title: item[lang].title,
-      description: item[lang].description,
-      text: item[lang].text
-    }));
+      es: item.es,
+      en: item.en
+    });
+  }
+
+  // Devolver todos los proyectos en un idioma
+  getAll(lang = "es") {
+    return this.projects.map(item => this.mapToProject(item));
   }
 
   // Devolver los primeros n proyectos
@@ -33,19 +41,17 @@ export class ProjectParser {
   // Devolver un proyecto por id
   getById(id, lang = "es") {
     const project = this.projects.find(item => item.id == id);
-    return project ? new Project({
-      id: project.id,
-      imgPortada: project.imgPortada,
-      imgsExtras: project.imgsExtras,
-      link: project.link,
-      title: project[lang].title,
-      description: project[lang].description,
-      text: project[lang].text
-    }) : null;
+    return project ? this.mapToProject(project) : null;
   }
 
   // Devolver los últimos n proyectos (por defecto 3)
   getLast(n = 3, lang = "es") {
     return this.getAll(lang).slice(-n);
   }
+
+    // Filtrar proyectos por categoría
+  getByCategory(categoria, lang = "es") {
+      return this.getAll(lang).filter(project => project.categoria === categoria);
+  }
+
 }
