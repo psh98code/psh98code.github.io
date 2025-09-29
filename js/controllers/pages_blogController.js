@@ -267,7 +267,7 @@ export class BlogController{
         let html = `
             <div id="pagesBlog_Desktop_divMain">
                 <div id="pagesBlog_Desktop_divMain_title">
-                    <div class="text-4xl font-bold text-center text-gray-400 tracking-wide uppercase">BLOG</div>
+                    <div class="text-6xl font-bold text-center text-gray-200 tracking-wide uppercase">BLOG</div>
                 </div>
                 <div id="pagesBlog_Desktop_divMain_searchAndFilter">
                     <div id="pagesBlog_Desktop_divMain_searchAndFilter_empty"> 
@@ -294,13 +294,12 @@ export class BlogController{
         document.getElementById("sectionDesktop").innerHTML = html;
     }
     renderMobileContent(){
-        let lang = this.languageController.getLanguage();
         document.getElementById("sectionMobile").innerHTML = ""; 
 
         let html = `
             <div id="pagesBlog_Mobile_divMain">
                 <div id="pagesBlog_Mobile_divMain_title">
-                    <div class="text-4xl font-bold text-center text-gray-400 tracking-wide uppercase">BLOG</div>
+                    <div class="text-5xl font-bold text-center text-gray-200 tracking-wide uppercase">BLOG</div>
                 </div>
                 <div id="pagesBlog_Mobile_divMain_searchAndFilter">
                     <div id="pagesBlog_Mobile_divMain_searchAndFilter_empty"> 
