@@ -214,9 +214,11 @@ export class ProyectController{
                 cardDesktop = `
                     <div class="cardProyectsType" id="${idDesktop}">
                         <img src="${proyect.imgPortada}">
-                        <h2>${proyect.es.title}</h2>
-                        <p>${proyect.es.description}</p>
-                        <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        <div>
+                            <h2>${proyect.es.title}</h2>
+                            <p>${proyect.es.description}</p>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>                        
+                        </div>
                     </div>
                 `;
                 cardMobile = `     
@@ -232,9 +234,11 @@ export class ProyectController{
                 cardDesktop = `
                     <div class="cardProyectsType" id="${idDesktop}">
                         <img src="${proyect.imgPortada}">
-                        <h2>${proyect.en.title}</h2>
-                        <p>${proyect.en.description}</p>
-                        <p>${proyect.dateStart} - ${proyect.dateEnd}</p>
+                        <div>
+                            <h2>${proyect.en.title}</h2>
+                            <p>${proyect.en.description}</p>
+                            <p>${proyect.dateStart} - ${proyect.dateEnd}</p>                        
+                        </div>
                     </div>
                 `;   
                 cardMobile = `

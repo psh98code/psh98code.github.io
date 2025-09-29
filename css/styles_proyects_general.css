@@ -11,6 +11,7 @@
     gap: 1rem;
     background-color: rgba(80, 80, 80, 0.30);
     border-radius: 1rem;
+    height: 100%;
 }
     .cardProyectsType img{
         max-width: 20vw;
@@ -18,7 +19,7 @@
         object-fit: cover;
         max-height: 20vh;
         border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
     }
     .cardProyectsType p{
         text-align: right;
@@ -81,12 +82,6 @@
     height: 20vh;
     width: 30vw;
     max-width: 30vw;
-}
-#sectionMobile .cardProyectsType h2{
-    font-size: 1.3rem;
-}
-#sectionMobile .cardProyectsType p{
-    font-size: 0.7rem;
 }
 
 
