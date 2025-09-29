@@ -85,50 +85,59 @@ export class ProyectController{
         let lang = this.languageController.getLanguage();
         let list = ["android", "webpages", "gamesunity", "minigamesunity", "webapps", "desktopapps", "flutter", "other"]
 
-        for(let i = 0; i < list.length; i++){
-            let actualCategory = list[i]
-            let numOfProyects = this.proyectSystem.getNumberOfProyectsByCategory(actualCategory)
-            
-            let idMobile = "cardProyectsType_"+actualCategory+"_mobile"
-            let idDesktop = "cardProyectsType_"+actualCategory+"_desktop"
-            
-            // Crear nodo DOM para Mobile
-            const tempMobile = document.createElement("div");
-            tempMobile.innerHTML = `
-                <div class="cardProyectsType" id="${idMobile}">
-                    <img src="${getImgOfCategory(actualCategory)}">
-                    <h2>${txtsCategories[actualCategory][lang].txt}</h2>
-                    <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
-                </div>
-            `;
-            const cardMobileNode = tempMobile.firstElementChild;
+        for(let i = 0; i < list.length; i += 3){  // avanzamos de 3 en 3
+            const categoriesGroup = [list[i], list[i + 1], list[i + 2]].filter(Boolean); // evita undefined si hay número impar
+            const desktopRow = document.createElement("div");
+            desktopRow.classList.add("rowProyectsDesktop"); // puedes añadir estilos CSS
+            const mobileRow = document.createElement("div");
+            mobileRow.classList.add("rowProyectsMobile");
 
-            // Crear nodo DOM para Desktop
-            const tempDesktop = document.createElement("div");
-            tempDesktop.innerHTML = `
-                <div class="cardProyectsType" id="${idDesktop}">
-                    <img src="${getImgOfCategory(actualCategory)}">
-                    <h2>${txtsCategories[actualCategory][lang].txt}</h2>
-                    <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
-                </div>
-            `;
-            const cardDesktopNode = tempDesktop.firstElementChild;
+            categoriesGroup.forEach(actualCategory => {
+                const numOfProyects = this.proyectSystem.getNumberOfProyectsByCategory(actualCategory);
+                const idMobile = "cardProyectsType_" + actualCategory + "_mobile";
+                const idDesktop = "cardProyectsType_" + actualCategory + "_desktop";
 
+                // Crear card Mobile
+                const tempMobile = document.createElement("div");
+                tempMobile.innerHTML = `
+                    <div class="cardProyectsType" id="${idMobile}">
+                        <img src="${getImgOfCategory(actualCategory)}">
+                        <h2>${txtsCategories[actualCategory][lang].txt}</h2>
+                        <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
+                    </div>
+                `;
+                const cardMobileNode = tempMobile.firstElementChild;
 
-            const desktopContainer = document.getElementById("pages_proyects_Desktop_DivMain_proyects");
-            const mobileContainer = document.getElementById("pages_proyects_Mobile_DivMain_proyects");
-            desktopContainer.appendChild(cardDesktopNode);
-            mobileContainer.appendChild(cardMobileNode);
+                // Crear card Desktop
+                const tempDesktop = document.createElement("div");
+                tempDesktop.innerHTML = `
+                    <div class="cardProyectsType" id="${idDesktop}">
+                        <img src="${getImgOfCategory(actualCategory)}">
+                        <h2>${txtsCategories[actualCategory][lang].txt}</h2>
+                        <p>${numOfProTXT[lang].txt}${numOfProyects}</p>
+                    </div>
+                `;
+                const cardDesktopNode = tempDesktop.firstElementChild;
 
-            if(numOfProyects == 0){
-                document.getElementById(idDesktop).classList.add("cardDisabled");
-                document.getElementById(idMobile).classList.add("cardDisabled");
-            }
-            else{
-                document.getElementById(idDesktop).addEventListener("click", this.handlerToGoToCategories(actualCategory))
-                document.getElementById(idMobile).addEventListener("click", this.handlerToGoToCategories(actualCategory))
-            }
+                // Manejar estado y eventos
+                if(numOfProyects == 0){
+                    cardDesktopNode.classList.add("cardDisabled");
+                    cardMobileNode.classList.add("cardDisabled");
+                } else {
+                    cardDesktopNode.addEventListener("click", () => this.handlerToGoToCategories(actualCategory));
+                    cardMobileNode.addEventListener("click", () => this.handlerToGoToCategories(actualCategory));
+                }
+
+                // Agregar cards a sus respectivas filas
+                desktopRow.appendChild(cardDesktopNode);
+                mobileRow.appendChild(cardMobileNode);
+            });
+
+            // Agregar la fila completa a los contenedores principales
+            document.getElementById("pages_proyects_Desktop_DivMain_proyects").appendChild(desktopRow);
+            document.getElementById("pages_proyects_Mobile_DivMain_proyects").appendChild(mobileRow);
         }
+
     }
 
 

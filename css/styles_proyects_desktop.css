@@ -6,8 +6,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 6rem;
+    padding-bottom: 15vh;
 }
+
+#pages_proyects_Desktop_DivMain div:first-child h1{
+    color: whitesmoke;
+    font-size: 3rem;
+}
+
 
 #pages_proyects_Desktop_DivMain_proyects{
     width: 100%;
@@ -15,5 +22,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
+    #pages_proyects_Desktop_DivMain_proyects div{
+
+    }

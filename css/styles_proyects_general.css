@@ -3,27 +3,51 @@
 
 
 .cardProyectsType {
-    display: grid;
-    grid-template-rows: 30% 30% 30%;
-    justify-content: space-between;
+    display: flex;
+    width: 18vw;
+    flex-direction: column;
+    justify-content: center;
     align-content: center;
     gap: 1rem;
-    min-width: 60%;
-    background-color: rebeccapurple;
+    background-color: rgba(80, 80, 80, 0.30);
     border-radius: 1rem;
 }
     .cardProyectsType img{
-        width: 100%;
+        max-width: 20vw;
+        height: 20vh;
+        object-fit: cover;
         max-height: 20vh;
         border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
+        border-top-right-radius: 1rem;
     }
     .cardProyectsType p{
-
+        text-align: right;
+        padding: 0 1rem 0.5rem 0;
+        font-size: 0.75rem;
+        font-style: italic;
+        color: rgb(170, 170, 170);
     }
     .cardProyectsType h2{
-
+        text-align: center;
+        padding: 0 1rem 0 1rem;
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 500;
     }
+
+
+
+
+
+
+    .rowProyectsDesktop{
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+
+
 
 .cardDisabled{
     opacity: 0.5;
