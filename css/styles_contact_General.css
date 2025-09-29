@@ -1,0 +1,37 @@
+#cardContactMe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10vh;
+}
+    #cardContactMe h2{  
+        padding: 1.5rem 0 1rem 0;
+        margin: 0;
+    }
+    #cardContactMe div{
+        color: white;
+    }
+
+
+#contactMeButtonWhatsapp{
+    display: flex;
+    justify-content: end;
+    width: 60%;
+    position: fixed;       /* Fija el div en la pantalla */
+    bottom: 1rem;          /* 20px desde la parte inferior */
+    right: 1rem;           /* 20px desde la derecha */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;         /* Para que quede por encima de otros elementos */
+}
+#contactMeButtonWhatsapp img{
+    cursor: pointer;
+    width: 5%;
+    height: 5%;
+}
