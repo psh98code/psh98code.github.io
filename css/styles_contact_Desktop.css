@@ -41,13 +41,10 @@
 }
 #contactMeButtonWhatsapp img{
     cursor: pointer;
-    width: 100%;
-}
-
-#contactMeButtonWhatsapp img{
     width: 5%;
     height: 5%;
 }
+
 
 #errorDivMsgContact_Desktop{
     position: fixed;          /* se queda fijo aunque hagas scroll */
@@ -124,6 +121,11 @@
 
 
 #cardContactMe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
     text-align: center;
     width: 100%;
     padding-bottom: 10vh;
@@ -138,6 +140,7 @@
 
 
     #contactForm_Desktop{
+        padding: 2rem 3rem 2rem 3rem;
         background-color: rgba(38, 136, 38, 0.103);
         border-radius: 1rem;
         display: flex;
@@ -148,11 +151,6 @@
         margin:0 20% 0 20%;
         width: 60%;
     }
-        #contactForm_Desktop textarea{
-            color:black;
-            resize: none;
-            padding: 1rem;
-        }
         #contactForm_Desktop div:first-child{
             display: flex;
             flex-direction: column;
@@ -162,23 +160,57 @@
             gap:1rem;
         }
             #contactForm_Desktop div:first-child select{
-                color: black;
-                width: 80%;
+                color: white;
+                width: 100%;
+                background-color: transparent;
             }
+                #contactForm_Desktop div:first-child select option{
+                    color: black;
+                }
             #contactForm_Desktop div:first-child div{
                 display: grid;
-                grid-template-columns: 40% 60%;
+                grid-template-columns: 30% 70%;
                 justify-content: center;
                 align-items: center;            
-                width: 100%;
+                width: 90%;
                 gap : 1rem;
-                margin: 0;
+                margin: 0 5% 0 5%;
                 text-align: right;
             }
-                #contactForm_Desktop div:first-child div select{
-                    width: 80%;
+
+
+
+
+                     
+                @media (max-width: 1450px) {
+                    #contactForm_Desktop div:first-child div{ display: grid; grid-template-columns: 35% 65%; gap : 1rem; }
+                }
+                @media (max-width: 1460px) {
+                    #contactForm_Desktop div:first-child div{ display: grid; grid-template-columns: 35% 65%; gap : 1rem; }
+                }
+                @media (max-width: 1440px) {
+                    #contactForm_Desktop div:first-child div{ display: grid; grid-template-columns: 40% 60%; gap : 1rem; }
+                }
+                @media (max-width: 1130px) {
+                    #contactForm_Desktop div:first-child div{ display: grid; grid-template-columns: 45% 55%; gap : 1rem; }
+                }
+                @media (max-width: 1130px) {
+                    #contactForm_Desktop div:first-child div{ display: grid; grid-template-columns: 45% 55%; gap : 1rem; }
+                    #contactForm_Desktop div:first-child div label{ font-size: 1rem; }
+                }
+                @media (max-width: 950px) {
+                    #contactForm_Desktop div:first-child div{display: flex; flex-direction: column;gap:0.5rem;}
                 }
 
+
+
+            #contactForm_Desktop textarea:not(:placeholder-shown), #contactForm_Desktop input:not(:placeholder-shown){
+                background-color: rgba(255, 255, 255, 0.062);
+            }
+            #contactForm_Desktop textarea:focus, #contactForm_Desktop input:focus{
+                background-color: rgba(255, 255, 255, 0.275);
+                outline: none;
+            }
 
 
 
@@ -194,18 +226,25 @@
             background-color: rgba(122, 122, 122, 0.13);
             padding: 1rem 1.5rem 1rem 1.5rem;
             margin: 0;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
         }
-            #contactForm_Desktop_Content_DataPersonal input{
+            #contactForm_Desktop_Content_DataPersonal input, #contactForm_Desktop_Content_DataPersonal textarea{
+                color:whitesmoke;
+                background-color: transparent;
                 border-radius: 0.4rem;
                 padding: 0.6rem;
-                color:black;
                 width: 100%;
+                border:1px rgba(0, 0, 0, 0.329) solid;
             }
+
             #contactForm_Desktop_Content_DataPersonal div{
                 width: 100%;
             }
             
+
+            
+
+
 
 
 
@@ -218,13 +257,15 @@
             background-color: rgba(122, 122, 122, 0.13);
             padding: 1rem 1.5rem 1rem 1.5rem;
             margin: 0;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
         }   
-            #contactForm_Desktop_Content_DataProyect input, textarea{
-                color:black;
-                padding: 1rem;
+            #contactForm_Desktop_Content_DataProyect input, #contactForm_Desktop_Content_DataProyect textarea{
+                color:whitesmoke;
+                background-color: transparent;
+                padding: 0.6rem;
                 width: 100%;
                 border-radius: 0.4rem;
+                border:1px rgba(0, 0, 0, 0.329) solid;
             }
             #contactForm_Desktop_Content_DataProyect div {
                 display: flex;
@@ -233,6 +274,8 @@
                 align-content: center;
                 gap:1rem;
             }
+
+
 
 
 #btnSubmit_Desktop{

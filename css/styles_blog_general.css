@@ -41,6 +41,18 @@
     }
 
 
+
+    #pagesBlog_Desktop_divMainSeeBlogEntry_BackDiv_2 img{
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+    #pagesBlog_Mobile_divMainSeeBlogEntry_BackDiv_2 img{
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+
+    
     @media (max-width: 1500px) { .cardMiniEntryBlog p { font-size: 12px; } .cardMiniEntryBlog h2 { font-size: 18px; } }
     @media (max-width: 1330px) { .cardMiniEntryBlog p { font-size: 11px; } .cardMiniEntryBlog h2 { font-size: 17px; } }
     @media (max-width: 1230px) { .cardMiniEntryBlog p { font-size: 10.5px; } .cardMiniEntryBlog h2 { font-size: 16px; } }

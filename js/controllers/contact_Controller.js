@@ -72,11 +72,11 @@ export class ContactController{
                     <p class="text-base md:text-lg text-gray-400 mb-6 text-center mx-auto">${contactContent[lang].txt}</p>
                 </div>
                 <div id="cardContactMe">
-                    <h2 class="text-2xl md:text-2xl font-semibold text-gray-200 mb-3 text-center">${txtEmail[lang].txt}</h2>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-200 mb-3 text-center">${txtEmail[lang].txt}</h2>
                     <form id="contactForm_Desktop" class=" p-6 shadow-lg rounded-lg" action="https://formspree.io/f/mldpgyny" method="POST">
                         <div class="flex flex-col">
                             <div>
-                                <label for="contactType_Desktop" class="font-semibold mb-2">${typeOfContact[lang].txt}</label>
+                                <label for="contactType_Desktop" class="font-semibold text-lg">${typeOfContact[lang].txt}</label>
                                 <select id="contactType_Desktop" name="Tipo de contacto" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                                     <option value="none" selected>${optionsOfSelect[lang].txt0}</option>
                                     <option value="empresa">${optionsOfSelect[lang].txt1}</option>
@@ -84,7 +84,7 @@ export class ContactController{
                                 </select>
                             </div>
                             <div>
-                                <label for="offerType_Desktop" class=" font-semibold mb-2">${offerType[lang].txt}</label>
+                                <label for="offerType_Desktop" class=" font-semibold text-lg">${offerType[lang].txt}</label>
                                 <select id="offerType_Desktop" name="Tipo de oferta" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                                     <option value="none" selected>${offerType[lang].options.txt0}</option>                                   
                                     <option value="jobOffer">${offerType[lang].options.txt1}</option>
