@@ -4,7 +4,10 @@
 }
 
 
-#pages_proyects_Mobile_DivMain_proyects, #pages_proyects_Mobile_DivMain{
+#pages_proyects_Mobile_DivMain_proyects, 
+
+
+{
     width: 100%;
 }
 
@@ -25,7 +28,107 @@
     justify-content: center;
     align-items: center;
 }
-    #pages_proyects_Mobile_DivMain h1{
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+++++++++++++++++++++++++++++                                                                       #pages_proyects_Mobile_DivMain h1{
     }
     #pages_proyects_Mobile_DivMain{
         display: flex;
